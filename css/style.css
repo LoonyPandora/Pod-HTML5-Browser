@@ -51,29 +51,9 @@ p { margin-bottom: 18px; }
     line-height: 27px; /* 1.5 */
 }
 
-#sidebar a.toggle {
-    position: absolute;
-    float: left;
-    text-indent: 0;
-    padding: 0;
-    top: 4px;
-    left: 15px;
-    width: 15px;
-    height: 15px;
-    line-height: 15px;
-    text-align: center;
-/*    outline: 1px solid red;*/
-    color: #444;
-}
-
 
 #sidebar a:hover {
     background: rgba(0,0,0,0.10);
-}
-
-#sidebar a.toggle:hover {
-    color: #c66;
-    background: transparent;
 }
 
 
@@ -98,10 +78,6 @@ ul ul ul { text-indent: 45px; margin: 0; }
     background: rgba(0,0,0,0.1);
     border-bottom: 1px solid rgba(0,0,0,0.05);
     border-top: 1px solid rgba(255,255,255,0.50);
-}
-
-#sections li {
-    position: relative;
 }
 
 
