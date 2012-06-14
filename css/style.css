@@ -11,11 +11,10 @@ body {
 #sections { margin: 0; }
 
 
-ul { list-style: none; text-indent: 15px; margin: 0; padding: 0; }
-ul ul { text-indent: 30px; margin: 0; }
-ul ul ul { text-indent: 45px; margin: 0; }
 
-a:hover { text-decoration: none; color: #369 !important; }
+
+
+a:hover { text-decoration: none; color: #369; }
 p { margin-bottom: 18px; }
 
 
@@ -29,6 +28,7 @@ p { margin-bottom: 18px; }
     bottom: 0;
     width: 250px;
     background: #ddd url('/img/linen-md.png');
+
     border-right: 1px solid rgba(0,0,0,0.20);
 
     overflow-x: hidden;
@@ -51,12 +51,62 @@ p { margin-bottom: 18px; }
     line-height: 27px; /* 1.5 */
 }
 
+#sidebar a.toggle {
+    position: absolute;
+    float: left;
+    text-indent: 0;
+    padding: 0;
+    top: 4px;
+    left: 15px;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+/*    outline: 1px solid red;*/
+    color: #444;
+}
+
+
 #sidebar a:hover {
     background: rgba(0,0,0,0.10);
 }
 
+#sidebar a.toggle:hover {
+    color: #c66;
+    background: transparent;
+}
 
-/* My Sidebar
+
+/* Sidebar list indentation
+---------------------------------------------------------------------------- */
+
+ul { list-style: none; text-indent: 15px; margin: 0; padding: 0; }
+ul ul { text-indent: 30px; margin: 0; }
+ul ul ul { text-indent: 45px; margin: 0; }
+
+
+/* Sidebar header2's
+---------------------------------------------------------------------------- */
+
+
+#sections {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#sections > li {
+    background: rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.50);
+}
+
+#sections li {
+    position: relative;
+}
+
+
+
+/* Sidebar Header
 ---------------------------------------------------------------------------- */
 
 h1 { font-size: 21px; text-align: center;  }
