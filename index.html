@@ -101,10 +101,290 @@
 </div>
 
 <div id="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h1 id="NAME">NAME</h1>
+
+    <p>Dancer::Plugin::Passphrase - Passphrases and Passwords as objects for Dancer</p>
+
+    <h1 id="SYNOPSIS">SYNOPSIS</h1>
+
+    <p>This plugin manages the hashing of passwords for Dancer apps, allowing developers to follow best cryptography practice without having to become a cryptography expert.</p>
+
+    <p>It uses the bcrypt algorithm as the default, wrapping <a href="/module/Crypt::Eksblowfish::Bcrypt">Crypt::Eksblowfish::Bcrypt</a>, and also supports any hashing function provided by <a href="/module/Digest">Digest</a></p>
+
+    <h1 id="USAGE">USAGE</h1>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">package MyWebService;
+use Dancer &#39;:syntax&#39;;
+use Dancer::Plugin::Passphrase;
+
+post &#39;/&#39; sub =&gt; {
+    my $hash = passphrase( param(&#39;password&#39;) )-&gt;generate_hash;
+
+    # [...] Store $hash in DB
+};
+
+get &#39;/&#39; sub =&gt; {
+    # [...] Retrieve $stored_hash from the DB
+
+    if ( passphrase( param(&#39;password&#39;) )-&gt;matches( $stored_hash ) ) {
+        # Password matches!
+    }
+};
+
+get &#39;/generate_new_password&#39; sub =&gt; {
+    return passphrase-&gt;generate_random;
+};</pre>
+
+    <h1 id="KEYWORDS">KEYWORDS</h1>
+
+    <h2 id="passphrase">passphrase</h2>
+
+    <p>Given a plaintext password, it returns a Dancer::Plugin::Passphrase object that you can generate a new hash from, or match against a stored hash.</p>
+
+    <h1 id="METHODS">METHODS</h1>
+
+    <h2 id="passphrase-generate_hash">passphrase-&gt;generate_hash</h2>
+
+    <p>Generates and returns an RFC 2307 representation of the hashed passphrase that is suitable for storage in a database.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    my $hash = passphrase(&#39;my passphrase&#39;)-&gt;generate_hash;</pre>
+
+    <p>You can pass a hashref of options to specify what kind of hash should be generated, all options you can set in the config file are valid.</p>
+
+    <p>If you specify only the package name, the default settings for that package from your config file will be used.</p>
+
+    <p>A cryptographically random salt is used if salt is not defined. Only if you specify the empty string will an empty salt be used This is not recommended, and should only be used to upgrade old insecure hashes</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    my $hash = passphrase(&#39;my password&#39;)-&gt;generate_hash({
+            scheme =&gt; &#39;&#39;, # What method we&#39;ll use to hash
+            cost   =&gt; &#39;&#39;, # Cost / Work Factor if using bcrypt 
+            salt   =&gt; &#39;&#39;, # Manually specify salt if using a salted digest
+        });</pre>
+
+    <h2 id="passphrase-matches">passphrase-&gt;matches</h2>
+
+    <p>Matches a plaintext password against a stored hash. Returns 1 if the hash of the password matches the stored hash. Returns undef if they don&#39;t match or if there was an error Fail-Secure, rather than Fail-Safe.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;my password&#39;)-&gt;matches($stored_hash);</pre>
+
+    <p>$stored_hash must be a valid RFC 2307 string made up of a scheme identifier, followed by a base64 encoded string. The base64 encoded string should contain the password hash and the salt concatenated together in that order.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    &#39;{&#39;.$scheme.&#39;}&#39;.encode_base64($hash . $salt, &#39;&#39;);</pre>
+
+    <p>Where <code>$scheme</code> can be any of the following and their salted variants, which are prefixed with an S.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    MD5 SHA SHA224 SHA256 SHA384 SHA512 CRYPT</pre>
+
+    <p>Any algorithm that can be produced by a module conforming to the <a href="/module/Digest">Digest</a> spec will have it&#39;s own scheme, these are just the default ones</p>
+
+    <p>A complete RFC2307 string looks like this:</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    {SSHA}K3LAbIjRL5CpLzOlm3/HzS3qt/hUaGVTYWx0</pre>
+
+    <p>This module generates hashes in this format by default via <code>generate_hash</code>.</p>
+
+    <h2 id="passphrase-generate_random">passphrase-&gt;generate_random</h2>
+
+    <p>Generates and returns any number of cryptographically random characters from the url-safe base64 charater set.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    my $rand_pass = passphrase-&gt;generate_random;</pre>
+
+    <p>The passwords generated are suitable for use as temporary passwords or one-time authentication tokens.</p>
+
+    <p>You can configure the length and the character set used by passing a hashref of options.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    my $rand_pass = passphrase-&gt;generate_random({
+            length  =&gt; 32,
+            charset =&gt; [&#39;a&#39;..&#39;z&#39;, &#39;A&#39;..&#39;Z&#39;],
+        });</pre>
+
+    <h1 id="ADDITIONAL">ADDITIONAL</h1>
+
+    <h2 id="passphrase-generate_hash-rfc2307">passphrase-&gt;generate_hash-&gt;rfc2307</h2>
+
+    <p>Returns the rfc2307 representation from a <code>Dancer::Plugin::Passphrase</code> object. Retu passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;rfc2307;</p>
+
+    <h2 id="passphrase-generate_hash-scheme">passphrase-&gt;generate_hash-&gt;scheme</h2>
+
+    <p>Returns the scheme from a <code>Dancer::Plugin::Passphrase</code> object.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;scheme;</pre>
+
+    <h2 id="passphrase-generate_hash-cost">passphrase-&gt;generate_hash-&gt;cost</h2>
+
+    <p>Returns the bcrypt cost from a <code>Dancer::Plugin::Passphrase</code> object. Only works when using the bcrypt algorithm, returns undef for other algorithms</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;cost;</pre>
+
+    <h2 id="passphrase-generate_hash-raw_salt">passphrase-&gt;generate_hash-&gt;raw_salt</h2>
+
+    <p>Returns the raw salt from a <code>Dancer::Plugin::Passphrase</code> object.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;raw_salt;</pre>
+
+    <h2 id="passphrase-generate_hash-raw_hash">passphrase-&gt;generate_hash-&gt;raw_hash</h2>
+
+    <p>Returns the raw hash from a <code>Dancer::Plugin::Passphrase</code> object.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;raw_hash;</pre>
+
+    <h2 id="passphrase-generate_hash-salt_hex">passphrase-&gt;generate_hash-&gt;salt_hex</h2>
+
+    <p>Returns the hex-encoded salt from a <code>Dancer::Plugin::Passphrase</code> object.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;salt_hex;</pre>
+
+    <h2 id="passphrase-generate_hash-hash_hex">passphrase-&gt;generate_hash-&gt;hash_hex</h2>
+
+    <p>Returns the hex-encoded hash from a <code>Dancer::Plugin::Passphrase</code> object.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;hash_hex;</pre>
+
+    <h2 id="passphrase-generate_hash-salt_base64">passphrase-&gt;generate_hash-&gt;salt_base64</h2>
+
+    <p>Returns the base64 encoded salt from a <code>Dancer::Plugin::Passphrase</code> object.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;salt_base64;</pre>
+
+    <h2 id="passphrase-generate_hash-hash_base64">passphrase-&gt;generate_hash-&gt;hash_base64</h2>
+
+    <p>Returns the base64 encoded hash from a <code>Dancer::Plugin::Passphrase</code> object.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;hash_base64;</pre>
+
+    <h2 id="passphrase-generate_hash-plaintext">passphrase-&gt;generate_hash-&gt;plaintext</h2>
+
+    <p>Returns the plaintext password as originally supplied to the <a href="/module/passphrase">passphrase</a> keyword.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;plaintext;</pre>
+
+    <h1 id="DESCRIPTION">DESCRIPTION</h1>
+
+    <h2 id="Purpose">Purpose</h2>
+
+    <p>The aim of this module is to help you store new passwords in a secure manner, whilst still being able to verify and upgrade older passwords.</p>
+
+    <p>Cryptography is a vast and complex field. Many people try to roll their own methods for securing user data, but succeed only in coming up with a system that has little real security.</p>
+
+    <p>This plugin provides a simple way of managing that complexity, allowing developers to follow best crypto practice without having to become a cryptography expert.</p>
+
+    <p>See the cookbook for some ideas on how to to move from older schemes.</p>
+
+    <h2 id="Rationale">Rationale</h2>
+
+    <p>The module defaults to hashing passwords using the bcrypt algorithm, returning them in RFC 2307 format.</p>
+
+    <p>RFC 2307 describes an encoding system for passphrase hashes, as used in the &quot;userPassword&quot; attribute in LDAP databases. It encodes hashes as ASCII text, and supports several passphrase schemes by starting the encoding with an alphanumeric scheme identifier enclosed in braces.</p>
+
+    <p>RFC 2307 only specifies the <code>MD5</code>, and <code>SHA</code> schemes - however in real-world usage, schemes that are salted are widely supported, and are thus provided by this module.</p>
+
+    <p>Bcrypt is an adaptive hashing algorithm that is designed to resist brute force attacks by including a cost (aka work factor). This cost increases the computational effort it takes to compute the hash.</p>
+
+    <p>SHA and MD5 are designed to be fast, and modern machines compute a billion hashes a second. With computers getting faster every day, brute forcing SHA hashes is a very real problem that cannot be easily solved.</p>
+
+    <p>Increasing the cost of generating a bcrypt hash is a trivial way to make brute forcing ineffective. With a low cost setting, bcrypt is just as secure as a more traditional SHA+salt scheme, and around the same speed.</p>
+
+    <p>For a more detailed description of why bcrypt is preferred, see this article: <a href="http://codahale.com/how-to-safely-store-a-password/">http://codahale.com/how-to-safely-store-a-password/</a></p>
+
+    <h2 id="Common-Mistakes">Common Mistakes</h2>
+
+    <p>Common mistakes people make when creating their own solution. If any of these seem familiar, you should probably be using this module</p>
+
+    <dl>
+
+    <dt id="Passwords-are-stored-as-plain-text-for-a-reason">Passwords are stored as plain text for a reason</dt>
+    <dd>
+
+    <p>There is never a valid reason to store a password as plain text. Passwords should be reset and not emailed to customers when they forget. Support people should be able to login as a user without knowing the users password. No-one except the user should know the password - that is the point of authentication.</p>
+
+    </dd>
+    <dt id="No-one-will-ever-guess-our-super-secret-algorithm-">No-one will ever guess our super secret algorithm!</dt>
+    <dd>
+
+    <p>Unless you&#39;re a cryptography expert with many years spent studying super-complex maths, your algorithm is almost certainly not as secure as you think. Just because it&#39;s hard for you to break doesn&#39;t mean it&#39;s difficult for a computer.</p>
+
+    </dd>
+    <dt id="Our-application-wide-salt-is-Sup3r_S3cret_L0ng_Word---No-one-will-ever-guess-that.">Our application-wide salt is &quot;Sup3r_S3cret_L0ng_Word&quot; - No-one will ever guess that.</dt>
+    <dd>
+
+    <p>This is common misunderstanding of what a salt is meant to do. The purpose of a salt is to make sure the same password doesn&#39;t always generate the same hash. A fresh salt needs to be created each time you hash a password. It isn&#39;t meant to be a secret key.</p>
+
+    </dd>
+    <dt id="We-generate-our-random-salt-using-rand.">We generate our random salt using <code>rand</code>.</dt>
+    <dd>
+
+    <p><code>rand</code> isn&#39;t actually random, it&#39;s a non-unform pseudo-random number generator, and not suitable for cryptographic applications. Whilst this module also defaults to a PRNG, it is better than the one provided by <code>rand</code>. Using a true RNG is a config option away, but is not the default as it it could potentially block output if the system does not have enough entropy to generate a truly random number</p>
+
+    </dd>
+    <dt id="We-use-md5-pass.salt-and-the-salt-is-from-dev-random">We use <code>md5(pass.salt)</code>, and the salt is from <code>/dev/random</code></dt>
+    <dd>
+
+    <p>MD5 has been broken for many years. Commodity hardware can find a hash collision in seconds, meaning an attacker can easily generate the correct MD5 hash without using the correct password.</p>
+
+    </dd>
+    <dt id="We-use-sha-pass.salt-and-the-salt-is-from-dev-random">We use <code>sha(pass.salt)</code>, and the salt is from <code>/dev/random</code></dt>
+    <dd>
+
+    <p>SHA isn&#39;t quite as broken as MD5, but it shares the same theoretical weaknesses. Even without hash collisions, it is vulnerable to brute forcing. Modern hardware is so powerful it can try around a billion hashes a second. That means every 7 chracter password in the range [A-Za-z0-9] can be cracked in one hour on your average desktop computer.</p>
+
+    </dd>
+    <dt id="If-the-only-way-to-break-the-hash-is-to-brute-force-it-its-secure-enough">If the only way to break the hash is to brute-force it, it&#39;s secure enough</dt>
+    <dd>
+
+    <p>It is unlikely that your database will be hacked and your hashes brute forced. However, in the event that it does happen, or SHA512 is broken, using this module gives you an easy way to change to a different algorithm, while still allowing you to validate old passphrases</p>
+
+    </dd>
+    </dl>
+
+    <h1 id="CONFIGURATION">CONFIGURATION</h1>
+
+    <p>In your applications config file, you can set the default hashing algorithm, and the default settings for every supported algorithm. Calls to <code>generate_hash</code> will use the default settings for that algorithm specified in here.</p>
+
+    <p>You can override these defaults when you call <code>generate_hash</code>.</p>
+
+    <p>If you do no configuration at all, the default is to bcrypt with a cost of 4, and a strong psuedo-random salt.</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    plugins:
+            Passphrase:
+                default: bcrypt
+
+                bcrypt:
+                    cost: 8</pre>
+
+    <h1 id="SEE-ALSO">SEE ALSO</h1>
+
+    <p><a href="/module/Dancer">Dancer</a>, <a href="/module/Digest">Digest</a>, <a href="/module/Crypt::Eksblowfish::Bcrypt">Crypt::Eksblowfish::Bcrypt</a>, <a href="/module/Dancer::Plugin::Bcrypt">Dancer::Plugin::Bcrypt</a></p>
+
+    <h1 id="KNOWN-ISSUES">KNOWN ISSUES</h1>
+
+    <p>If you see errors like this</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    Wide character in subroutine entry</pre>
+
+    <p>or</p>
+
+    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    Input must contain only octets</pre>
+
+    <p>The MD5 and bcrypt algorithms can&#39;t handle chracters with an ordinal value above 255, and produce errors like this if they encounter them. It is not possible for this plugin to automagically work out the correct encoding for a given string.</p>
+
+    <p>If you see errors like this, then you probably need to use the <a href="/module/Encode">Encode</a> module to encode your text as UTF-8 (or whatever encoding it is) before giving it to <code>passphrase</code>.</p>
+
+    <p>Text encoding is a bag of hurt, and errors like this are probably indicitive of deeper problems within your app&#39;s code.</p>
+
+    <p>You will probably save yourself a lot of hassle down the line if you read up on the <a href="/module/Encode">Encode</a> module sooner rather than later.</p>
+
+    <p>For further reading on UTF-8, unicode, and text encoding in perl, see <a href="http://training.perl.com/OSCON2011/index.html">http://training.perl.com/OSCON2011/index.html</a></p>
+
+    <h1 id="AUTHOR">AUTHOR</h1>
+
+    <p>James Aitken &lt;jaitken@cpan.org&gt;</p>
+
+    name
+    <h1 id="COPYRIGHT-AND-LICENSE">COPYRIGHT AND LICENSE</h1>
+
+    <p>This software is copyright (c) 2011 by James Aitken.</p>
+
+    <p>This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.</p>
 </div>
 
 

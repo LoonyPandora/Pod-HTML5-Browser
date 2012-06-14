@@ -85,7 +85,7 @@ ul ul ul { text-indent: 45px; margin: 0; }
 /* Sidebar Header
 ---------------------------------------------------------------------------- */
 
-h1 { font-size: 21px; text-align: center;  }
+#sidebar h1 { font-size: 21px; text-align: center;  }
 h1 a { line-height: 40px !important; color: #666; }
 
 
