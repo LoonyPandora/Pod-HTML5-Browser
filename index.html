@@ -742,7 +742,7 @@
 
     <p>The following methods are provided by the DBI class:</p>
 
-    <h3 id="parse_dsn"><code>parse_dsn</code></h3>
+    <h3 id="parse_dsn">parse_dsn</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  ($scheme, $driver, $attr_string, $attr_hash, $driver_dsn) = DBI-&gt;parse_dsn($dsn)
           or die &quot;Can&#39;t parse DBI DSN &#39;$dsn&#39;&quot;;</pre>
@@ -761,7 +761,7 @@
 
     <p>The parse_dsn() method was added in DBI 1.43.</p>
 
-    <h3 id="connect"><code>connect</code></h3>
+    <h3 id="connect">connect</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh = DBI-&gt;connect($data_source, $username, $password)
                 or die $DBI::errstr;
@@ -827,7 +827,7 @@
 
     <p>In this &quot;old-style&quot; form of <code>connect</code>, the <code>$data_source</code> should not start with &quot;<code>dbi:driver_name:</code>&quot;. (If it does, the embedded driver_name will be ignored). Also note that in this older form of <code>connect</code>, the <code>$dbh-&gt;{AutoCommit}</code> attribute is <i>undefined</i>, the <code>$dbh-&gt;{PrintError}</code> attribute is off, and the old <code>DBI_DBNAME</code> environment variable is checked if <code>DBI_DSN</code> is not defined. Beware that this &quot;old-style&quot; <code>connect</code> will soon be withdrawn in a future version of DBI.</p>
 
-    <h3 id="connect_cached"><code>connect_cached</code></h3>
+    <h3 id="connect_cached">connect_cached</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh = DBI-&gt;connect_cached($data_source, $username, $password)
                 or die $DBI::errstr;
@@ -857,14 +857,14 @@
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $CachedKids_hashref = $dbh-&gt;{Driver}-&gt;{CachedKids};
       %$CachedKids_hashref = () if $CachedKids_hashref;</pre>
 
-    <h3 id="available_drivers"><code>available_drivers</code></h3>
+    <h3 id="available_drivers">available_drivers</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @ary = DBI-&gt;available_drivers;
       @ary = DBI-&gt;available_drivers($quiet);</pre>
 
     <p>Returns a list of all available drivers by searching for <code>DBD::*</code> modules through the directories in <code>@INC</code>. By default, a warning is given if some drivers are hidden by others of the same name in earlier directories. Passing a true value for <code>$quiet</code> will inhibit the warning.</p>
 
-    <h3 id="installed_drivers"><code>installed_drivers</code></h3>
+    <h3 id="installed_drivers">installed_drivers</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  %drivers = DBI-&gt;installed_drivers();</pre>
 
@@ -874,7 +874,7 @@
 
     <p>Added in DBI 1.49.</p>
 
-    <h3 id="installed_versions"><code>installed_versions</code></h3>
+    <h3 id="installed_versions">installed_versions</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI-&gt;installed_versions;
       @ary  = DBI-&gt;installed_versions;
@@ -896,7 +896,7 @@
 
     <p>The installed_versions() method was added in DBI 1.38.</p>
 
-    <h3 id="data_sources"><code>data_sources</code></h3>
+    <h3 id="data_sources">data_sources</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @ary = DBI-&gt;data_sources($driver);
       @ary = DBI-&gt;data_sources($driver, \%attr);</pre>
@@ -911,7 +911,7 @@
 
     <p>There is also a data_sources() method defined for database handles.</p>
 
-    <h3 id="trace"><code>trace</code></h3>
+    <h3 id="trace">trace</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI-&gt;trace($trace_setting)
       DBI-&gt;trace($trace_setting, $trace_filename)
@@ -924,7 +924,7 @@
 
     <p>See the <a href="#TRACING">&quot;TRACING&quot;</a> section for full details about the DBI&#39;s powerful tracing facilities.</p>
 
-    <h3 id="visit_handles"><code>visit_handles</code></h3>
+    <h3 id="visit_handles">visit_handles</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI-&gt;visit_handles( $coderef );
       DBI-&gt;visit_handles( $coderef, $info );</pre>
@@ -959,7 +959,7 @@
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  use DBI qw(:utils);</pre>
 
-    <h3 id="data_string_desc"><code>data_string_desc</code></h3>
+    <h3 id="data_string_desc">data_string_desc</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $description = data_string_desc($string);</pre>
 
@@ -977,7 +977,7 @@
 
     <p>The data_string_desc() function was added in DBI 1.46.</p>
 
-    <h3 id="data_string_diff"><code>data_string_diff</code></h3>
+    <h3 id="data_string_diff">data_string_diff</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $diff = data_string_diff($a, $b);</pre>
 
@@ -996,7 +996,7 @@
 
     <p>The data_string_diff() function was added in DBI 1.46.</p>
 
-    <h3 id="data_diff"><code>data_diff</code></h3>
+    <h3 id="data_diff">data_diff</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $diff = data_diff($a, $b);
       $diff = data_diff($a, $b, $logical);</pre>
@@ -1013,7 +1013,7 @@
 
     <p>The data_diff() function was added in DBI 1.46.</p>
 
-    <h3 id="neat"><code>neat</code></h3>
+    <h3 id="neat">neat</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $str = neat($value);
       $str = neat($value, $maxlen);</pre>
@@ -1028,19 +1028,19 @@
 
     <p>This function is designed to format values for human consumption. It is used internally by the DBI for <a href="#trace">&quot;trace&quot;</a> output. It should typically <i>not</i> be used for formatting values for database use. (See also <a href="#quote">&quot;quote&quot;</a>.)</p>
 
-    <h3 id="neat_list"><code>neat_list</code></h3>
+    <h3 id="neat_list">neat_list</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $str = neat_list(\@listref, $maxlen, $field_sep);</pre>
 
     <p>Calls <code>neat</code> on each element of the list and returns a string containing the results joined with <code>$field_sep</code>. <code>$field_sep</code> defaults to <code>&quot;, &quot;</code>.</p>
 
-    <h3 id="looks_like_number"><code>looks_like_number</code></h3>
+    <h3 id="looks_like_number">looks_like_number</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @bool = looks_like_number(@array);</pre>
 
     <p>Returns true for each element that looks like a number. Returns false for each element that does not look like a number. Returns <code>undef</code> for each element that is undefined or empty.</p>
 
-    <h3 id="hash"><code>hash</code></h3>
+    <h3 id="hash">hash</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $hash_value = DBI::hash($buffer, $type);</pre>
 
@@ -1050,7 +1050,7 @@
 
     <p>This function doesn&#39;t have much to do with databases, except that it can be handy to store hash values in a database.</p>
 
-    <h3 id="sql_type_cast"><code>sql_type_cast</code></h3>
+    <h3 id="sql_type_cast">sql_type_cast</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sts = DBI::sql_type_cast($sv, $sql_type, $flags);</pre>
 
@@ -1098,23 +1098,23 @@
 
     <p>Warning: these attributes are provided as a convenience but they do have limitations. Specifically, they have a short lifespan: because they are associated with the last handle used, they should only be used <i>immediately</i> after calling the method that &quot;sets&quot; them. If in any doubt, use the corresponding method call.</p>
 
-    <h3 id="DBI::err"><code>$DBI::err</code></h3>
+    <h3 id="DBI::err">$DBI::err</h3>
 
     <p>Equivalent to <code>$h-&gt;err</code>.</p>
 
-    <h3 id="DBI::errstr"><code>$DBI::errstr</code></h3>
+    <h3 id="DBI::errstr">$DBI::errstr</h3>
 
     <p>Equivalent to <code>$h-&gt;errstr</code>.</p>
 
-    <h3 id="DBI::state"><code>$DBI::state</code></h3>
+    <h3 id="DBI::state">$DBI::state</h3>
 
     <p>Equivalent to <code>$h-&gt;state</code>.</p>
 
-    <h3 id="DBI::rows"><code>$DBI::rows</code></h3>
+    <h3 id="DBI::rows">$DBI::rows</h3>
 
     <p>Equivalent to <code>$h-&gt;rows</code>. Please refer to the documentation for the <a href="#rows">&quot;rows&quot;</a> method.</p>
 
-    <h3 id="DBI::lasth"><code>$DBI::lasth</code></h3>
+    <h3 id="DBI::lasth">$DBI::lasth</h3>
 
     <p>Returns the DBI object handle used for the most recent DBI method call. If the last DBI method call was a DESTROY then $DBI::lasth will return the handle of the parent of the destroyed handle, if there is one.</p>
 
@@ -1122,7 +1122,7 @@
 
     <p>The following methods can be used by all types of DBI handles.</p>
 
-    <h3 id="err"><code>err</code></h3>
+    <h3 id="err">err</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rv = $h-&gt;err;</pre>
 
@@ -1140,7 +1140,7 @@
 
     <p>See <a href="#set_err">&quot;set_err&quot;</a> for more information.</p>
 
-    <h3 id="errstr"><code>errstr</code></h3>
+    <h3 id="errstr">errstr</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $str = $h-&gt;errstr;</pre>
 
@@ -1152,7 +1152,7 @@
 
     <p>See <a href="#set_err">&quot;set_err&quot;</a> for more information.</p>
 
-    <h3 id="state"><code>state</code></h3>
+    <h3 id="state">state</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $str = $h-&gt;state;</pre>
 
@@ -1162,7 +1162,7 @@
 
     <p>The state() method should not be used to test for errors, use err() for that, because drivers may return a &#39;success with information&#39; or warning state code via state() for methods that have not &#39;failed&#39;.</p>
 
-    <h3 id="set_err"><code>set_err</code></h3>
+    <h3 id="set_err">set_err</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rv = $h-&gt;set_err($err, $errstr);
       $rv = $h-&gt;set_err($err, $errstr, $state);
@@ -1191,7 +1191,7 @@
 
     <p>Support for warning and information states was added in DBI 1.41.</p>
 
-    <h3 id="trace1"><code>trace</code></h3>
+    <h3 id="trace1">trace</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;trace($trace_settings);
       $h-&gt;trace($trace_settings, $trace_filename);
@@ -1203,7 +1203,7 @@
 
     <p>See the <a href="#TRACING">&quot;TRACING&quot;</a> section for full details about the DBI&#39;s powerful tracing facilities.</p>
 
-    <h3 id="trace_msg"><code>trace_msg</code></h3>
+    <h3 id="trace_msg">trace_msg</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;trace_msg($message_text);
       $h-&gt;trace_msg($message_text, $min_level);</pre>
@@ -1212,7 +1212,7 @@
 
     <p>See <a href="#TRACING">&quot;TRACING&quot;</a> for more details.</p>
 
-    <h3 id="func"><code>func</code></h3>
+    <h3 id="func">func</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;func(@func_arguments, $func_name) or die ...;</pre>
 
@@ -1224,13 +1224,13 @@
 
     <p>See also install_method() in <a href="/module/DBI::DBD">DBI::DBD</a> for how you can avoid needing to use func() and gain direct access to driver-private methods.</p>
 
-    <h3 id="can"><code>can</code></h3>
+    <h3 id="can">can</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $is_implemented = $h-&gt;can($method_name);</pre>
 
     <p>Returns true if $method_name is implemented by the driver or a default method is provided by the DBI. It returns false where a driver hasn&#39;t implemented a method and the default method is provided by the DBI is just an empty stub.</p>
 
-    <h3 id="parse_trace_flags"><code>parse_trace_flags</code></h3>
+    <h3 id="parse_trace_flags">parse_trace_flags</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $trace_settings_integer = $h-&gt;parse_trace_flags($trace_settings);</pre>
 
@@ -1242,7 +1242,7 @@
 
     <p>The parse_trace_flags() method was added in DBI 1.42.</p>
 
-    <h3 id="parse_trace_flag"><code>parse_trace_flag</code></h3>
+    <h3 id="parse_trace_flag">parse_trace_flag</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $bit_flag = $h-&gt;parse_trace_flag($trace_flag_name);</pre>
 
@@ -1250,7 +1250,7 @@
 
     <p>The parse_trace_flag() method was added in DBI 1.42.</p>
 
-    <h3 id="private_attribute_info"><code>private_attribute_info</code></h3>
+    <h3 id="private_attribute_info">private_attribute_info</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $hash_ref = $h-&gt;private_attribute_info();</pre>
 
@@ -1275,7 +1275,7 @@
 
     <p>The values should be undef. Meanings may be assigned to particular values in future.</p>
 
-    <h3 id="swap_inner_handle"><code>swap_inner_handle</code></h3>
+    <h3 id="swap_inner_handle">swap_inner_handle</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $h1-&gt;swap_inner_handle( $h2 );
       $rc = $h1-&gt;swap_inner_handle( $h2, $allow_reparent );</pre>
@@ -1312,7 +1312,7 @@
                 dbh1o -&gt; dbh2i
                 sthAo -&gt; sthBi(dbh2i)</pre>
 
-    <h3 id="visit_child_handles"><code>visit_child_handles</code></h3>
+    <h3 id="visit_child_handles">visit_child_handles</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;visit_child_handles( $coderef );
       $h-&gt;visit_child_handles( $coderef, $info );</pre>
@@ -1350,7 +1350,7 @@
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;{AttributeName} = ...;    # set/write
       ... = $h-&gt;{AttributeName};    # get/read</pre>
 
-    <h3 id="Warn"><code>Warn</code></h3>
+    <h3 id="Warn">Warn</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1358,13 +1358,13 @@
 
     <p>The <code>Warn</code> attribute is not related to the <code>PrintWarn</code> attribute.</p>
 
-    <h3 id="Active"><code>Active</code></h3>
+    <h3 id="Active">Active</h3>
 
     <p>Type: boolean, read-only</p>
 
     <p>The <code>Active</code> attribute is true if the handle object is &quot;active&quot;. This is rarely used in applications. The exact meaning of active is somewhat vague at the moment. For a database handle it typically means that the handle is connected to a database (<code>$dbh-&gt;disconnect</code> sets <code>Active</code> off). For a statement handle it typically means that the handle is a <code>SELECT</code> that may have more data to fetch. (Fetching all the data or calling <code>$sth-&gt;finish</code> sets <code>Active</code> off.)</p>
 
-    <h3 id="Executed"><code>Executed</code></h3>
+    <h3 id="Executed">Executed</h3>
 
     <p>Type: boolean</p>
 
@@ -1376,31 +1376,31 @@
 
     <p>The <code>Executed</code> attribute was added in DBI 1.41.</p>
 
-    <h3 id="Kids"><code>Kids</code></h3>
+    <h3 id="Kids">Kids</h3>
 
     <p>Type: integer, read-only</p>
 
     <p>For a driver handle, <code>Kids</code> is the number of currently existing database handles that were created from that driver handle. For a database handle, <code>Kids</code> is the number of currently existing statement handles that were created from that database handle. For a statement handle, the value is zero.</p>
 
-    <h3 id="ActiveKids"><code>ActiveKids</code></h3>
+    <h3 id="ActiveKids">ActiveKids</h3>
 
     <p>Type: integer, read-only</p>
 
     <p>Like <code>Kids</code>, but only counting those that are <code>Active</code> (as above).</p>
 
-    <h3 id="CachedKids"><code>CachedKids</code></h3>
+    <h3 id="CachedKids">CachedKids</h3>
 
     <p>Type: hash ref</p>
 
     <p>For a database handle, <code>CachedKids</code> returns a reference to the cache (hash) of statement handles created by the <a href="#prepare_cached">&quot;prepare_cached&quot;</a> method. For a driver handle, returns a reference to the cache (hash) of database handles created by the <a href="#connect_cached">&quot;connect_cached&quot;</a> method.</p>
 
-    <h3 id="Type"><code>Type</code></h3>
+    <h3 id="Type">Type</h3>
 
     <p>Type: scalar, read-only</p>
 
     <p>The <code>Type</code> attribute identifies the type of a DBI handle. Returns &quot;dr&quot; for driver handles, &quot;db&quot; for database handles and &quot;st&quot; for statement handles.</p>
 
-    <h3 id="ChildHandles"><code>ChildHandles</code></h3>
+    <h3 id="ChildHandles">ChildHandles</h3>
 
     <p>Type: array ref</p>
 
@@ -1420,7 +1420,7 @@
         my %drivers = DBI-&gt;installed_drivers();
         show_child_handles($_, 0) for (values %drivers);</pre>
 
-    <h3 id="CompatMode"><code>CompatMode</code></h3>
+    <h3 id="CompatMode">CompatMode</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1428,7 +1428,7 @@
 
     <p>It also has the effect of disabling the &#39;quick FETCH&#39; of attribute values from the handles attribute cache. So all attribute values are handled by the drivers own FETCH method. This makes them slightly slower but is useful for special-purpose drivers like DBD::Multiplex.</p>
 
-    <h3 id="InactiveDestroy"><code>InactiveDestroy</code></h3>
+    <h3 id="InactiveDestroy">InactiveDestroy</h3>
 
     <p>Type: boolean</p>
 
@@ -1444,7 +1444,7 @@
 
     <p>To help tracing applications using fork the process id is shown in the trace log whenever a DBI or handle trace() method is called. The process id also shown for <i>every</i> method call if the DBI trace level (not handle trace level) is set high enough to show the trace from the DBI&#39;s method dispatcher, e.g. &gt;= 9.</p>
 
-    <h3 id="AutoInactiveDestroy"><code>AutoInactiveDestroy</code></h3>
+    <h3 id="AutoInactiveDestroy">AutoInactiveDestroy</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1461,7 +1461,7 @@
 
     <p>The <code>AutoInactiveDestroy</code> attribute was added in DBI 1.614.</p>
 
-    <h3 id="PrintWarn"><code>PrintWarn</code></h3>
+    <h3 id="PrintWarn">PrintWarn</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1477,7 +1477,7 @@
 
     <p>Fetching the full details of warnings can require an extra round-trip to the database server for some drivers. In which case the driver may opt to only fetch the full details of warnings if the <code>PrintWarn</code> attribute is true. If <code>PrintWarn</code> is false then these drivers should still indicate the fact that there were warnings by setting the warning string to, for example: &quot;3 warnings&quot;.</p>
 
-    <h3 id="PrintError"><code>PrintError</code></h3>
+    <h3 id="PrintError">PrintError</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1489,7 +1489,7 @@
 
     <p>If desired, the warnings can be caught and processed using a <code>$SIG{__WARN__}</code> handler or modules like CGI::Carp and CGI::ErrorWrap.</p>
 
-    <h3 id="RaiseError"><code>RaiseError</code></h3>
+    <h3 id="RaiseError">RaiseError</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1525,7 +1525,7 @@
 
     <p>The original value will automatically and reliably be restored by Perl, regardless of how the block is exited. The same logic applies to other attributes, including <code>PrintError</code>.</p>
 
-    <h3 id="HandleError"><code>HandleError</code></h3>
+    <h3 id="HandleError">HandleError</h3>
 
     <p>Type: code ref, inherited</p>
 
@@ -1573,7 +1573,7 @@
 
     <p>This only works for methods which return a single value and is hard to make reliable (avoiding infinite loops, for example) and so isn&#39;t recommended for general use! If you find a <i>good</i> use for it then please let me know.</p>
 
-    <h3 id="HandleSetErr"><code>HandleSetErr</code></h3>
+    <h3 id="HandleSetErr">HandleSetErr</h3>
 
     <p>Type: code ref, inherited</p>
 
@@ -1589,7 +1589,7 @@
 
     <p>The <code>HandleSetErr</code> attribute was added in DBI 1.41.</p>
 
-    <h3 id="ErrCount"><code>ErrCount</code></h3>
+    <h3 id="ErrCount">ErrCount</h3>
 
     <p>Type: unsigned integer</p>
 
@@ -1597,7 +1597,7 @@
 
     <p>The <code>ErrCount</code> attribute was added in DBI 1.41. Older drivers may not have been updated to use set_err() to record errors and so this attribute may not be incremented when using them.</p>
 
-    <h3 id="ShowErrorStatement"><code>ShowErrorStatement</code></h3>
+    <h3 id="ShowErrorStatement">ShowErrorStatement</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1605,7 +1605,7 @@
 
     <p>If <code>$h-&gt;{ParamValues}</code> returns a hash reference of parameter (placeholder) values then those are formatted and appended to the end of the Statement text in the error message.</p>
 
-    <h3 id="TraceLevel"><code>TraceLevel</code></h3>
+    <h3 id="TraceLevel">TraceLevel</h3>
 
     <p>Type: integer, inherited</p>
 
@@ -1613,13 +1613,13 @@
 
     <p>The <code>TraceLevel</code> attribute is especially useful combined with <code>local</code> to alter the trace settings for just a single block of code.</p>
 
-    <h3 id="FetchHashKeyName"><code>FetchHashKeyName</code></h3>
+    <h3 id="FetchHashKeyName">FetchHashKeyName</h3>
 
     <p>Type: string, inherited</p>
 
     <p>The <code>FetchHashKeyName</code> attribute is used to specify whether the fetchrow_hashref() method should perform case conversion on the field names used for the hash keys. For historical reasons it defaults to &#39;<code>NAME</code>&#39; but it is recommended to set it to &#39;<code>NAME_lc</code>&#39; (convert to lower case) or &#39;<code>NAME_uc</code>&#39; (convert to upper case) according to your preference. It can only be set for driver and database handles. For statement handles the value is frozen when prepare() is called.</p>
 
-    <h3 id="ChopBlanks"><code>ChopBlanks</code></h3>
+    <h3 id="ChopBlanks">ChopBlanks</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1629,7 +1629,7 @@
 
     <p>Drivers are not required to support this attribute, but any driver which does not support it must arrange to return <code>undef</code> as the attribute value.</p>
 
-    <h3 id="LongReadLen"><code>LongReadLen</code></h3>
+    <h3 id="LongReadLen">LongReadLen</h3>
 
     <p>Type: unsigned integer, inherited</p>
 
@@ -1659,7 +1659,7 @@
 
     <p>See also <a href="#LongTruncOk">&quot;LongTruncOk&quot;</a> for information on truncation of long types.</p>
 
-    <h3 id="LongTruncOk"><code>LongTruncOk</code></h3>
+    <h3 id="LongTruncOk">LongTruncOk</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1671,7 +1671,7 @@
 
     <p>See also <a href="#LongReadLen">&quot;LongReadLen&quot;</a>.</p>
 
-    <h3 id="TaintIn"><code>TaintIn</code></h3>
+    <h3 id="TaintIn">TaintIn</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1683,7 +1683,7 @@
 
     <p>The <code>TaintIn</code> attribute was added in DBI 1.31.</p>
 
-    <h3 id="TaintOut"><code>TaintOut</code></h3>
+    <h3 id="TaintOut">TaintOut</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1697,7 +1697,7 @@
 
     <p>The <code>TaintOut</code> attribute was added in DBI 1.31.</p>
 
-    <h3 id="Taint"><code>Taint</code></h3>
+    <h3 id="Taint">Taint</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1705,7 +1705,7 @@
 
     <p>Setting this attribute sets both <a href="#TaintIn">&quot;TaintIn&quot;</a> and <a href="#TaintOut">&quot;TaintOut&quot;</a>, and retrieving it returns a true value if and only if <a href="#TaintIn">&quot;TaintIn&quot;</a> and <a href="#TaintOut">&quot;TaintOut&quot;</a> are both set to true values.</p>
 
-    <h3 id="Profile"><code>Profile</code></h3>
+    <h3 id="Profile">Profile</h3>
 
     <p>Type: inherited</p>
 
@@ -1713,7 +1713,7 @@
 
     <p>The <code>Profile</code> attribute was added in DBI 1.24.</p>
 
-    <h3 id="ReadOnly"><code>ReadOnly</code></h3>
+    <h3 id="ReadOnly">ReadOnly</h3>
 
     <p>Type: boolean, inherited</p>
 
@@ -1729,7 +1729,7 @@
 
     <p>The attribute should be set to 1 or 0 (or undef). Other values are reserved.</p>
 
-    <h3 id="Callbacks"><code>Callbacks</code></h3>
+    <h3 id="Callbacks">Callbacks</h3>
 
     <p>Type: hash ref</p>
 
@@ -1856,7 +1856,7 @@
         ... your callback logic here ...
       };</pre>
 
-    <h3 id="private_your_module_name_-"><code>private_your_module_name_*</code></h3>
+    <h3 id="private_your_module_name_-">private_your_module_name_*</h3>
 
     <p>The DBI provides a way to store extra information in a DBI handle as &quot;private&quot; attributes. The DBI will allow you to store and retrieve any attribute which has a name starting with &quot;<code>private_</code>&quot;.</p>
 
@@ -1881,7 +1881,7 @@
 
     <p>The following methods are specified for DBI database handles:</p>
 
-    <h3 id="clone"><code>clone</code></h3>
+    <h3 id="clone">clone</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $new_dbh = $dbh-&gt;clone(\%attr);</pre>
 
@@ -1897,7 +1897,7 @@
 
     <p>The <code>clone</code> method was added in DBI 1.33.</p>
 
-    <h3 id="data_sources1"><code>data_sources</code></h3>
+    <h3 id="data_sources1">data_sources</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @ary = $dbh-&gt;data_sources();
       @ary = $dbh-&gt;data_sources(\%attr);</pre>
@@ -1908,7 +1908,7 @@
 
     <p>The data_sources() method, for a $dbh, was added in DBI 1.38.</p>
 
-    <h3 id="do"><code>do</code></h3>
+    <h3 id="do">do</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rows = $dbh-&gt;do($statement)           or die $dbh-&gt;errstr;
       $rows = $dbh-&gt;do($statement, \%attr)   or die $dbh-&gt;errstr;
@@ -1941,7 +1941,7 @@
 
     <p>Note drivers are free to avoid the overhead of creating an DBI statement handle for do(), especially if there are no parameters. In this case error handlers, if invoked during do(), will be passed the database handle.</p>
 
-    <h3 id="last_insert_id"><code>last_insert_id</code></h3>
+    <h3 id="last_insert_id">last_insert_id</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rv = $dbh-&gt;last_insert_id($catalog, $schema, $table, $field);
       $rv = $dbh-&gt;last_insert_id($catalog, $schema, $table, $field, \%attr);</pre>
@@ -1970,7 +1970,7 @@
 
     <p>The <code>last_insert_id</code> method was added in DBI 1.38.</p>
 
-    <h3 id="selectrow_array"><code>selectrow_array</code></h3>
+    <h3 id="selectrow_array">selectrow_array</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @row_ary = $dbh-&gt;selectrow_array($statement);
       @row_ary = $dbh-&gt;selectrow_array($statement, \%attr);
@@ -1982,7 +1982,7 @@
 
     <p>If called in a scalar context for a statement handle that has more than one column, it is undefined whether the driver will return the value of the first column or the last. So don&#39;t do that. Also, in a scalar context, an <code>undef</code> is returned if there are no more rows or if an error occurred. That <code>undef</code> can&#39;t be distinguished from an <code>undef</code> returned because the first field value was NULL. For these reasons you should exercise some caution if you use <code>selectrow_array</code> in a scalar context, or just don&#39;t do that.</p>
 
-    <h3 id="selectrow_arrayref"><code>selectrow_arrayref</code></h3>
+    <h3 id="selectrow_arrayref">selectrow_arrayref</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $ary_ref = $dbh-&gt;selectrow_arrayref($statement);
       $ary_ref = $dbh-&gt;selectrow_arrayref($statement, \%attr);
@@ -1992,7 +1992,7 @@
 
     <p>If any method fails, and <a href="#RaiseError">&quot;RaiseError&quot;</a> is not set, <code>selectrow_array</code> will return undef.</p>
 
-    <h3 id="selectrow_hashref"><code>selectrow_hashref</code></h3>
+    <h3 id="selectrow_hashref">selectrow_hashref</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $hash_ref = $dbh-&gt;selectrow_hashref($statement);
       $hash_ref = $dbh-&gt;selectrow_hashref($statement, \%attr);
@@ -2002,7 +2002,7 @@
 
     <p>If any method fails, and <a href="#RaiseError">&quot;RaiseError&quot;</a> is not set, <code>selectrow_hashref</code> will return undef.</p>
 
-    <h3 id="selectall_arrayref"><code>selectall_arrayref</code></h3>
+    <h3 id="selectall_arrayref">selectall_arrayref</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $ary_ref = $dbh-&gt;selectall_arrayref($statement);
       $ary_ref = $dbh-&gt;selectall_arrayref($statement, \%attr);
@@ -2034,7 +2034,7 @@
 
     <p>See <a href="#fetchall_arrayref">&quot;fetchall_arrayref&quot;</a> method for more details.</p>
 
-    <h3 id="selectall_hashref"><code>selectall_hashref</code></h3>
+    <h3 id="selectall_hashref">selectall_hashref</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $hash_ref = $dbh-&gt;selectall_hashref($statement, $key_field);
       $hash_ref = $dbh-&gt;selectall_hashref($statement, $key_field, \%attr);
@@ -2052,7 +2052,7 @@
 
     <p>See fetchall_hashref() for more details.</p>
 
-    <h3 id="selectcol_arrayref"><code>selectcol_arrayref</code></h3>
+    <h3 id="selectcol_arrayref">selectcol_arrayref</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $ary_ref = $dbh-&gt;selectcol_arrayref($statement);
       $ary_ref = $dbh-&gt;selectcol_arrayref($statement, \%attr);
@@ -2072,7 +2072,7 @@
 
     <p>You can specify a maximum number of rows to fetch by including a &#39;<code>MaxRows</code>&#39; attribute in \%attr.</p>
 
-    <h3 id="prepare"><code>prepare</code></h3>
+    <h3 id="prepare">prepare</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare($statement)          or die $dbh-&gt;errstr;
       $sth = $dbh-&gt;prepare($statement, \%attr)  or die $dbh-&gt;errstr;</pre>
@@ -2089,7 +2089,7 @@
 
     <p>Some command-line SQL tools use statement terminators, like a semicolon, to indicate the end of a statement. Such terminators should not normally be used with the DBI.</p>
 
-    <h3 id="prepare_cached"><code>prepare_cached</code></h3>
+    <h3 id="prepare_cached">prepare_cached</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare_cached($statement)
       $sth = $dbh-&gt;prepare_cached($statement, \%attr)
@@ -2173,7 +2173,7 @@
       tie %$cache, &#39;Tie::Cache::LRU&#39;, 500;
       $dbh-&gt;{CachedKids} = $cache;</pre>
 
-    <h3 id="commit"><code>commit</code></h3>
+    <h3 id="commit">commit</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc  = $dbh-&gt;commit     or die $dbh-&gt;errstr;</pre>
 
@@ -2183,7 +2183,7 @@
 
     <p>See also <a href="#Transactions">&quot;Transactions&quot;</a> in the <a href="#FURTHER-INFORMATION">&quot;FURTHER INFORMATION&quot;</a> section below.</p>
 
-    <h3 id="rollback"><code>rollback</code></h3>
+    <h3 id="rollback">rollback</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc  = $dbh-&gt;rollback   or die $dbh-&gt;errstr;</pre>
 
@@ -2193,7 +2193,7 @@
 
     <p>See also <a href="#Transactions">&quot;Transactions&quot;</a> in the <a href="#FURTHER-INFORMATION">&quot;FURTHER INFORMATION&quot;</a> section below.</p>
 
-    <h3 id="begin_work"><code>begin_work</code></h3>
+    <h3 id="begin_work">begin_work</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc  = $dbh-&gt;begin_work   or die $dbh-&gt;errstr;</pre>
 
@@ -2203,7 +2203,7 @@
 
     <p>See also <a href="#Transactions">&quot;Transactions&quot;</a> in the <a href="#FURTHER-INFORMATION">&quot;FURTHER INFORMATION&quot;</a> section below.</p>
 
-    <h3 id="disconnect"><code>disconnect</code></h3>
+    <h3 id="disconnect">disconnect</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $dbh-&gt;disconnect  or warn $dbh-&gt;errstr;</pre>
 
@@ -2217,7 +2217,7 @@
 
     <p>If you disconnect from a database while you still have active statement handles (e.g., SELECT statement handles that may have more data to fetch), you will get a warning. The warning may indicate that a fetch loop terminated early, perhaps due to an uncaught error. To avoid the warning call the <code>finish</code> method on the active handles.</p>
 
-    <h3 id="ping"><code>ping</code></h3>
+    <h3 id="ping">ping</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $dbh-&gt;ping;</pre>
 
@@ -2227,7 +2227,7 @@
 
     <p>Few applications would have direct use for this method. See the specialized Apache::DBI module for one example usage.</p>
 
-    <h3 id="get_info"><code>get_info</code></h3>
+    <h3 id="get_info">get_info</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $value = $dbh-&gt;get_info( $info_type );</pre>
 
@@ -2254,7 +2254,7 @@
        41  SQL_CATALOG_NAME_SEPARATOR  &#39;.&#39;           &#39;@&#39;
       114  SQL_CATALOG_LOCATION        1             2</pre>
 
-    <h3 id="table_info"><code>table_info</code></h3>
+    <h3 id="table_info">table_info</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;table_info( $catalog, $schema, $table, $type );
       $sth = $dbh-&gt;table_info( $catalog, $schema, $table, $type, \%attr );
@@ -2307,7 +2307,7 @@
 
     <p>See also <a href="#tables">&quot;tables&quot;</a>, <a href="#Catalog-Methods">&quot;Catalog Methods&quot;</a> and <a href="#Standards-Reference-Information">&quot;Standards Reference Information&quot;</a>.</p>
 
-    <h3 id="column_info"><code>column_info</code></h3>
+    <h3 id="column_info">column_info</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;column_info( $catalog, $schema, $table, $column );
 
@@ -2409,7 +2409,7 @@
 
     <p>See also <a href="#Catalog-Methods">&quot;Catalog Methods&quot;</a> and <a href="#Standards-Reference-Information">&quot;Standards Reference Information&quot;</a>.</p>
 
-    <h3 id="primary_key_info"><code>primary_key_info</code></h3>
+    <h3 id="primary_key_info">primary_key_info</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;primary_key_info( $catalog, $schema, $table );
 
@@ -2437,13 +2437,13 @@
 
     <p>See also <a href="#Catalog-Methods">&quot;Catalog Methods&quot;</a> and <a href="#Standards-Reference-Information">&quot;Standards Reference Information&quot;</a>.</p>
 
-    <h3 id="primary_key"><code>primary_key</code></h3>
+    <h3 id="primary_key">primary_key</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @key_column_names = $dbh-&gt;primary_key( $catalog, $schema, $table );</pre>
 
     <p>Simple interface to the primary_key_info() method. Returns a list of the column names that comprise the primary key of the specified table. The list is in primary key column sequence order. If there is no primary key then an empty list is returned.</p>
 
-    <h3 id="foreign_key_info"><code>foreign_key_info</code></h3>
+    <h3 id="foreign_key_info">foreign_key_info</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;foreign_key_info( $pk_catalog, $pk_schema, $pk_table
                                    , $fk_catalog, $fk_schema, $fk_table );
@@ -2520,7 +2520,7 @@
 
     <p>See also <a href="#Catalog-Methods">&quot;Catalog Methods&quot;</a> and <a href="#Standards-Reference-Information">&quot;Standards Reference Information&quot;</a>.</p>
 
-    <h3 id="statistics_info"><code>statistics_info</code></h3>
+    <h3 id="statistics_info">statistics_info</h3>
 
     <p><b>Warning:</b> This method is experimental and may change.</p>
 
@@ -2572,7 +2572,7 @@
 
     <p>See also <a href="#Catalog-Methods">&quot;Catalog Methods&quot;</a> and <a href="#Standards-Reference-Information">&quot;Standards Reference Information&quot;</a>.</p>
 
-    <h3 id="tables"><code>tables</code></h3>
+    <h3 id="tables">tables</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @names = $dbh-&gt;tables( $catalog, $schema, $table, $type );
       @names = $dbh-&gt;tables;        # deprecated</pre>
@@ -2583,7 +2583,7 @@
 
     <p>If <code>$dbh-&gt;get_info(29)</code> returns true (29 is SQL_IDENTIFIER_QUOTE_CHAR) then the table names are constructed and quoted by <a href="#quote_identifier">&quot;quote_identifier&quot;</a> to ensure they are usable even if they contain whitespace or reserved words etc. This means that the table names returned will include quote characters.</p>
 
-    <h3 id="type_info_all"><code>type_info_all</code></h3>
+    <h3 id="type_info_all">type_info_all</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $type_info_all = $dbh-&gt;type_info_all;</pre>
 
@@ -2632,7 +2632,7 @@
 
     <p>The type_info_all() method is not normally used directly. The <a href="#type_info">&quot;type_info&quot;</a> method provides a more usable and useful interface to the data.</p>
 
-    <h3 id="type_info"><code>type_info</code></h3>
+    <h3 id="type_info">type_info</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @type_info = $dbh-&gt;type_info($data_type);</pre>
 
@@ -2787,7 +2787,7 @@
 
     <p>See also <a href="#Standards-Reference-Information">&quot;Standards Reference Information&quot;</a>.</p>
 
-    <h3 id="quote"><code>quote</code></h3>
+    <h3 id="quote">quote</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sql = $dbh-&gt;quote($value);
       $sql = $dbh-&gt;quote($value, $data_type);</pre>
@@ -2815,7 +2815,7 @@
 
     <p>The quote() method should <i>not</i> be used with <a href="#Placeholders-and-Bind-Values">&quot;Placeholders and Bind Values&quot;</a>.</p>
 
-    <h3 id="quote_identifier"><code>quote_identifier</code></h3>
+    <h3 id="quote_identifier">quote_identifier</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sql = $dbh-&gt;quote_identifier( $name );
       $sql = $dbh-&gt;quote_identifier( $catalog, $schema, $table, \%attr );</pre>
@@ -2834,7 +2834,7 @@
 
     <p>would return <code>&quot;schema&quot;.&quot;table&quot;@&quot;link&quot;</code>.</p>
 
-    <h3 id="take_imp_data"><code>take_imp_data</code></h3>
+    <h3 id="take_imp_data">take_imp_data</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $imp_data = $dbh-&gt;take_imp_data;</pre>
 
@@ -2867,7 +2867,7 @@
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;{AutoCommit} = ...;       # set/write
       ... = $h-&gt;{AutoCommit};       # get/read</pre>
 
-    <h3 id="AutoCommit"><code>AutoCommit</code></h3>
+    <h3 id="AutoCommit">AutoCommit</h3>
 
     <p>Type: boolean</p>
 
@@ -2907,7 +2907,7 @@
 
     <p>See <a href="#commit">&quot;commit&quot;</a>, <a href="#disconnect">&quot;disconnect&quot;</a> and <a href="#Transactions">&quot;Transactions&quot;</a> for other important notes about transactions.</p>
 
-    <h3 id="Driver"><code>Driver</code></h3>
+    <h3 id="Driver">Driver</h3>
 
     <p>Type: handle</p>
 
@@ -2915,19 +2915,19 @@
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;{Driver}-&gt;{Name}</pre>
 
-    <h3 id="Name"><code>Name</code></h3>
+    <h3 id="Name">Name</h3>
 
     <p>Type: string</p>
 
     <p>Holds the &quot;name&quot; of the database. Usually (and recommended to be) the same as the &quot;<code>dbi:DriverName:...</code>&quot; string used to connect to the database, but with the leading &quot;<code>dbi:DriverName:</code>&quot; removed.</p>
 
-    <h3 id="Statement"><code>Statement</code></h3>
+    <h3 id="Statement">Statement</h3>
 
     <p>Type: string, read-only</p>
 
     <p>Returns the statement string passed to the most recent <a href="#prepare">&quot;prepare&quot;</a> or <a href="#do">&quot;do&quot;</a> method called in this database handle, even if that method failed. This is especially useful where <code>RaiseError</code> is enabled and the exception handler checks $@ and sees that a &#39;prepare&#39; method call failed.</p>
 
-    <h3 id="RowCacheSize"><code>RowCacheSize</code></h3>
+    <h3 id="RowCacheSize">RowCacheSize</h3>
 
     <p>Type: integer</p>
 
@@ -2944,7 +2944,7 @@
 
     <p>See also the <a href="#RowsInCache">&quot;RowsInCache&quot;</a> statement handle attribute.</p>
 
-    <h3 id="Username"><code>Username</code></h3>
+    <h3 id="Username">Username</h3>
 
     <p>Type: string</p>
 
@@ -2958,7 +2958,7 @@
 
     <p>The DBI defines the following methods for use on DBI statement handles:</p>
 
-    <h3 id="bind_param"><code>bind_param</code></h3>
+    <h3 id="bind_param">bind_param</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth-&gt;bind_param($p_num, $bind_value)
       $sth-&gt;bind_param($p_num, $bind_value, \%attr)
@@ -3008,7 +3008,7 @@
 
     <p>See also <a href="#Placeholders-and-Bind-Values">&quot;Placeholders and Bind Values&quot;</a> for more information.</p>
 
-    <h3 id="bind_param_inout"><code>bind_param_inout</code></h3>
+    <h3 id="bind_param_inout">bind_param_inout</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $sth-&gt;bind_param_inout($p_num, \$bind_value, $max_len)  or die $sth-&gt;errstr;
       $rv = $sth-&gt;bind_param_inout($p_num, \$bind_value, $max_len, \%attr)     or ...
@@ -3022,7 +3022,7 @@
 
     <p>Undefined values or <code>undef</code> are used to indicate null values. See also <a href="#Placeholders-and-Bind-Values">&quot;Placeholders and Bind Values&quot;</a> for more information.</p>
 
-    <h3 id="bind_param_array"><code>bind_param_array</code></h3>
+    <h3 id="bind_param_array">bind_param_array</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $sth-&gt;bind_param_array($p_num, $array_ref_or_value)
       $rc = $sth-&gt;bind_param_array($p_num, $array_ref_or_value, \%attr)
@@ -3049,7 +3049,7 @@
 
     <p>The <code>bind_param_array</code> method was added in DBI 1.22.</p>
 
-    <h3 id="execute"><code>execute</code></h3>
+    <h3 id="execute">execute</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rv = $sth-&gt;execute                or die $sth-&gt;errstr;
       $rv = $sth-&gt;execute(@bind_values)  or die $sth-&gt;errstr;</pre>
@@ -3068,7 +3068,7 @@
 
     <p>If execute() is called on a statement handle that&#39;s still active ($sth-&gt;{Active} is true) then it should effectively call finish() to tidy up the previous execution results before starting this new execution.</p>
 
-    <h3 id="execute_array"><code>execute_array</code></h3>
+    <h3 id="execute_array">execute_array</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tuples = $sth-&gt;execute_array(\%attr) or die $sth-&gt;errstr;
       $tuples = $sth-&gt;execute_array(\%attr, @bind_values) or die $sth-&gt;errstr;
@@ -3131,7 +3131,7 @@
 
     <p>The <code>execute_array</code> method was added in DBI 1.22, and ArrayTupleFetch was added in 1.36.</p>
 
-    <h3 id="execute_for_fetch"><code>execute_for_fetch</code></h3>
+    <h3 id="execute_for_fetch">execute_for_fetch</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tuples = $sth-&gt;execute_for_fetch($fetch_tuple_sub);
       $tuples = $sth-&gt;execute_for_fetch($fetch_tuple_sub, \@tuple_status);
@@ -3173,7 +3173,7 @@
 
     <p>The <code>execute_for_fetch</code> method was added in DBI 1.38.</p>
 
-    <h3 id="fetchrow_arrayref"><code>fetchrow_arrayref</code></h3>
+    <h3 id="fetchrow_arrayref">fetchrow_arrayref</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $ary_ref = $sth-&gt;fetchrow_arrayref;
       $ary_ref = $sth-&gt;fetch;    # alias</pre>
@@ -3184,7 +3184,7 @@
 
     <p>Note that the same array reference is returned for each fetch, so don&#39;t store the reference and then use it after a later fetch. Also, the elements of the array are also reused for each row, so take care if you want to take a reference to an element. See also <a href="#bind_columns">&quot;bind_columns&quot;</a>.</p>
 
-    <h3 id="fetchrow_array"><code>fetchrow_array</code></h3>
+    <h3 id="fetchrow_array">fetchrow_array</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> @ary = $sth-&gt;fetchrow_array;</pre>
 
@@ -3194,7 +3194,7 @@
 
     <p>If called in a scalar context for a statement handle that has more than one column, it is undefined whether the driver will return the value of the first column or the last. So don&#39;t do that. Also, in a scalar context, an <code>undef</code> is returned if there are no more rows or if an error occurred. That <code>undef</code> can&#39;t be distinguished from an <code>undef</code> returned because the first field value was NULL. For these reasons you should exercise some caution if you use <code>fetchrow_array</code> in a scalar context.</p>
 
-    <h3 id="fetchrow_hashref"><code>fetchrow_hashref</code></h3>
+    <h3 id="fetchrow_hashref">fetchrow_hashref</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> $hash_ref = $sth-&gt;fetchrow_hashref;
      $hash_ref = $sth-&gt;fetchrow_hashref($name);</pre>
@@ -3211,7 +3211,7 @@
 
     <p>By default a reference to a new hash is returned for each row. It is likely that a future version of the DBI will support an attribute which will enable the same hash to be reused for each row. This will give a significant performance boost, but it won&#39;t be enabled by default because of the risk of breaking old code.</p>
 
-    <h3 id="fetchall_arrayref"><code>fetchall_arrayref</code></h3>
+    <h3 id="fetchall_arrayref">fetchall_arrayref</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref;
       $tbl_ary_ref = $sth-&gt;fetchall_arrayref( $slice );
@@ -3270,7 +3270,7 @@
 
     <p>A standard <code>while</code> loop with column binding is often faster because the cost of allocating memory for the batch of rows is greater than the saving by reducing method calls. It&#39;s possible that the DBI may provide a way to reuse the memory of a previous batch in future, which would then shift the balance back towards fetchall_arrayref().</p>
 
-    <h3 id="fetchall_hashref"><code>fetchall_hashref</code></h3>
+    <h3 id="fetchall_hashref">fetchall_hashref</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $hash_ref = $sth-&gt;fetchall_hashref($key_field);</pre>
 
@@ -3297,7 +3297,7 @@
 
     <p>The fetchall_hashref() method is normally used only where the key fields values for each row are unique. If multiple rows are returned with the same values for the key fields then later rows overwrite earlier ones.</p>
 
-    <h3 id="finish"><code>finish</code></h3>
+    <h3 id="finish">finish</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc  = $sth-&gt;finish;</pre>
 
@@ -3321,7 +3321,7 @@
 
     <p>The <code>finish</code> method should have been called <code>discard_pending_rows</code>.</p>
 
-    <h3 id="rows"><code>rows</code></h3>
+    <h3 id="rows">rows</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rv = $sth-&gt;rows;</pre>
 
@@ -3333,7 +3333,7 @@
 
     <p>One alternative method to get a row count for a <code>SELECT</code> is to execute a &quot;SELECT COUNT(*) FROM ...&quot; SQL statement with the same &quot;...&quot; as your query and then fetch the row count from that.</p>
 
-    <h3 id="bind_col"><code>bind_col</code></h3>
+    <h3 id="bind_col">bind_col</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $sth-&gt;bind_col($column_number, \$var_to_bind);
       $rc = $sth-&gt;bind_col($column_number, \$var_to_bind, \%attr );
@@ -3397,7 +3397,7 @@
     </dd>
     </dl>
 
-    <h3 id="bind_columns"><code>bind_columns</code></h3>
+    <h3 id="bind_columns">bind_columns</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $sth-&gt;bind_columns(@list_of_refs_to_vars_to_bind);</pre>
 
@@ -3436,7 +3436,7 @@
           print &quot;$row{region}: $row{sales}\n&quot;;
       }</pre>
 
-    <h3 id="dump_results"><code>dump_results</code></h3>
+    <h3 id="dump_results">dump_results</h3>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rows = $sth-&gt;dump_results($maxlen, $lsep, $fsep, $fh);</pre>
 
@@ -3464,19 +3464,19 @@
 
     <p>See also <a href="#finish">&quot;finish&quot;</a> to learn more about the effect it may have on some attributes.</p>
 
-    <h3 id="NUM_OF_FIELDS"><code>NUM_OF_FIELDS</code></h3>
+    <h3 id="NUM_OF_FIELDS">NUM_OF_FIELDS</h3>
 
     <p>Type: integer, read-only</p>
 
     <p>Number of fields (columns) in the data the prepared statement may return. Statements that don&#39;t return rows of data, like <code>DELETE</code> and <code>CREATE</code> set <code>NUM_OF_FIELDS</code> to 0 (though it may be undef in some drivers).</p>
 
-    <h3 id="NUM_OF_PARAMS"><code>NUM_OF_PARAMS</code></h3>
+    <h3 id="NUM_OF_PARAMS">NUM_OF_PARAMS</h3>
 
     <p>Type: integer, read-only</p>
 
     <p>The number of parameters (placeholders) in the prepared statement. See SUBSTITUTION VARIABLES below for more details.</p>
 
-    <h3 id="NAME1"><code>NAME</code></h3>
+    <h3 id="NAME1">NAME</h3>
 
     <p>Type: array-ref, read-only</p>
 
@@ -3486,27 +3486,27 @@
 
     <p>Also note that the name returned for (aggregate) functions like <code>count(*)</code> or <code>max(c_foo)</code> is determined by the database server and not by <code>DBI</code> or the <code>DBD</code> backend.</p>
 
-    <h3 id="NAME_lc"><code>NAME_lc</code></h3>
+    <h3 id="NAME_lc">NAME_lc</h3>
 
     <p>Type: array-ref, read-only</p>
 
     <p>Like <a href="#NAME">&quot;NAME&quot;</a> but always returns lowercase names.</p>
 
-    <h3 id="NAME_uc"><code>NAME_uc</code></h3>
+    <h3 id="NAME_uc">NAME_uc</h3>
 
     <p>Type: array-ref, read-only</p>
 
     <p>Like <a href="#NAME">&quot;NAME&quot;</a> but always returns uppercase names.</p>
 
-    <h3 id="NAME_hash"><code>NAME_hash</code></h3>
+    <h3 id="NAME_hash">NAME_hash</h3>
 
     <p>Type: hash-ref, read-only</p>
 
-    <h3 id="NAME_lc_hash"><code>NAME_lc_hash</code></h3>
+    <h3 id="NAME_lc_hash">NAME_lc_hash</h3>
 
     <p>Type: hash-ref, read-only</p>
 
-    <h3 id="NAME_uc_hash"><code>NAME_uc_hash</code></h3>
+    <h3 id="NAME_uc_hash">NAME_uc_hash</h3>
 
     <p>Type: hash-ref, read-only</p>
 
@@ -3521,7 +3521,7 @@
       @row = $sth-&gt;fetchrow_array;
       print &quot;Name $row[ $sth-&gt;{NAME_lc_hash}{name} ]\n&quot;;</pre>
 
-    <h3 id="TYPE"><code>TYPE</code></h3>
+    <h3 id="TYPE">TYPE</h3>
 
     <p>Type: array-ref, read-only</p>
 
@@ -3535,7 +3535,7 @@
 
     <p>All possible values for <code>TYPE</code> should have at least one entry in the output of the <code>type_info_all</code> method (see <a href="#type_info_all">&quot;type_info_all&quot;</a>).</p>
 
-    <h3 id="PRECISION"><code>PRECISION</code></h3>
+    <h3 id="PRECISION">PRECISION</h3>
 
     <p>Type: array-ref, read-only</p>
 
@@ -3547,13 +3547,13 @@
 
     <p>(More recent standards refer to this as COLUMN_SIZE but we stick with PRECISION for backwards compatibility.)</p>
 
-    <h3 id="SCALE"><code>SCALE</code></h3>
+    <h3 id="SCALE">SCALE</h3>
 
     <p>Type: array-ref, read-only</p>
 
     <p>Returns a reference to an array of integer values for each column. NULL (<code>undef</code>) values indicate columns where scale is not applicable.</p>
 
-    <h3 id="NULLABLE"><code>NULLABLE</code></h3>
+    <h3 id="NULLABLE">NULLABLE</h3>
 
     <p>Type: array-ref, read-only</p>
 
@@ -3561,25 +3561,25 @@
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  print &quot;First column may return NULL\n&quot; if $sth-&gt;{NULLABLE}-&gt;[0];</pre>
 
-    <h3 id="CursorName"><code>CursorName</code></h3>
+    <h3 id="CursorName">CursorName</h3>
 
     <p>Type: string, read-only</p>
 
     <p>Returns the name of the cursor associated with the statement handle, if available. If not available or if the database driver does not support the <code>&quot;where current of ...&quot;</code> SQL syntax, then it returns <code>undef</code>.</p>
 
-    <h3 id="Database"><code>Database</code></h3>
+    <h3 id="Database">Database</h3>
 
     <p>Type: dbh, read-only</p>
 
     <p>Returns the parent $dbh of the statement handle.</p>
 
-    <h3 id="Statement1"><code>Statement</code></h3>
+    <h3 id="Statement1">Statement</h3>
 
     <p>Type: string, read-only</p>
 
     <p>Returns the statement string passed to the <a href="#prepare">&quot;prepare&quot;</a> method.</p>
 
-    <h3 id="ParamValues"><code>ParamValues</code></h3>
+    <h3 id="ParamValues">ParamValues</h3>
 
     <p>Type: hash ref, read-only</p>
 
@@ -3599,7 +3599,7 @@
 
     <p>The <code>ParamValues</code> attribute was added in DBI 1.28.</p>
 
-    <h3 id="ParamTypes"><code>ParamTypes</code></h3>
+    <h3 id="ParamTypes">ParamTypes</h3>
 
     <p>Type: hash ref, read-only</p>
 
@@ -3637,7 +3637,7 @@
 
     <p>The <code>ParamTypes</code> attribute was added in DBI 1.49. Implementation is the responsibility of individual drivers; the DBI layer default implementation simply returns undef.</p>
 
-    <h3 id="ParamArrays"><code>ParamArrays</code></h3>
+    <h3 id="ParamArrays">ParamArrays</h3>
 
     <p>Type: hash ref, read-only</p>
 
@@ -3660,7 +3660,7 @@
 
     <p>It is also possible that the keys in the hash returned by <code>ParamArrays</code> are not exactly the same as those implied by the prepared statement. For example, DBD::Oracle translates &#39;<code>?</code>&#39; placeholders into &#39;<code>:pN</code>&#39; where N is a sequence number starting at 1.</p>
 
-    <h3 id="RowsInCache"><code>RowsInCache</code></h3>
+    <h3 id="RowsInCache">RowsInCache</h3>
 
     <p>Type: integer, read-only</p>
 
