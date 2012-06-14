@@ -8,8 +8,13 @@ body {
 /* Bootstrap Overrides
 ---------------------------------------------------------------------------- */
 
-#sections { margin: 0 15px 0 15px; }
-ul { list-style: none; margin-left: 15px; }
+#sections { margin: 0; }
+
+
+ul { list-style: none; text-indent: 15px; margin: 0; padding: 0; }
+ul ul { text-indent: 30px; margin: 0; }
+ul ul ul { text-indent: 45px; margin: 0; }
+
 a:hover { text-decoration: none; color: #369 !important; }
 p { margin-bottom: 18px; }
 
@@ -36,6 +41,8 @@ p { margin-bottom: 18px; }
 
 #sidebar a {
     display: block;
+    width: 235px;
+    padding: 0 15px 0 0;
     text-overflow: ellipsis;
 	white-space: nowrap;
     overflow: hidden;
@@ -56,6 +63,8 @@ h1 { font-size: 21px; text-align: center;  }
 h1 a { line-height: 40px !important; color: #666; }
 
 
+
+
 /* Content
 ---------------------------------------------------------------------------- */
 
@@ -74,6 +83,17 @@ h1 a { line-height: 40px !important; color: #666; }
 
 
 
+
+
+/* Misc Util Classes
+---------------------------------------------------------------------------- */
+.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 
+	border-right:10px solid blue; 
+}
 
 
 
