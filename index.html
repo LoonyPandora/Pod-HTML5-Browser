@@ -101,17 +101,16 @@
 </div>
 
 <div id="content">
-    <h1 id="NAME">NAME</h1>
-
+    <div class="page-header"><h1 id="NAME">NAME</h1></div>
     <p>Dancer::Plugin::Passphrase - Passphrases and Passwords as objects for Dancer</p>
 
-    <h1 id="SYNOPSIS">SYNOPSIS</h1>
+    <div class="page-header"><h1 id="SYNOPSIS">SYNOPSIS</h1></div>
 
     <p>This plugin manages the hashing of passwords for Dancer apps, allowing developers to follow best cryptography practice without having to become a cryptography expert.</p>
 
     <p>It uses the bcrypt algorithm as the default, wrapping <a href="/module/Crypt::Eksblowfish::Bcrypt">Crypt::Eksblowfish::Bcrypt</a>, and also supports any hashing function provided by <a href="/module/Digest">Digest</a></p>
 
-    <h1 id="USAGE">USAGE</h1>
+    <div class="page-header"><h1 id="USAGE">USAGE</h1></div>
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">package MyWebService;
 use Dancer &#39;:syntax&#39;;
@@ -135,13 +134,13 @@ get &#39;/generate_new_password&#39; sub =&gt; {
     return passphrase-&gt;generate_random;
 };</pre>
 
-    <h1 id="KEYWORDS">KEYWORDS</h1>
+    <div class="page-header"><h1 id="KEYWORDS">KEYWORDS</h1></div>
 
     <h2 id="passphrase">passphrase</h2>
 
     <p>Given a plaintext password, it returns a Dancer::Plugin::Passphrase object that you can generate a new hash from, or match against a stored hash.</p>
 
-    <h1 id="METHODS">METHODS</h1>
+    <div class="page-header"><h1 id="METHODS">METHODS</h1></div>
 
     <h2 id="passphrase-generate_hash">passphrase-&gt;generate_hash</h2>
 
@@ -198,7 +197,7 @@ get &#39;/generate_new_password&#39; sub =&gt; {
             charset =&gt; [&#39;a&#39;..&#39;z&#39;, &#39;A&#39;..&#39;Z&#39;],
         });</pre>
 
-    <h1 id="ADDITIONAL">ADDITIONAL</h1>
+    <div class="page-header"><h1 id="ADDITIONAL">ADDITIONAL</h1></div>
 
     <h2 id="passphrase-generate_hash-rfc2307">passphrase-&gt;generate_hash-&gt;rfc2307</h2>
 
@@ -258,7 +257,7 @@ get &#39;/generate_new_password&#39; sub =&gt; {
 
     <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    passphrase(&#39;password&#39;)-&gt;generate_hash-&gt;plaintext;</pre>
 
-    <h1 id="DESCRIPTION">DESCRIPTION</h1>
+    <div class="page-header"><h1 id="DESCRIPTION">DESCRIPTION</h1></div>
 
     <h2 id="Purpose">Purpose</h2>
 
@@ -336,7 +335,7 @@ get &#39;/generate_new_password&#39; sub =&gt; {
     </dd>
     </dl>
 
-    <h1 id="CONFIGURATION">CONFIGURATION</h1>
+    <div class="page-header"><h1 id="CONFIGURATION">CONFIGURATION</h1></div>
 
     <p>In your applications config file, you can set the default hashing algorithm, and the default settings for every supported algorithm. Calls to <code>generate_hash</code> will use the default settings for that algorithm specified in here.</p>
 
@@ -351,11 +350,11 @@ get &#39;/generate_new_password&#39; sub =&gt; {
                 bcrypt:
                     cost: 8</pre>
 
-    <h1 id="SEE-ALSO">SEE ALSO</h1>
+    <div class="page-header"><h1 id="SEE-ALSO">SEE ALSO</h1></div>
 
     <p><a href="/module/Dancer">Dancer</a>, <a href="/module/Digest">Digest</a>, <a href="/module/Crypt::Eksblowfish::Bcrypt">Crypt::Eksblowfish::Bcrypt</a>, <a href="/module/Dancer::Plugin::Bcrypt">Dancer::Plugin::Bcrypt</a></p>
 
-    <h1 id="KNOWN-ISSUES">KNOWN ISSUES</h1>
+    <div class="page-header"><h1 id="KNOWN-ISSUES">KNOWN ISSUES</h1></div>
 
     <p>If you see errors like this</p>
 
@@ -375,12 +374,12 @@ get &#39;/generate_new_password&#39; sub =&gt; {
 
     <p>For further reading on UTF-8, unicode, and text encoding in perl, see <a href="http://training.perl.com/OSCON2011/index.html">http://training.perl.com/OSCON2011/index.html</a></p>
 
-    <h1 id="AUTHOR">AUTHOR</h1>
+    <div class="page-header"><h1 id="AUTHOR">AUTHOR</h1></div>
 
     <p>James Aitken &lt;jaitken@cpan.org&gt;</p>
 
     name
-    <h1 id="COPYRIGHT-AND-LICENSE">COPYRIGHT AND LICENSE</h1>
+    <div class="page-header"><h1 id="COPYRIGHT-AND-LICENSE">COPYRIGHT AND LICENSE</h1></div>
 
     <p>This software is copyright (c) 2011 by James Aitken.</p>
 
