@@ -8,7 +8,7 @@ body {
 /* Bootstrap Overrides
 ---------------------------------------------------------------------------- */
 
-#sections { margin: 0; }
+#index { margin: 0; }
 
 
 
@@ -60,22 +60,21 @@ p { margin-bottom: 18px; }
 
 ul { list-style: none; text-indent: 15px; margin: 0; padding: 0; }
 ul ul { text-indent: 30px; margin: 0; }
-ul ul ul { text-indent: 45px; margin: 0; }
+ul ul ul { text-indent: 45px; margin: 0; display: none; }
 
 
 /* Sidebar header2's
 ---------------------------------------------------------------------------- */
 
 
-#sections {
-    margin-bottom: 5px;
-    border-bottom: 1px solid #ccc;
+#index {
+/*    border-bottom: 1px solid #ccc;*/
 }
 
-#sections > li {
-    background: rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    border-top: 1px solid rgba(255,255,255,0.50);
+#index > li {
+/*    background: rgba(0,0,0,0.1);*/
+/*    border-bottom: 1px solid rgba(0,0,0,0.05);*/
+/*    border-top: 1px solid rgba(255,255,255,0.50);*/
 }
 
 
