@@ -30,16 +30,22 @@
 
 <div id="sidebar">
     <h1><a href="/">DocViewer</a></h1>
-    
+
     <ul id="index">
-        <li><a href="#NAME">NAME</a></li>
-        <li><a href="#SYNOPSIS">SYNOPSIS</a>
+        <li><a href="#" class="toggle" data-toggle="collapse" data-target="#DBI_pm">&#9654;</a><a href="#">DBI</a></li>
+        <li><a href="#" class="toggle" data-toggle="collapse" data-target="#DBI_pm">&#9654;</a><a href="#">DBD::mysql</a></li>
+        <li><a href="#" class="toggle" data-toggle="collapse" data-target="#DBI_pm">&#9654;</a><a href="#">DBD::SQLite</a></li>
+        <li><a href="#" class="toggle" data-toggle="collapse" data-target="#DBI_pm">&#9660;</a><a href="#">DBD::PostgreSQL</a></li>
+        
+    <ul id="DBI_pm" class="collapse in">
+        <li><a href="#" class="toggle">&#9654;</a><a href="#NAME">Name</a></li>
+        <li><a href="#SYNOPSIS">Synopsis</a>
         <ul>
-          <li><a href="#GETTING-HELP">GETTING HELP</a></li>
-          <li><a href="#NOTES">NOTES</a></li>
+          <li><a href="#GETTING-HELP">Getting Help</a></li>
+          <li><a href="#NOTES">Notes</a></li>
         </ul>
         </li>
-        <li><a href="#DESCRIPTION">DESCRIPTION</a>
+        <li><a href="#DESCRIPTION">Description</a>
         <ul>
           <li><a href="#Architecture-of-a-DBI-Application">Architecture of a DBI Application</a></li>
           <li><a href="#Notation-and-Conventions">Notation and Conventions</a></li>
@@ -319,7 +325,7 @@
         <li><a href="#TRAINING">TRAINING</a></li>
         <li><a href="#OTHER-RELATED-WORK-AND-PERL-MODULES">OTHER RELATED WORK AND PERL MODULES</a></li>
     </ul>
-
+    </ul>
 </div>
 
 <div id="content">

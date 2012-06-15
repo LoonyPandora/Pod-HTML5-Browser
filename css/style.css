@@ -2,7 +2,7 @@
 ============================================================================ */
 
 body {
-    background: #fff;
+    background: #fcfcfc;
 }
 
 /* Bootstrap Overrides
@@ -24,7 +24,7 @@ p { margin-bottom: 18px; }
     top: 0;
     left: 0;
     bottom: 0;
-    width: 250px;
+    width: 300px;
     background: #ddd url('/img/linen-md.png');
 
     border-right: 1px solid rgba(0,0,0,0.20);
@@ -39,7 +39,7 @@ p { margin-bottom: 18px; }
 
 #sidebar a {
     display: block;
-    width: 235px;
+    width: 285px;
     padding: 0 15px 0 0;
     text-overflow: ellipsis;
 	white-space: nowrap;
@@ -50,17 +50,47 @@ p { margin-bottom: 18px; }
 }
 
 
-#sidebar a:hover {
-    background: rgba(0,0,0,0.10);
-}
+#sidebar a:hover { background: rgba(0,0,0,0.10); }
 
 
 /* Sidebar list indentation
 ---------------------------------------------------------------------------- */
 
-ul { list-style: none; text-indent: 15px; margin: 0; padding: 0; }
+ul { list-style: none; text-indent: 18px; margin: 0; padding: 0; }
 ul ul { text-indent: 30px; margin: 0; }
-ul ul ul { text-indent: 45px; margin: 0; display: none; }
+ul ul ul { text-indent: 42px; margin: 0;  }
+ul ul ul ul { text-indent: 54px; margin: 0;   }
+
+#sidebar a.toggle {
+    font-size: 9px;
+    padding: 0 4px 0 0;
+    text-align: right;
+    text-indent: 0;
+    color: #777;
+    position: absolute;
+}
+
+#sidebar ul a.toggle { width: 14px; }
+
+#sidebar ul ul a.toggle { width: 26px; }
+
+#sidebar a.toggle:hover {
+    background: none;
+    color: #444;
+}
+
+
+#sidebar i {
+    font-style: normal;
+    vertical-align: top;
+    font-size: 9px;
+    width: 12px;
+    height: 27px;
+    margin: 0 0 0 -12px;
+    display: inline-block;
+    text-indent: 0;
+    color: #777;
+}
 
 
 /* Sidebar header2's
@@ -95,9 +125,8 @@ h1 a { line-height: 40px !important; color: #666; }
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
-    padding: 18px;
-    left: 250px;
+    padding: 27px 36px;
+    left: 300px;
 }
 
 
@@ -110,14 +139,6 @@ h1 a { line-height: 40px !important; color: #666; }
 
 /* Misc Util Classes
 ---------------------------------------------------------------------------- */
-.arrow-left {
-	width: 0; 
-	height: 0; 
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent; 
-	border-right:10px solid blue; 
-}
-
 
 
 /* Bootstrap bugfixes
