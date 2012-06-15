@@ -2,6 +2,7 @@
 ============================================================================ */
 
 body {
+    font-family: 'Helvetica';
     background: #fcfcfc;
 }
 
@@ -11,8 +12,8 @@ body {
 #index { margin: 0; }
 
 
-
-a:hover { text-decoration: none; color: #369; }
+a{ color: #369; }
+a:hover { text-decoration: none; }
 p { margin-bottom: 18px; }
 
 
@@ -25,16 +26,10 @@ p { margin-bottom: 18px; }
     left: 0;
     bottom: 0;
     width: 300px;
-    background: #ddd url('/img/linen-md.png');
-
-    border-right: 1px solid rgba(0,0,0,0.20);
-
+    background: #f5f5f5;
+    border-right: 1px solid rgba(0,0,0,0.148438);
     overflow-x: hidden;
     overflow-y: auto;
-
-    -webkit-box-shadow: rgba(0,0,0,0.10) -1px 0 3px 0 inset;
-       -moz-box-shadow: rgba(0,0,0,0.10) -1px 0 3px 0 inset;
-            box-shadow: rgba(0,0,0,0.10) -1px 0 3px 0 inset;
 }
 
 #sidebar a {
@@ -44,67 +39,60 @@ p { margin-bottom: 18px; }
     text-overflow: ellipsis;
 	white-space: nowrap;
     overflow: hidden;
-    color: #444;
-    font-weight: bold;
     line-height: 27px; /* 1.5 */
 }
 
 
-#sidebar a:hover { background: rgba(0,0,0,0.10); }
+#sidebar a:hover { background: rgba(0,0,0,0.05); color: #005580; }
 
 
 /* Sidebar list indentation
 ---------------------------------------------------------------------------- */
 
-ul { list-style: none; text-indent: 18px; margin: 0; padding: 0; }
-ul ul { text-indent: 30px; margin: 0; }
-ul ul ul { text-indent: 42px; margin: 0;  }
-ul ul ul ul { text-indent: 54px; margin: 0;   }
+ul { list-style: none; margin: 0; padding: 0; }
+ul ul { text-indent: 23px; margin: 0; }
+ul ul ul { text-indent: 36px; margin: 0;  }
+ul ul ul ul { text-indent: 49px; margin: 0;   }
 
 #sidebar a.toggle {
     font-size: 9px;
-    padding: 0 4px 0 0;
+    padding: 0;
     text-align: right;
     text-indent: 0;
-    color: #777;
+    color: #999;
     position: absolute;
+    height: 27px;
+    line-height: 28px; /* Better Vertical Alignment */
 }
 
-#sidebar ul a.toggle { width: 14px; }
-
-#sidebar ul ul a.toggle { width: 26px; }
+#sidebar ul ul a.toggle { width: 19px; }
+#sidebar ul ul ul a.toggle { width: 32px; }
 
 #sidebar a.toggle:hover {
     background: none;
-    color: #444;
+    color: #222;
 }
 
 
-#sidebar i {
-    font-style: normal;
-    vertical-align: top;
-    font-size: 9px;
-    width: 12px;
-    height: 27px;
-    margin: 0 0 0 -12px;
-    display: inline-block;
-    text-indent: 0;
+#sidebar a.filename {
+    color: rgba(254,254,255,1);
+    font-weight: bold;
     color: #777;
+    text-shadow: 1px 1px 0px #eee;
+    background: rgba(0,0,0,0.1);
+    text-indent: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(255,255,255,0.4);
+}
+
+#index > li:first-child a {
+    border-top: 0;
 }
 
 
-/* Sidebar header2's
----------------------------------------------------------------------------- */
-
-
-#index {
-/*    border-bottom: 1px solid #ccc;*/
-}
-
-#index > li {
-/*    background: rgba(0,0,0,0.1);*/
-/*    border-bottom: 1px solid rgba(0,0,0,0.05);*/
-/*    border-top: 1px solid rgba(255,255,255,0.50);*/
+#sidebar a.filename:hover {
+/*    color: rgba(255,255,255,1);*/
+    background: rgba(0,0,0,0.15);
 }
 
 
@@ -121,11 +109,34 @@ h1 a { line-height: 40px !important; color: #666; }
 /* Content
 ---------------------------------------------------------------------------- */
 
+
+#banner {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 301px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.148438);
+    background: #f5f5f5;
+    z-index: 99;
+    
+}
+
+#banner h1 {
+    color: #666;
+    font-size: 21px;
+    text-indent: 36px;
+    height: 41px;
+    line-height: 41px;
+}
+
+
 #content {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 27px 36px;
+    padding: 58px 36px;
     left: 300px;
 }
 

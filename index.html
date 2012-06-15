@@ -25,24 +25,27 @@
     <link rel="apple-touch-icon" href="/img/apple-touch-icon-72x72.png" sizes="72x72">
     <link rel="apple-touch-icon" href="/img/apple-touch-icon-114x114.png" sizes="114x114">
 </head>
-<body>
+<body data-spy="scroll">
 
 
 <div id="sidebar">
     <h1><a href="/">DocViewer</a></h1>
 
     <ul id="index">
-        <li><a href="#" class="toggle" data-toggle="collapse" data-target="#DBI_pm">&#9654;</a><a href="#">DBI</a></li>
-        <li><a href="#" class="toggle" data-toggle="collapse" data-target="#DBI_pm">&#9654;</a><a href="#">DBD::mysql</a></li>
-        <li><a href="#" class="toggle" data-toggle="collapse" data-target="#DBI_pm">&#9654;</a><a href="#">DBD::SQLite</a></li>
-        <li><a href="#" class="toggle" data-toggle="collapse" data-target="#DBI_pm">&#9660;</a><a href="#">DBD::PostgreSQL</a></li>
+        <li><a href="#" class="filename" data-toggle="collapse" data-target="#DBI_pm">DBI</a></li>
+        <li><a href="#" class="filename" data-toggle="collapse" data-target="#DBI_pm">Bot::BasicBot::Pluggable::Module::12345678</a></li>
         
     <ul id="DBI_pm" class="collapse in">
         <li><a href="#" class="toggle">&#9654;</a><a href="#NAME">Name</a></li>
-        <li><a href="#SYNOPSIS">Synopsis</a>
+        <li><a href="#" class="toggle">&#9660;</a><a href="#SYNOPSIS">Synopsis</a>
         <ul>
           <li><a href="#GETTING-HELP">Getting Help</a></li>
-          <li><a href="#NOTES">Notes</a></li>
+          <li><a href="#" class="toggle">&#9654;</a><a href="#NOTES">Notes</a></li>
+          <li><a href="#" class="toggle">&#9654;</a><a href="#NOTES">Notes</a></li>
+          <li><a href="#GETTING-HELP">Getting Help</a></li>
+          <li><a href="#" class="toggle">&#9654;</a><a href="#NOTES">Notes</a></li>
+          <li><a href="#GETTING-HELP">Getting Help</a></li>
+          <li><a href="#GETTING-HELP">Getting Help</a></li>
         </ul>
         </li>
         <li><a href="#DESCRIPTION">Description</a>
@@ -325,7 +328,15 @@
         <li><a href="#TRAINING">TRAINING</a></li>
         <li><a href="#OTHER-RELATED-WORK-AND-PERL-MODULES">OTHER RELATED WORK AND PERL MODULES</a></li>
     </ul>
+
+        <li><a href="#" class="filename" data-toggle="collapse" data-target="#DBI_pm">DBD::SQLite</a></li>
+        <li><a href="#" class="filename" data-toggle="collapse" data-target="#DBI_pm">DBD::PostgreSQL</a></li>
+
     </ul>
+</div>
+
+<div id="banner">
+    <h1>Dancer::Plugin::Passphrase</h1>
 </div>
 
 <div id="content">
