@@ -5,7 +5,7 @@ body {
     font-family: 'Helvetica';
     background: #fff;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 21px;
 }
 
 /* Bootstrap Overrides
@@ -16,7 +16,7 @@ body {
 
 a{ color: #369; }
 a:hover { text-decoration: none; }
-p { margin-bottom: 18px; }
+p { margin-bottom: 21px; }
 
 
 /* Default Navigation Sidebar
@@ -166,7 +166,11 @@ h1 a { line-height: 40px !important; color: #666; }
     padding: 27px 36px;
 }
 
-
+pre, code {
+    font-family: monospace !important;
+    font-size: 12px !important;
+    line-height: 14px !important;
+}
 
 /* Styles
 ---------------------------------------------------------------------------- */
