@@ -17,13 +17,13 @@
 
 /* Table fo Contents */
 #grid div.vert:nth-child(1) {
-    width: 250px;
+    width: 300px;
     background: rgba(255,0,0,0.1);
 }
 
 /* Content Pane */
 #grid div.vert:nth-child(2) {
-    left: 250px;
+    left: 300px;
     right:  0;
     position: absolute;
     background: rgba(0,255,0,0.1);
@@ -31,7 +31,7 @@
 
 /* Horizontal grid, height should be line-height minus 1px for the border */
 #grid div.horiz {
-    height: 17px;
+    height: 20px;
     border-bottom: 1px dotted rgba(255,0,0,0.5);
     margin:  0;
     padding: 0;
