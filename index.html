@@ -15,6 +15,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/hashgrid.css" rel="stylesheet">
+    <link href="/css/solarized-dark.css" rel="stylesheet">
 
     <!-- Modernizr needs to be in the head, other JS at the bottom -->
     <script src="/js/modernizr.js"></script>
@@ -29,10 +30,30 @@
 
 
 <div id="sidebar">
-    <h1><a href="/">DocViewer</a></h1>
+    <input type="text" class="search-query section-filter" placeholder="Filter Contents">
 
     <ul id="index">
-        <li><a href="#" class="filename" data-toggle="collapse" data-target="#DBI_pm">DBI</a></li>
+        <li><a href="#" class="filename" data-toggle="collapse" data-target="#Dancer_Plugin_Passphrase">Dancer::Plugin::Passphrase</a></li>
+        
+        <ul id="Dancer_Plugin_Passphrase" class="collapse in">
+            <li><a href="#NAME">Name</a></li>
+            <li><a href="#NAME">Synopsis</a></li>
+            <li><a href="#NAME">Keywords</a></li>
+            <li><a href="#NAME">Methods</a></li>
+            <ul>
+                <li><a href="#NAME">matches</a></li>
+                <li><a href="#" class="toggle">&#9660;</a><a href="#NAME">generate_hash</a></li>
+                <ul>
+                    <li><a href="#NAME">rfc2307</a></li>
+                    <li><a href="#NAME">scheme</a></li>
+                    <li><a href="#NAME">cost</a></li>
+                    <li><a href="#NAME">raw_salt</a></li>
+                    <li><a href="#NAME">raw_hash</a></li>
+                </ul>
+                <li><a href="#NAME">generate_random</a></li>
+            </ul>
+        </ul>
+        
         <li><a href="#" class="filename" data-toggle="collapse" data-target="#DBI_pm">Bot::BasicBot::Pluggable::Module::12345678</a></li>
         
     <ul id="DBI_pm" class="collapse in">
@@ -333,77 +354,82 @@
         <li><a href="#" class="filename" data-toggle="collapse" data-target="#DBI_pm">DBD::PostgreSQL</a></li>
 
     </ul>
+
 </div>
 
-<div id="banner">
-    <h1>Dancer::Plugin::Passphrase</h1>
-</div>
 
 <div id="content">
-    <h1 id="NAME">NAME</h1>
+    <div class="subhead">
+        <h1>Dancer::Plugin::Passphrase</h1>
+        <p>Passphrases and Passwords as objects for Dancer</p>
+    </div>
+    
+    <h1 id="NAME">Name</h1>
 
     <p>DBI - Database independent interface for Perl</p>
 
-    <h1 id="SYNOPSIS">SYNOPSIS</h1>
+    <h1 id="SYNOPSIS">Synopsis</h1>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  use DBI;
+    <pre><code data-language="perl">    use DBI;
 
-      @driver_names = DBI-&gt;available_drivers;
-      %drivers      = DBI-&gt;installed_drivers;
-      @data_sources = DBI-&gt;data_sources($driver_name, \%attr);
+12345678901234567890123456789012345678901234567890123456789012345678901234567890 # 80 Charts Plus comment
 
-      $dbh = DBI-&gt;connect($data_source, $username, $auth, \%attr);
+    @driver_names = DBI-&gt;available_drivers;
+    %drivers      = DBI-&gt;installed_drivers;
+    @data_sources = DBI-&gt;data_sources($driver_name, \%attr);
 
-      $rv  = $dbh-&gt;do($statement);
-      $rv  = $dbh-&gt;do($statement, \%attr);
-      $rv  = $dbh-&gt;do($statement, \%attr, @bind_values);
+    $dbh = DBI-&gt;connect($data_source, $username, $auth, \%attr);
 
-      $ary_ref  = $dbh-&gt;selectall_arrayref($statement);
-      $hash_ref = $dbh-&gt;selectall_hashref($statement, $key_field);
+    $rv  = $dbh-&gt;do($statement);
+    $rv  = $dbh-&gt;do($statement, \%attr);
+    $rv  = $dbh-&gt;do($statement, \%attr, @bind_values);
 
-      $ary_ref  = $dbh-&gt;selectcol_arrayref($statement);
-      $ary_ref  = $dbh-&gt;selectcol_arrayref($statement, \%attr);
+    $ary_ref  = $dbh-&gt;selectall_arrayref($statement);
+    $hash_ref = $dbh-&gt;selectall_hashref($statement, $key_field);
 
-      @row_ary  = $dbh-&gt;selectrow_array($statement);
-      $ary_ref  = $dbh-&gt;selectrow_arrayref($statement);
-      $hash_ref = $dbh-&gt;selectrow_hashref($statement);
+    $ary_ref  = $dbh-&gt;selectcol_arrayref($statement);
+    $ary_ref  = $dbh-&gt;selectcol_arrayref($statement, \%attr);
 
-      $sth = $dbh-&gt;prepare($statement);
-      $sth = $dbh-&gt;prepare_cached($statement);
+    @row_ary  = $dbh-&gt;selectrow_array($statement);
+    $ary_ref  = $dbh-&gt;selectrow_arrayref($statement);
+    $hash_ref = $dbh-&gt;selectrow_hashref($statement);
 
-      $rc = $sth-&gt;bind_param($p_num, $bind_value);
-      $rc = $sth-&gt;bind_param($p_num, $bind_value, $bind_type);
-      $rc = $sth-&gt;bind_param($p_num, $bind_value, \%attr);
+    $sth = $dbh-&gt;prepare($statement);
+    $sth = $dbh-&gt;prepare_cached($statement);
 
-      $rv = $sth-&gt;execute;
-      $rv = $sth-&gt;execute(@bind_values);
-      $rv = $sth-&gt;execute_array(\%attr, ...);
+    $rc = $sth-&gt;bind_param($p_num, $bind_value);
+    $rc = $sth-&gt;bind_param($p_num, $bind_value, $bind_type);
+    $rc = $sth-&gt;bind_param($p_num, $bind_value, \%attr);
 
-      $rc = $sth-&gt;bind_col($col_num, \$col_variable);
-      $rc = $sth-&gt;bind_columns(@list_of_refs_to_vars_to_bind);
+    $rv = $sth-&gt;execute;
+    $rv = $sth-&gt;execute(@bind_values);
+    $rv = $sth-&gt;execute_array(\%attr, ...);
 
-      @row_ary  = $sth-&gt;fetchrow_array;
-      $ary_ref  = $sth-&gt;fetchrow_arrayref;
-      $hash_ref = $sth-&gt;fetchrow_hashref;
+    $rc = $sth-&gt;bind_col($col_num, \$col_variable);
+    $rc = $sth-&gt;bind_columns(@list_of_refs_to_vars_to_bind);
 
-      $ary_ref  = $sth-&gt;fetchall_arrayref;
-      $ary_ref  = $sth-&gt;fetchall_arrayref( $slice, $max_rows );
+    @row_ary  = $sth-&gt;fetchrow_array;
+    $ary_ref  = $sth-&gt;fetchrow_arrayref;
+    $hash_ref = $sth-&gt;fetchrow_hashref;
 
-      $hash_ref = $sth-&gt;fetchall_hashref( $key_field );
+    $ary_ref  = $sth-&gt;fetchall_arrayref;
+    $ary_ref  = $sth-&gt;fetchall_arrayref( $slice, $max_rows );
 
-      $rv  = $sth-&gt;rows;
+    $hash_ref = $sth-&gt;fetchall_hashref( $key_field );
 
-      $rc  = $dbh-&gt;begin_work;
-      $rc  = $dbh-&gt;commit;
-      $rc  = $dbh-&gt;rollback;
+    $rv  = $sth-&gt;rows;
 
-      $quoted_string = $dbh-&gt;quote($string);
+    $rc  = $dbh-&gt;begin_work;
+    $rc  = $dbh-&gt;commit;
+    $rc  = $dbh-&gt;rollback;
 
-      $rc  = $h-&gt;err;
-      $str = $h-&gt;errstr;
-      $rv  = $h-&gt;state;
+    $quoted_string = $dbh-&gt;quote($string);
 
-      $rc  = $dbh-&gt;disconnect;</pre>
+    $rc  = $h-&gt;err;
+    $str = $h-&gt;errstr;
+    $rv  = $h-&gt;state;
+
+    $rc  = $dbh-&gt;disconnect;</code></pre>
 
     <p><i>The synopsis above only lists the major methods and parameters.</i></p>
 
@@ -449,7 +475,7 @@
 
     <h2 id="Architecture-of-a-DBI-Application">Architecture of a DBI Application</h2>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">             |&lt;- Scope of DBI -&gt;|
+    <pre><code data-language="perl">             |&lt;- Scope of DBI -&gt;|
                       .-.   .--------------.   .-------------.
       .-------.       | |---| XYZ Driver   |---| XYZ Engine  |
       | Perl  |       | |   `--------------&#39;   `-------------&#39;
@@ -459,7 +485,7 @@
       | API   |       | |...
       |methods|       | |... Other drivers
       `-------&#39;       | |...
-                      `-&#39;</pre>
+                      `-&#39;</code></pre>
 
     <p>The API, or Application Programming Interface, defines the call interface and variables for Perl scripts to use. The API is implemented by the Perl DBI extension.</p>
 
@@ -471,7 +497,7 @@
 
     <p>The following conventions are used in this document:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh    Database handle object
+    <pre><code data-language="perl">  $dbh    Database handle object
       $sth    Statement handle object
       $drh    Driver handle object (rarely seen or used in applications)
       $h      Any of the handle types above ($dbh, $sth, or $drh)
@@ -481,7 +507,7 @@
       $rows   Number of rows processed (if available, else -1)
       $fh     A filehandle
       undef   NULL values are represented by undefined values in Perl
-      \%attr  Reference to a hash of attribute values passed to methods</pre>
+      \%attr  Reference to a hash of attribute values passed to methods</code></pre>
 
     <p>Note that Perl will automatically destroy database and statement handle objects if all references to them are deleted.</p>
 
@@ -489,15 +515,15 @@
 
     <p>To use DBI, first you need to load the DBI module:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  use DBI;
-      use strict;</pre>
+    <pre><code data-language="perl">  use DBI;
+      use strict;</code></pre>
 
     <p>(The <code>use strict;</code> isn&#39;t required but is strongly recommended.)</p>
 
     <p>Then you need to <a href="#connect">&quot;connect&quot;</a> to your data source and get a <i>handle</i> for that connection:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh = DBI-&gt;connect($dsn, $user, $password,
-                          { RaiseError =&gt; 1, AutoCommit =&gt; 0 });</pre>
+    <pre><code data-language="perl">  $dbh = DBI-&gt;connect($dsn, $user, $password,
+                          { RaiseError =&gt; 1, AutoCommit =&gt; 0 });</code></pre>
 
     <p>Since connecting can be expensive, you generally just connect at the start of your program and disconnect at the end.</p>
 
@@ -507,49 +533,49 @@
 
     <p>The typical method call sequence for a <code>SELECT</code> statement is:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  prepare,
+    <pre><code data-language="perl">  prepare,
         execute, fetch, fetch, ...
         execute, fetch, fetch, ...
-        execute, fetch, fetch, ...</pre>
+        execute, fetch, fetch, ...</code></pre>
 
     <p>for example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare(&quot;SELECT foo, bar FROM table WHERE baz=?&quot;);
+    <pre><code data-language="perl">  $sth = $dbh-&gt;prepare(&quot;SELECT foo, bar FROM table WHERE baz=?&quot;);
 
       $sth-&gt;execute( $baz );
 
       while ( @row = $sth-&gt;fetchrow_array ) {
         print &quot;@row\n&quot;;
-      }</pre>
+      }</code></pre>
 
     <p>The typical method call sequence for a <i>non</i>-<code>SELECT</code> statement is:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  prepare,
+    <pre><code data-language="perl">  prepare,
         execute,
         execute,
-        execute.</pre>
+        execute.</code></pre>
 
     <p>for example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare(&quot;INSERT INTO table(foo,bar,baz) VALUES (?,?,?)&quot;);
+    <pre><code data-language="perl">  $sth = $dbh-&gt;prepare(&quot;INSERT INTO table(foo,bar,baz) VALUES (?,?,?)&quot;);
 
       while(&lt;CSV&gt;) {
         chomp;
         my ($foo,$bar,$baz) = split /,/;
             $sth-&gt;execute( $foo, $bar, $baz );
-      }</pre>
+      }</code></pre>
 
     <p>The <code>do()</code> method can be used for non repeated <i>non</i>-<code>SELECT</code> statement (or with drivers that don&#39;t support placeholders):</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rows_affected = $dbh-&gt;do(&quot;UPDATE your_table SET foo = foo + 1&quot;);</pre>
+    <pre><code data-language="perl">  $rows_affected = $dbh-&gt;do(&quot;UPDATE your_table SET foo = foo + 1&quot;);</code></pre>
 
     <p>To commit your changes to the database (when <a href="#AutoCommit">&quot;AutoCommit&quot;</a> is off):</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;commit;  # or call $dbh-&gt;rollback; to undo changes</pre>
+    <pre><code data-language="perl">  $dbh-&gt;commit;  # or call $dbh-&gt;rollback; to undo changes</code></pre>
 
     <p>Finally, when you have finished working with the data source, you should <a href="#disconnect">&quot;disconnect&quot;</a> from it:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;disconnect;</pre>
+    <pre><code data-language="perl">  $dbh-&gt;disconnect;</code></pre>
 
     <h2 id="General-Interface-Rules-Caveats">General Interface Rules &amp; Caveats</h2>
 
@@ -579,11 +605,11 @@
 
     <p>The letter case used for attribute names is significant and plays an important part in the portability of DBI scripts. The case of the attribute name is used to signify who defined the meaning of that name and its values.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  Case of name  Has a meaning defined by
+    <pre><code data-language="perl">  Case of name  Has a meaning defined by
       ------------  ------------------------
       UPPER_CASE    Standards, e.g.,  X/Open, ISO SQL92 etc (portable)
       MixedCase     DBI API (portable), underscores are not used.
-      lower_case    Driver or database engine specific (non-portable)</pre>
+      lower_case    Driver or database engine specific (non-portable)</code></pre>
 
     <p>It is of the utmost importance that Driver developers only use lowercase attribute names when defining private attributes. Private attribute names must be prefixed with the driver name or suitable abbreviation (e.g., &quot;<code>ora_</code>&quot; for Oracle, &quot;<code>ing_</code>&quot; for Ingres, etc).</p>
 
@@ -595,7 +621,7 @@
 
     <p>For an interesting diversion on the <i>real</i> history of RDBMS and SQL, from the people who made it happen, see:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  http://www.mcjones.org/System_R/SQL_Reunion_95/sqlr95.html</pre>
+    <pre><code data-language="perl">  http://www.mcjones.org/System_R/SQL_Reunion_95/sqlr95.html</code></pre>
 
     <p>Follow the &quot;Full Contents&quot; then &quot;Intergalactic dataspeak&quot; links for the SQL history.</p>
 
@@ -603,11 +629,11 @@
 
     <p>Some drivers support placeholders and bind values. <i>Placeholders</i>, also called parameter markers, are used to indicate values in a database statement that will be supplied later, before the prepared statement is executed. For example, an application might use the following to insert a row of data into the SALES table:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  INSERT INTO sales (product_code, qty, price) VALUES (?, ?, ?)</pre>
+    <pre><code data-language="perl">  INSERT INTO sales (product_code, qty, price) VALUES (?, ?, ?)</code></pre>
 
     <p>or the following, to select the description for a product:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  SELECT description FROM products WHERE product_code = ?</pre>
+    <pre><code data-language="perl">  SELECT description FROM products WHERE product_code = ?</code></pre>
 
     <p>The <code>?</code> characters are the placeholders. The association of actual values with placeholders is known as <i>binding</i>, and the values are referred to as <i>bind values</i>. Note that the <code>?</code> is not enclosed in quotation marks, even when the placeholder represents a string.</p>
 
@@ -617,13 +643,13 @@
 
     <p>With most drivers, placeholders can&#39;t be used for any element of a statement that would prevent the database server from validating the statement and creating a query execution plan for it. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  &quot;SELECT name, age FROM ?&quot;         # wrong (will probably fail)
-      &quot;SELECT name, ?   FROM people&quot;    # wrong (but may not &#39;fail&#39;)</pre>
+    <pre><code data-language="perl">  &quot;SELECT name, age FROM ?&quot;         # wrong (will probably fail)
+      &quot;SELECT name, ?   FROM people&quot;    # wrong (but may not &#39;fail&#39;)</code></pre>
 
     <p>Also, placeholders can only represent single scalar values. For example, the following statement won&#39;t work as expected for more than one value:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  &quot;SELECT name, age FROM people WHERE name IN (?)&quot;    # wrong
-      &quot;SELECT name, age FROM people WHERE name IN (?,?)&quot;  # two names</pre>
+    <pre><code data-language="perl">  &quot;SELECT name, age FROM people WHERE name IN (?)&quot;    # wrong
+      &quot;SELECT name, age FROM people WHERE name IN (?,?)&quot;  # two names</code></pre>
 
     <p>When using placeholders with the SQL <code>LIKE</code> qualifier, you must remember that the placeholder substitutes for the whole string. So you should use &quot;<code>... LIKE ? ...</code>&quot; and include any wildcard characters in the value that you bind to the placeholder.</p>
 
@@ -631,7 +657,7 @@
 
     <p>Undefined values, or <code>undef</code>, are used to indicate NULL values. You can insert and update columns with a NULL value as you would a non-NULL value. These examples insert and update the column <code>age</code> with a NULL value:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare(qq{
+    <pre><code data-language="perl">  $sth = $dbh-&gt;prepare(qq{
         INSERT INTO people (fullname, age) VALUES (?, ?)
       });
       $sth-&gt;execute(&quot;Joe Bloggs&quot;, undef);
@@ -639,25 +665,25 @@
       $sth = $dbh-&gt;prepare(qq{
         UPDATE people SET age = ? WHERE fullname = ?
       });
-      $sth-&gt;execute(undef, &quot;Joe Bloggs&quot;);</pre>
+      $sth-&gt;execute(undef, &quot;Joe Bloggs&quot;);</code></pre>
 
     <p>However, care must be taken when trying to use NULL values in a <code>WHERE</code> clause. Consider:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  SELECT fullname FROM people WHERE age = ?</pre>
+    <pre><code data-language="perl">  SELECT fullname FROM people WHERE age = ?</code></pre>
 
     <p>Binding an <code>undef</code> (NULL) to the placeholder will <i>not</i> select rows which have a NULL <code>age</code>! At least for database engines that conform to the SQL standard. Refer to the SQL manual for your database engine or any SQL book for the reasons for this. To explicitly select NULLs you have to say &quot;<code>WHERE age IS NULL</code>&quot;.</p>
 
     <p>A common issue is to have a code fragment handle a value that could be either <code>defined</code> or <code>undef</code> (non-NULL or NULL) at runtime. A simple technique is to prepare the appropriate statement as needed, and substitute the placeholder for non-NULL cases:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sql_clause = defined $age? &quot;age = ?&quot; : &quot;age IS NULL&quot;;
+    <pre><code data-language="perl">  $sql_clause = defined $age? &quot;age = ?&quot; : &quot;age IS NULL&quot;;
       $sth = $dbh-&gt;prepare(qq{
         SELECT fullname FROM people WHERE $sql_clause
       });
-      $sth-&gt;execute(defined $age ? $age : ());</pre>
+      $sth-&gt;execute(defined $age ? $age : ());</code></pre>
 
     <p>The following technique illustrates qualifying a <code>WHERE</code> clause with several columns, whose associated values (<code>defined</code> or <code>undef</code>) are in a hash %h:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  for my $col (&quot;age&quot;, &quot;phone&quot;, &quot;email&quot;) {
+    <pre><code data-language="perl">  for my $col (&quot;age&quot;, &quot;phone&quot;, &quot;email&quot;) {
         if (defined $h{$col}) {
           push @sql_qual, &quot;$col = ?&quot;;
           push @sql_bind, $h{$col};
@@ -670,25 +696,25 @@
       $sth = $dbh-&gt;prepare(qq{
           SELECT fullname FROM people WHERE $sql_clause
       });
-      $sth-&gt;execute(@sql_bind);</pre>
+      $sth-&gt;execute(@sql_bind);</code></pre>
 
     <p>The techniques above call prepare for the SQL statement with each call to execute. Because calls to prepare() can be expensive, performance can suffer when an application iterates many times over statements like the above.</p>
 
     <p>A better solution is a single <code>WHERE</code> clause that supports both NULL and non-NULL comparisons. Its SQL statement would need to be prepared only once for all cases, thus improving performance. Several examples of <code>WHERE</code> clauses that support this are presented below. But each example lacks portability, robustness, or simplicity. Whether an example is supported on your database engine depends on what SQL extensions it provides, and where it supports the <code>?</code> placeholder in a statement.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  0)  age = ?
+    <pre><code data-language="perl">  0)  age = ?
       1)  NVL(age, xx) = NVL(?, xx)
       2)  ISNULL(age, xx) = ISNULL(?, xx)
       3)  DECODE(age, ?, 1, 0) = 1
       4)  age = ? OR (age IS NULL AND ? IS NULL)
       5)  age = ? OR (age IS NULL AND SP_ISNULL(?) = 1)
-      6)  age = ? OR (age IS NULL AND ? = 1)</pre>
+      6)  age = ? OR (age IS NULL AND ? = 1)</code></pre>
 
     <p>Statements formed with the above <code>WHERE</code> clauses require execute statements as follows. The arguments are required, whether their values are <code>defined</code> or <code>undef</code>.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  0,1,2,3)  $sth-&gt;execute($age);
+    <pre><code data-language="perl">  0,1,2,3)  $sth-&gt;execute($age);
       4,5)      $sth-&gt;execute($age, $age);
-      6)        $sth-&gt;execute($age, defined($age) ? 0 : 1);</pre>
+      6)        $sth-&gt;execute($age, defined($age) ? 0 : 1);</code></pre>
 
     <p>Example 0 should not work (as mentioned earlier), but may work on a few database engines anyway (e.g. Sybase). Example 0 is part of examples 4, 5, and 6, so if example 0 works, these other examples may work, even if the engine does not properly support the right hand side of the <code>OR</code> expression.</p>
 
@@ -700,7 +726,7 @@
 
     <p>Here is a table that indicates which examples above are known to work on various database engines:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">                   -----Examples------
+    <pre><code data-language="perl">                   -----Examples------
                        0  1  2  3  4  5  6
                        -  -  -  -  -  -  -
       Oracle 9         N  Y  N  Y  Y  ?  Y
@@ -709,7 +735,7 @@
       Sybase           Y  N  N  N  N  N  Y
       AnyData,DBM,CSV  Y  N  N  N  Y  Y* Y
       SQLite 3.3       N  N  N  N  Y  N  N
-      MSAccess         N  N  N  N  Y  N  Y</pre>
+      MSAccess         N  N  N  N  Y  N  Y</code></pre>
 
     <p>* Works only because Example 0 works.</p>
 
@@ -719,7 +745,7 @@
 
     <p>Without using placeholders, the insert statement shown previously would have to contain the literal values to be inserted and would have to be re-prepared and re-executed for each row. With placeholders, the insert statement only needs to be prepared once. The bind values for each row can be given to the <code>execute</code> method each time it&#39;s called. By avoiding the need to re-prepare the statement for each row, the application typically runs many times faster. Here&#39;s an example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $sth = $dbh-&gt;prepare(q{
+    <pre><code data-language="perl">  my $sth = $dbh-&gt;prepare(q{
         INSERT INTO sales (product_code, qty, price) VALUES (?, ?, ?)
       }) or die $dbh-&gt;errstr;
       while (&lt;&gt;) {
@@ -727,7 +753,7 @@
           my ($product_code, $qty, $price) = split /,/;
           $sth-&gt;execute($product_code, $qty, $price) or die $dbh-&gt;errstr;
       }
-      $dbh-&gt;commit or die $dbh-&gt;errstr;</pre>
+      $dbh-&gt;commit or die $dbh-&gt;errstr;</code></pre>
 
     <p>See <a href="#execute">&quot;execute&quot;</a> and <a href="#bind_param">&quot;bind_param&quot;</a> for more details.</p>
 
@@ -745,9 +771,9 @@
 
     <p>The names and values of all the defined SQL standard types can be produced like this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  foreach (@{ $DBI::EXPORT_TAGS{sql_types} }) {
+    <pre><code data-language="perl">  foreach (@{ $DBI::EXPORT_TAGS{sql_types} }) {
         printf &quot;%s=%d\n&quot;, $_, &amp;{&quot;DBI::$_&quot;};
-      }</pre>
+      }</code></pre>
 
     <p>These constants are defined by SQL/CLI, ODBC or both. <code>SQL_BIGINT</code> is (currently) omitted, because SQL/CLI and ODBC provide conflicting codes.</p>
 
@@ -761,29 +787,29 @@
 
     <h3 id="parse_dsn">parse_dsn</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  ($scheme, $driver, $attr_string, $attr_hash, $driver_dsn) = DBI-&gt;parse_dsn($dsn)
-          or die &quot;Can&#39;t parse DBI DSN &#39;$dsn&#39;&quot;;</pre>
+    <pre><code data-language="perl">  ($scheme, $driver, $attr_string, $attr_hash, $driver_dsn) = DBI-&gt;parse_dsn($dsn)
+          or die &quot;Can&#39;t parse DBI DSN &#39;$dsn&#39;&quot;;</code></pre>
 
     <p>Breaks apart a DBI Data Source Name (DSN) and returns the individual parts. If $dsn doesn&#39;t contain a valid DSN then parse_dsn() returns an empty list.</p>
 
     <p>$scheme is the first part of the DSN and is currently always &#39;dbi&#39;. $driver is the driver name, possibly defaulted to $ENV{DBI_DRIVER}, and may be undefined. $attr_string is the contents of the optional attribute string, which may be undefined. If $attr_string is not empty then $attr_hash is a reference to a hash containing the parsed attribute names and values. $driver_dsn is the last part of the DBI DSN string. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  ($scheme, $driver, $attr_string, $attr_hash, $driver_dsn)
+    <pre><code data-language="perl">  ($scheme, $driver, $attr_string, $attr_hash, $driver_dsn)
           = DBI-&gt;parse_dsn(&quot;DBI:MyDriver(RaiseError=&gt;1):db=test;port=42&quot;);
       $scheme      = &#39;dbi&#39;;
       $driver      = &#39;MyDriver&#39;;
       $attr_string = &#39;RaiseError=&gt;1&#39;;
       $attr_hash   = { &#39;RaiseError&#39; =&gt; &#39;1&#39; };
-      $driver_dsn  = &#39;db=test;port=42&#39;;</pre>
+      $driver_dsn  = &#39;db=test;port=42&#39;;</code></pre>
 
     <p>The parse_dsn() method was added in DBI 1.43.</p>
 
     <h3 id="connect">connect</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh = DBI-&gt;connect($data_source, $username, $password)
+    <pre><code data-language="perl">  $dbh = DBI-&gt;connect($data_source, $username, $password)
                 or die $DBI::errstr;
       $dbh = DBI-&gt;connect($data_source, $username, $password, \%attr)
-                or die $DBI::errstr;</pre>
+                or die $DBI::errstr;</code></pre>
 
     <p>Establishes a database connection, or session, to the requested <code>$data_source</code>. Returns a database handle object if the connection succeeds. Use <code>$dbh-&gt;disconnect</code> to terminate the connection.</p>
 
@@ -797,9 +823,9 @@
 
     <p>Examples of <code>$data_source</code> values are:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  dbi:DriverName:database_name
+    <pre><code data-language="perl">  dbi:DriverName:database_name
       dbi:DriverName:database_name@hostname:port
-      dbi:DriverName:database=database_name;host=hostname;port=port</pre>
+      dbi:DriverName:database=database_name;host=hostname;port=port</code></pre>
 
     <p>There is <i>no standard</i> for the text following the driver name. Each driver is free to use whatever syntax it wants. The only requirement the DBI makes is that all the information is supplied in a single string. You must consult the documentation for the drivers you are using for a description of the syntax they require.</p>
 
@@ -807,7 +833,7 @@
 
     <p>If the environment variable <code>DBI_AUTOPROXY</code> is defined (and the driver in <code>$data_source</code> is not &quot;<code>Proxy</code>&quot;) then the connect request will automatically be changed to:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $ENV{DBI_AUTOPROXY};dsn=$data_source</pre>
+    <pre><code data-language="perl">  $ENV{DBI_AUTOPROXY};dsn=$data_source</code></pre>
 
     <p><code>DBI_AUTOPROXY</code> is typically set as &quot;<code>dbi:Proxy:hostname=...;port=...</code>&quot;. If $ENV{DBI_AUTOPROXY} doesn&#39;t begin with &#39;<code>dbi:</code>&#39; then &quot;dbi:Proxy:&quot; will be prepended to it first. See the DBD::Proxy documentation for more details.</p>
 
@@ -821,16 +847,16 @@
 
     <p>The <code>\%attr</code> parameter can be used to alter the default settings of <code>PrintError</code>, <code>RaiseError</code>, <code>AutoCommit</code>, and other attributes. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh = DBI-&gt;connect($data_source, $user, $pass, {
+    <pre><code data-language="perl">  $dbh = DBI-&gt;connect($data_source, $user, $pass, {
             PrintError =&gt; 0,
             AutoCommit =&gt; 0
-      });</pre>
+      });</code></pre>
 
     <p>The username and password can also be specified using the attributes <code>Username</code> and <code>Password</code>, in which case they take precedence over the <code>$username</code> and <code>$password</code> parameters.</p>
 
     <p>You can also define connection attribute values within the <code>$data_source</code> parameter. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  dbi:DriverName(PrintWarn=&gt;1,PrintError=&gt;0,Taint=&gt;1):...</pre>
+    <pre><code data-language="perl">  dbi:DriverName(PrintWarn=&gt;1,PrintError=&gt;0,Taint=&gt;1):...</code></pre>
 
     <p>Individual attributes values specified in this way take precedence over any conflicting values specified via the <code>\%attr</code> parameter to <code>connect</code>.</p>
 
@@ -840,16 +866,16 @@
 
     <p>For compatibility with old DBI scripts, the driver can be specified by passing its name as the fourth argument to <code>connect</code> (instead of <code>\%attr</code>):</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh = DBI-&gt;connect($data_source, $user, $pass, $driver);</pre>
+    <pre><code data-language="perl">  $dbh = DBI-&gt;connect($data_source, $user, $pass, $driver);</code></pre>
 
     <p>In this &quot;old-style&quot; form of <code>connect</code>, the <code>$data_source</code> should not start with &quot;<code>dbi:driver_name:</code>&quot;. (If it does, the embedded driver_name will be ignored). Also note that in this older form of <code>connect</code>, the <code>$dbh-&gt;{AutoCommit}</code> attribute is <i>undefined</i>, the <code>$dbh-&gt;{PrintError}</code> attribute is off, and the old <code>DBI_DBNAME</code> environment variable is checked if <code>DBI_DSN</code> is not defined. Beware that this &quot;old-style&quot; <code>connect</code> will soon be withdrawn in a future version of DBI.</p>
 
     <h3 id="connect_cached">connect_cached</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh = DBI-&gt;connect_cached($data_source, $username, $password)
+    <pre><code data-language="perl">  $dbh = DBI-&gt;connect_cached($data_source, $username, $password)
                 or die $DBI::errstr;
       $dbh = DBI-&gt;connect_cached($data_source, $username, $password, \%attr)
-                or die $DBI::errstr;</pre>
+                or die $DBI::errstr;</code></pre>
 
     <p><code>connect_cached</code> is like <a href="#connect">&quot;connect&quot;</a>, except that the database handle returned is also stored in a hash associated with the given parameters. If another call is made to <code>connect_cached</code> with the same parameter values, then the corresponding cached <code>$dbh</code> will be returned if it is still valid. The cached database handle is replaced with a new connection if it has been disconnected or if the <code>ping</code> method fails.</p>
 
@@ -859,31 +885,31 @@
 
     <p>Where multiple separate parts of a program are using connect_cached() to connect to the same database with the same (initial) attributes it is a good idea to add a private attribute to the connect_cached() call to effectively limit the scope of the caching. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI-&gt;connect_cached(..., { private_foo_cachekey =&gt; &quot;Bar&quot;, ... });</pre>
+    <pre><code data-language="perl">  DBI-&gt;connect_cached(..., { private_foo_cachekey =&gt; &quot;Bar&quot;, ... });</code></pre>
 
     <p>Handles returned from that connect_cached() call will only be returned by other connect_cached() call elsewhere in the code if those other calls also pass in the same attribute values, including the private one. (I&#39;ve used <code>private_foo_cachekey</code> here as an example, you can use any attribute name with a <code>private_</code> prefix.)</p>
 
     <p>Taking that one step further, you can limit a particular connect_cached() call to return handles unique to that one place in the code by setting the private attribute to a unique value for that place:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI-&gt;connect_cached(..., { private_foo_cachekey =&gt; __FILE__.__LINE__, ... });</pre>
+    <pre><code data-language="perl">  DBI-&gt;connect_cached(..., { private_foo_cachekey =&gt; __FILE__.__LINE__, ... });</code></pre>
 
     <p>By using a private attribute you still get connection caching for the individual calls to connect_cached() but, by making separate database connections for separate parts of the code, the database handles are isolated from any attribute changes made to other handles.</p>
 
     <p>The cache can be accessed (and cleared) via the <a href="#CachedKids">&quot;CachedKids&quot;</a> attribute:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $CachedKids_hashref = $dbh-&gt;{Driver}-&gt;{CachedKids};
-      %$CachedKids_hashref = () if $CachedKids_hashref;</pre>
+    <pre><code data-language="perl">  my $CachedKids_hashref = $dbh-&gt;{Driver}-&gt;{CachedKids};
+      %$CachedKids_hashref = () if $CachedKids_hashref;</code></pre>
 
     <h3 id="available_drivers">available_drivers</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @ary = DBI-&gt;available_drivers;
-      @ary = DBI-&gt;available_drivers($quiet);</pre>
+    <pre><code data-language="perl">  @ary = DBI-&gt;available_drivers;
+      @ary = DBI-&gt;available_drivers($quiet);</code></pre>
 
     <p>Returns a list of all available drivers by searching for <code>DBD::*</code> modules through the directories in <code>@INC</code>. By default, a warning is given if some drivers are hidden by others of the same name in earlier directories. Passing a true value for <code>$quiet</code> will inhibit the warning.</p>
 
     <h3 id="installed_drivers">installed_drivers</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  %drivers = DBI-&gt;installed_drivers();</pre>
+    <pre><code data-language="perl">  %drivers = DBI-&gt;installed_drivers();</code></pre>
 
     <p>Returns a list of driver name and driver handle pairs for all drivers &#39;installed&#39; (loaded) into the current process. The driver name does not include the &#39;DBD::&#39; prefix.</p>
 
@@ -893,9 +919,9 @@
 
     <h3 id="installed_versions">installed_versions</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI-&gt;installed_versions;
+    <pre><code data-language="perl">  DBI-&gt;installed_versions;
       @ary  = DBI-&gt;installed_versions;
-      %hash = DBI-&gt;installed_versions;</pre>
+      %hash = DBI-&gt;installed_versions;</code></pre>
 
     <p>Calls available_drivers() and attempts to load each of them in turn using install_driver(). For each load that succeeds the driver name and version number are added to a hash. When running under <a href="/module/DBI::PurePerl">DBI::PurePerl</a> drivers which appear not be pure-perl are ignored.</p>
 
@@ -909,14 +935,14 @@
 
     <p>The installed_versions() method is primarily intended as a quick way to see from the command line what&#39;s installed. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  perl -MDBI -e &#39;DBI-&gt;installed_versions&#39;</pre>
+    <pre><code data-language="perl">  perl -MDBI -e &#39;DBI-&gt;installed_versions&#39;</code></pre>
 
     <p>The installed_versions() method was added in DBI 1.38.</p>
 
     <h3 id="data_sources">data_sources</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @ary = DBI-&gt;data_sources($driver);
-      @ary = DBI-&gt;data_sources($driver, \%attr);</pre>
+    <pre><code data-language="perl">  @ary = DBI-&gt;data_sources($driver);
+      @ary = DBI-&gt;data_sources($driver, \%attr);</code></pre>
 
     <p>Returns a list of data sources (databases) available via the named driver. If <code>$driver</code> is empty or <code>undef</code>, then the value of the <code>DBI_DRIVER</code> environment variable is used.</p>
 
@@ -930,10 +956,10 @@
 
     <h3 id="trace">trace</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI-&gt;trace($trace_setting)
+    <pre><code data-language="perl">  DBI-&gt;trace($trace_setting)
       DBI-&gt;trace($trace_setting, $trace_filename)
       DBI-&gt;trace($trace_setting, $trace_filehandle)
-      $trace_setting = DBI-&gt;trace;</pre>
+      $trace_setting = DBI-&gt;trace;</code></pre>
 
     <p>The <code>DBI-&gt;trace</code> method sets the <i>global default</i> trace settings and returns the <i>previous</i> trace settings. It can also be used to change where the trace output is sent.</p>
 
@@ -943,24 +969,24 @@
 
     <h3 id="visit_handles">visit_handles</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI-&gt;visit_handles( $coderef );
-      DBI-&gt;visit_handles( $coderef, $info );</pre>
+    <pre><code data-language="perl">  DBI-&gt;visit_handles( $coderef );
+      DBI-&gt;visit_handles( $coderef, $info );</code></pre>
 
     <p>Where $coderef is a reference to a subroutine and $info is an arbitrary value which, if undefined, defaults to a reference to an empty hash. Returns $info.</p>
 
     <p>For each installed driver handle, if any, $coderef is invoked as:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $coderef-&gt;($driver_handle, $info);</pre>
+    <pre><code data-language="perl">  $coderef-&gt;($driver_handle, $info);</code></pre>
 
     <p>If the execution of $coderef returns a true value then <a href="#visit_child_handles">&quot;visit_child_handles&quot;</a> is called on that child handle and passed the returned value as $info.</p>
 
     <p>For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $info = $dbh-&gt;{Driver}-&gt;visit_child_handles(sub {
+    <pre><code data-language="perl">  my $info = $dbh-&gt;{Driver}-&gt;visit_child_handles(sub {
           my ($h, $info) = @_;
           ++$info-&gt;{ $h-&gt;{Type} }; # count types of handles (dr/db/st)
           return $info; # visit kids
-      });</pre>
+      });</code></pre>
 
     <p>See also <a href="#visit_child_handles">&quot;visit_child_handles&quot;</a>.</p>
 
@@ -970,23 +996,23 @@
 
     <p>These can be imported into your code by listing them in the <code>use</code> statement. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  use DBI qw(neat data_diff);</pre>
+    <pre><code data-language="perl">  use DBI qw(neat data_diff);</code></pre>
 
     <p>Alternatively, all these utility functions (except hash) can be imported using the <code>:utils</code> import tag. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  use DBI qw(:utils);</pre>
+    <pre><code data-language="perl">  use DBI qw(:utils);</code></pre>
 
     <h3 id="data_string_desc">data_string_desc</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $description = data_string_desc($string);</pre>
+    <pre><code data-language="perl">  $description = data_string_desc($string);</code></pre>
 
     <p>Returns an informal description of the string. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  UTF8 off, ASCII, 42 characters 42 bytes
+    <pre><code data-language="perl">  UTF8 off, ASCII, 42 characters 42 bytes
       UTF8 off, non-ASCII, 42 characters 42 bytes
       UTF8 on, non-ASCII, 4 characters 6 bytes
       UTF8 on but INVALID encoding, non-ASCII, 4 characters 6 bytes
-      UTF8 off, undef</pre>
+      UTF8 off, undef</code></pre>
 
     <p>The initial <code>UTF8</code> on/off refers to Perl&#39;s internal SvUTF8 flag. If $string has the SvUTF8 flag set but the sequence of bytes it contains are not a valid UTF-8 encoding then data_string_desc() will report <code>UTF8 on but INVALID encoding</code>.</p>
 
@@ -996,16 +1022,16 @@
 
     <h3 id="data_string_diff">data_string_diff</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $diff = data_string_diff($a, $b);</pre>
+    <pre><code data-language="perl">  $diff = data_string_diff($a, $b);</code></pre>
 
     <p>Returns an informal description of the first character difference between the strings. If both $a and $b contain the same sequence of characters then data_string_diff() returns an empty string. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> Params a &amp; b     Result
+    <pre><code data-language="perl"> Params a &amp; b     Result
      ------------     ------
      &#39;aaa&#39;, &#39;aaa&#39;     &#39;&#39;
      &#39;aaa&#39;, &#39;abc&#39;     &#39;Strings differ at index 2: a[2]=a, b[2]=b&#39;
      &#39;aaa&#39;, undef     &#39;String b is undef, string a has 3 characters&#39;
-     &#39;aaa&#39;, &#39;aa&#39;      &#39;String b truncated after 2 characters&#39;</pre>
+     &#39;aaa&#39;, &#39;aa&#39;      &#39;String b truncated after 2 characters&#39;</code></pre>
 
     <p>Unicode characters are reported in <code>\x{XXXX}</code> format. Unicode code points in the range U+0800 to U+08FF are unassigned and most likely to occur due to double-encoding. Characters in this range are reported as <code>\x{08XX}=&#39;C&#39;</code> where <code>C</code> is the corresponding latin-1 character.</p>
 
@@ -1015,16 +1041,16 @@
 
     <h3 id="data_diff">data_diff</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $diff = data_diff($a, $b);
-      $diff = data_diff($a, $b, $logical);</pre>
+    <pre><code data-language="perl">  $diff = data_diff($a, $b);
+      $diff = data_diff($a, $b, $logical);</code></pre>
 
     <p>Returns an informal description of the difference between two strings. It calls <a href="#data_string_desc">&quot;data_string_desc&quot;</a> and <a href="#data_string_diff">&quot;data_string_diff&quot;</a> and returns the combined results as a multi-line string.</p>
 
     <p>For example, <code>data_diff(&quot;abc&quot;, &quot;ab\x{263a}&quot;)</code> will return:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  a: UTF8 off, ASCII, 3 characters 3 bytes
+    <pre><code data-language="perl">  a: UTF8 off, ASCII, 3 characters 3 bytes
       b: UTF8 on, non-ASCII, 3 characters 5 bytes
-      Strings differ at index 2: a[2]=c, b[2]=\x{263A}</pre>
+      Strings differ at index 2: a[2]=c, b[2]=\x{263A}</code></pre>
 
     <p>If $a and $b are identical in both the characters they contain <i>and</i> their physical encoding then data_diff() returns an empty string. If $logical is true then physical encoding differences are ignored (but are still reported if there is a difference in the characters).</p>
 
@@ -1032,8 +1058,8 @@
 
     <h3 id="neat">neat</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $str = neat($value);
-      $str = neat($value, $maxlen);</pre>
+    <pre><code data-language="perl">  $str = neat($value);
+      $str = neat($value, $maxlen);</code></pre>
 
     <p>Return a string containing a neat (and tidy) representation of the supplied value.</p>
 
@@ -1047,19 +1073,19 @@
 
     <h3 id="neat_list">neat_list</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $str = neat_list(\@listref, $maxlen, $field_sep);</pre>
+    <pre><code data-language="perl">  $str = neat_list(\@listref, $maxlen, $field_sep);</code></pre>
 
     <p>Calls <code>neat</code> on each element of the list and returns a string containing the results joined with <code>$field_sep</code>. <code>$field_sep</code> defaults to <code>&quot;, &quot;</code>.</p>
 
     <h3 id="looks_like_number">looks_like_number</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @bool = looks_like_number(@array);</pre>
+    <pre><code data-language="perl">  @bool = looks_like_number(@array);</code></pre>
 
     <p>Returns true for each element that looks like a number. Returns false for each element that does not look like a number. Returns <code>undef</code> for each element that is undefined or empty.</p>
 
     <h3 id="hash">hash</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $hash_value = DBI::hash($buffer, $type);</pre>
+    <pre><code data-language="perl">  $hash_value = DBI::hash($buffer, $type);</code></pre>
 
     <p>Return a 32-bit integer &#39;hash&#39; value corresponding to the contents of $buffer. The $type parameter selects which kind of hash algorithm should be used.</p>
 
@@ -1069,7 +1095,7 @@
 
     <h3 id="sql_type_cast">sql_type_cast</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sts = DBI::sql_type_cast($sv, $sql_type, $flags);</pre>
+    <pre><code data-language="perl">  $sts = DBI::sql_type_cast($sv, $sql_type, $flags);</code></pre>
 
     <p>sql_type_cast attempts to cast <code>$sv</code> to the SQL type (see <a href="#DBI-Constants">&quot;DBI Constants&quot;</a>) specified in <code>$sql_type</code>. At present only the SQL types <code>SQL_INTEGER</code>, <code>SQL_DOUBLE</code> and <code>SQL_NUMERIC</code> are supported.</p>
 
@@ -1099,11 +1125,11 @@
 
     <p>The returned <code>$sts</code> value is:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  -2 sql_type is not handled
+    <pre><code data-language="perl">  -2 sql_type is not handled
       -1 sv is undef so unchanged
        0 sv could not be cast cleanly and DBIstcf_STRICT was used
        1 sv could not be cast and DBIstcf_STRICT was not used
-       2 sv was cast successfully</pre>
+       2 sv was cast successfully</code></pre>
 
     <p>This method is exported by the :utils tag and was introduced in DBI 1.611.</p>
 
@@ -1141,7 +1167,7 @@
 
     <h3 id="err">err</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rv = $h-&gt;err;</pre>
+    <pre><code data-language="perl">  $rv = $h-&gt;err;</code></pre>
 
     <p>Returns the <i>native</i> database engine error code from the last driver method called. The code is typically an integer but you should not assume that.</p>
 
@@ -1159,7 +1185,7 @@
 
     <h3 id="errstr">errstr</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $str = $h-&gt;errstr;</pre>
+    <pre><code data-language="perl">  $str = $h-&gt;errstr;</code></pre>
 
     <p>Returns the native database engine error message from the last DBI method called. This has the same lifespan issues as the <a href="#err">&quot;err&quot;</a> method described above.</p>
 
@@ -1171,7 +1197,7 @@
 
     <h3 id="state">state</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $str = $h-&gt;state;</pre>
+    <pre><code data-language="perl">  $str = $h-&gt;state;</code></pre>
 
     <p>Returns a state code in the standard SQLSTATE five character format. Note that the specific success code <code>00000</code> is translated to any empty string (false). If the driver does not support SQLSTATE (and most don&#39;t), then state() will return <code>S1000</code> (General Error) for all errors.</p>
 
@@ -1181,10 +1207,10 @@
 
     <h3 id="set_err">set_err</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rv = $h-&gt;set_err($err, $errstr);
+    <pre><code data-language="perl">  $rv = $h-&gt;set_err($err, $errstr);
       $rv = $h-&gt;set_err($err, $errstr, $state);
       $rv = $h-&gt;set_err($err, $errstr, $state, $method);
-      $rv = $h-&gt;set_err($err, $errstr, $state, $method, $rv);</pre>
+      $rv = $h-&gt;set_err($err, $errstr, $state, $method, $rv);</code></pre>
 
     <p>Set the <code>err</code>, <code>errstr</code>, and <code>state</code> values for the handle. This method is typically only used by DBI drivers and DBI subclasses.</p>
 
@@ -1210,9 +1236,9 @@
 
     <h3 id="trace1">trace</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;trace($trace_settings);
+    <pre><code data-language="perl">  $h-&gt;trace($trace_settings);
       $h-&gt;trace($trace_settings, $trace_filename);
-      $trace_settings = $h-&gt;trace;</pre>
+      $trace_settings = $h-&gt;trace;</code></pre>
 
     <p>The trace() method is used to alter the trace settings for a handle (and any future children of that handle). It can also be used to change where the trace output is sent.</p>
 
@@ -1222,8 +1248,8 @@
 
     <h3 id="trace_msg">trace_msg</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;trace_msg($message_text);
-      $h-&gt;trace_msg($message_text, $min_level);</pre>
+    <pre><code data-language="perl">  $h-&gt;trace_msg($message_text);
+      $h-&gt;trace_msg($message_text, $min_level);</code></pre>
 
     <p>Writes <code>$message_text</code> to the trace file if the trace level is greater than or equal to $min_level (which defaults to 1). Can also be called as <code>DBI-&gt;trace_msg($msg)</code>.</p>
 
@@ -1231,7 +1257,7 @@
 
     <h3 id="func">func</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;func(@func_arguments, $func_name) or die ...;</pre>
+    <pre><code data-language="perl">  $h-&gt;func(@func_arguments, $func_name) or die ...;</code></pre>
 
     <p>The <code>func</code> method can be used to call private non-standard and non-portable methods implemented by the driver. Note that the function name is given as the <i>last</i> argument.</p>
 
@@ -1243,13 +1269,13 @@
 
     <h3 id="can">can</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $is_implemented = $h-&gt;can($method_name);</pre>
+    <pre><code data-language="perl">  $is_implemented = $h-&gt;can($method_name);</code></pre>
 
     <p>Returns true if $method_name is implemented by the driver or a default method is provided by the DBI. It returns false where a driver hasn&#39;t implemented a method and the default method is provided by the DBI is just an empty stub.</p>
 
     <h3 id="parse_trace_flags">parse_trace_flags</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $trace_settings_integer = $h-&gt;parse_trace_flags($trace_settings);</pre>
+    <pre><code data-language="perl">  $trace_settings_integer = $h-&gt;parse_trace_flags($trace_settings);</code></pre>
 
     <p>Parses a string containing trace settings and returns the corresponding integer value used internally by the DBI and drivers.</p>
 
@@ -1261,7 +1287,7 @@
 
     <h3 id="parse_trace_flag">parse_trace_flag</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $bit_flag = $h-&gt;parse_trace_flag($trace_flag_name);</pre>
+    <pre><code data-language="perl">  $bit_flag = $h-&gt;parse_trace_flag($trace_flag_name);</code></pre>
 
     <p>Returns the bit flag corresponding to the trace flag name in $trace_flag_name. Drivers are expected to override this method and check if $trace_flag_name is a driver specific trace flags and, if not, then call the DBI&#39;s default parse_trace_flag().</p>
 
@@ -1269,33 +1295,33 @@
 
     <h3 id="private_attribute_info">private_attribute_info</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $hash_ref = $h-&gt;private_attribute_info();</pre>
+    <pre><code data-language="perl">  $hash_ref = $h-&gt;private_attribute_info();</code></pre>
 
     <p>Returns a reference to a hash whose keys are the names of driver-private handle attributes available for the kind of handle (driver, database, statement) that the method was called on.</p>
 
     <p>For example, the return value when called with a DBD::Sybase $dbh could look like this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  {
+    <pre><code data-language="perl">  {
           syb_dynamic_supported =&gt; undef,
           syb_oc_version =&gt; undef,
           syb_server_version =&gt; undef,
           syb_server_version_string =&gt; undef,
-      }</pre>
+      }</code></pre>
 
     <p>and when called with a DBD::Sybase $sth they could look like this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  {
+    <pre><code data-language="perl">  {
           syb_types =&gt; undef,
           syb_proc_status =&gt; undef,
           syb_result_type =&gt; undef,
-      }</pre>
+      }</code></pre>
 
     <p>The values should be undef. Meanings may be assigned to particular values in future.</p>
 
     <h3 id="swap_inner_handle">swap_inner_handle</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $h1-&gt;swap_inner_handle( $h2 );
-      $rc = $h1-&gt;swap_inner_handle( $h2, $allow_reparent );</pre>
+    <pre><code data-language="perl">  $rc = $h1-&gt;swap_inner_handle( $h2 );
+      $rc = $h1-&gt;swap_inner_handle( $h2, $allow_reparent );</code></pre>
 
     <p>Brain transplants for handles. You don&#39;t need to know about this unless you want to become a handle surgeon.</p>
 
@@ -1307,7 +1333,7 @@
 
     <p>Here&#39;s a quick kind of &#39;diagram&#39; as a worked example to help think about what&#39;s happening:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    Original state:
+    <pre><code data-language="perl">    Original state:
                 dbh1o -&gt; dbh1i
                 sthAo -&gt; sthAi(dbh1i)
                 dbh2o -&gt; dbh2i
@@ -1327,30 +1353,30 @@
                 dbh2o -&gt; dbh1i
                 sthBo -&gt; sthAi(dbh1i)
                 dbh1o -&gt; dbh2i
-                sthAo -&gt; sthBi(dbh2i)</pre>
+                sthAo -&gt; sthBi(dbh2i)</code></pre>
 
     <h3 id="visit_child_handles">visit_child_handles</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;visit_child_handles( $coderef );
-      $h-&gt;visit_child_handles( $coderef, $info );</pre>
+    <pre><code data-language="perl">  $h-&gt;visit_child_handles( $coderef );
+      $h-&gt;visit_child_handles( $coderef, $info );</code></pre>
 
     <p>Where $coderef is a reference to a subroutine and $info is an arbitrary value which, if undefined, defaults to a reference to an empty hash. Returns $info.</p>
 
     <p>For each child handle of $h, if any, $coderef is invoked as:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $coderef-&gt;($child_handle, $info);</pre>
+    <pre><code data-language="perl">  $coderef-&gt;($child_handle, $info);</code></pre>
 
     <p>If the execution of $coderef returns a true value then <code>visit_child_handles</code> is called on that child handle and passed the returned value as $info.</p>
 
     <p>For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  # count database connections with names (DSN) matching a pattern
+    <pre><code data-language="perl">  # count database connections with names (DSN) matching a pattern
       my $connections = 0;
       $dbh-&gt;{Driver}-&gt;visit_child_handles(sub {
           my ($h, $info) = @_;
           ++$connections if $h-&gt;{Name} =~ /foo/;
           return 0; # don&#39;t visit kids
-      })</pre>
+      })</code></pre>
 
     <p>See also <a href="#visit_handles">&quot;visit_handles&quot;</a>.</p>
 
@@ -1364,8 +1390,8 @@
 
     <p>Example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;{AttributeName} = ...;    # set/write
-      ... = $h-&gt;{AttributeName};    # get/read</pre>
+    <pre><code data-language="perl">  $h-&gt;{AttributeName} = ...;    # set/write
+      ... = $h-&gt;{AttributeName};    # get/read</code></pre>
 
     <h3 id="Warn">Warn</h3>
 
@@ -1427,7 +1453,7 @@
 
     <p>For example, to enumerate all driver handles, database handles and statement handles:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    sub show_child_handles {
+    <pre><code data-language="perl">    sub show_child_handles {
             my ($h, $level) = @_;
             printf &quot;%sh %s %s\n&quot;, $h-&gt;{Type}, &quot;\t&quot; x $level, $h;
             show_child_handles($_, $level + 1)
@@ -1435,7 +1461,7 @@
         }
 
         my %drivers = DBI-&gt;installed_drivers();
-        show_child_handles($_, 0) for (values %drivers);</pre>
+        show_child_handles($_, 0) for (values %drivers);</code></pre>
 
     <h3 id="CompatMode">CompatMode</h3>
 
@@ -1471,10 +1497,10 @@
 
     <p>This is the example it&#39;s designed to deal with:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    my $dbh = DBI-&gt;connect(...);
+    <pre><code data-language="perl">    my $dbh = DBI-&gt;connect(...);
         some_code_that_forks(); # Perhaps without your knowledge
         # Child process dies, destroying the inherited dbh
-        $dbh-&gt;do(...); # Breaks because parent $dbh is now broken</pre>
+        $dbh-&gt;do(...); # Breaks because parent $dbh is now broken</code></pre>
 
     <p>The <code>AutoInactiveDestroy</code> attribute was added in DBI 1.614.</p>
 
@@ -1484,7 +1510,7 @@
 
     <p>The <code>PrintWarn</code> attribute controls the printing of warnings recorded by the driver. When set to a true value the DBI will check method calls to see if a warning condition has been set. If so, the DBI will effectively do a <code>warn(&quot;$class $method warning: $DBI::errstr&quot;)</code> where <code>$class</code> is the driver class and <code>$method</code> is the name of the method which failed. E.g.,</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBD::Oracle::db execute warning: ... warning text here ...</pre>
+    <pre><code data-language="perl">  DBD::Oracle::db execute warning: ... warning text here ...</code></pre>
 
     <p>By default, <code>DBI-&gt;connect</code> sets <code>PrintWarn</code> &quot;on&quot; if $^W is true, i.e., perl is running with warnings enabled.</p>
 
@@ -1500,7 +1526,7 @@
 
     <p>The <code>PrintError</code> attribute can be used to force errors to generate warnings (using <code>warn</code>) in addition to returning error codes in the normal way. When set &quot;on&quot;, any method which results in an error occurring will cause the DBI to effectively do a <code>warn(&quot;$class $method failed: $DBI::errstr&quot;)</code> where <code>$class</code> is the driver class and <code>$method</code> is the name of the method which failed. E.g.,</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBD::Oracle::db prepare failed: ... error text here ...</pre>
+    <pre><code data-language="perl">  DBD::Oracle::db prepare failed: ... error text here ...</code></pre>
 
     <p>By default, <code>DBI-&gt;connect</code> sets <code>PrintError</code> &quot;on&quot;.</p>
 
@@ -1512,13 +1538,13 @@
 
     <p>The <code>RaiseError</code> attribute can be used to force errors to raise exceptions rather than simply return error codes in the normal way. It is &quot;off&quot; by default. When set &quot;on&quot;, any method which results in an error will cause the DBI to effectively do a <code>die(&quot;$class $method failed: $DBI::errstr&quot;)</code>, where <code>$class</code> is the driver class and <code>$method</code> is the name of the method that failed. E.g.,</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBD::Oracle::db prepare failed: ... error text here ...</pre>
+    <pre><code data-language="perl">  DBD::Oracle::db prepare failed: ... error text here ...</code></pre>
 
     <p>If you turn <code>RaiseError</code> on then you&#39;d normally turn <code>PrintError</code> off. If <code>PrintError</code> is also on, then the <code>PrintError</code> is done first (naturally).</p>
 
     <p>Typically <code>RaiseError</code> is used in conjunction with <code>eval { ... }</code> to catch the exception that&#39;s been thrown and followed by an <code>if ($@) { ... }</code> block to handle the caught exception. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  eval {
+    <pre><code data-language="perl">  eval {
         ...
         $sth-&gt;execute();
         ...
@@ -1527,7 +1553,7 @@
         # $sth-&gt;err and $DBI::err will be true if error was from DBI
         warn $@; # print the error
         ... # do whatever you need to deal with the error
-      }</pre>
+      }</code></pre>
 
     <p>In that eval block the $DBI::lasth variable can be useful for diagnosis and reporting if you can&#39;t be sure which handle triggered the error. For example, $DBI::lasth-&gt;{Type} and $DBI::lasth-&gt;{Statement}.</p>
 
@@ -1535,10 +1561,10 @@
 
     <p>If you want to temporarily turn <code>RaiseError</code> off (inside a library function that is likely to fail, for example), the recommended way is like this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  {
+    <pre><code data-language="perl">  {
         local $h-&gt;{RaiseError};  # localize and turn off for this block
         ...
-      }</pre>
+      }</code></pre>
 
     <p>The original value will automatically and reliably be restored by Perl, regardless of how the block is exited. The same logic applies to other attributes, including <code>PrintError</code>.</p>
 
@@ -1554,39 +1580,39 @@
 
     <p>For example, to <code>die</code> with a full stack trace for any error:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  use Carp;
-      $h-&gt;{HandleError} = sub { confess(shift) };</pre>
+    <pre><code data-language="perl">  use Carp;
+      $h-&gt;{HandleError} = sub { confess(shift) };</code></pre>
 
     <p>Or to turn errors into exceptions:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  use Exception; # or your own favourite exception module
-      $h-&gt;{HandleError} = sub { Exception-&gt;new(&#39;DBI&#39;)-&gt;raise($_[0]) };</pre>
+    <pre><code data-language="perl">  use Exception; # or your own favourite exception module
+      $h-&gt;{HandleError} = sub { Exception-&gt;new(&#39;DBI&#39;)-&gt;raise($_[0]) };</code></pre>
 
     <p>It is possible to &#39;stack&#39; multiple HandleError handlers by using closures:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  sub your_subroutine {
+    <pre><code data-language="perl">  sub your_subroutine {
         my $previous_handler = $h-&gt;{HandleError};
         $h-&gt;{HandleError} = sub {
           return 1 if $previous_handler and &amp;$previous_handler(@_);
           ... your code here ...
         };
-      }</pre>
+      }</code></pre>
 
     <p>Using a <code>my</code> inside a subroutine to store the previous <code>HandleError</code> value is important. See <a href="/module/perlsub">perlsub</a> and <a href="/module/perlref">perlref</a> for more information about <i>closures</i>.</p>
 
     <p>It is possible for <code>HandleError</code> to alter the error message that will be used by <code>RaiseError</code> and <code>PrintError</code> if it returns false. It can do that by altering the value of $_[0]. This example appends a stack trace to all errors and, unlike the previous example using Carp::confess, this will work <code>PrintError</code> as well as <code>RaiseError</code>:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;{HandleError} = sub { $_[0]=Carp::longmess($_[0]); 0; };</pre>
+    <pre><code data-language="perl">  $h-&gt;{HandleError} = sub { $_[0]=Carp::longmess($_[0]); 0; };</code></pre>
 
     <p>It is also possible for <code>HandleError</code> to hide an error, to a limited degree, by using <a href="#set_err">&quot;set_err&quot;</a> to reset $DBI::err and $DBI::errstr, and altering the return value of the failed method. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;{HandleError} = sub {
+    <pre><code data-language="perl">  $h-&gt;{HandleError} = sub {
         return 0 unless $_[0] =~ /^\S+ fetchrow_arrayref failed:/;
         return 0 unless $_[1]-&gt;err == 1234; # the error to &#39;hide&#39;
         $h-&gt;set_err(undef,undef);   # turn off the error
         $_[2] = [ ... ];    # supply alternative return value
         return 1;
-      };</pre>
+      };</code></pre>
 
     <p>This only works for methods which return a single value and is hard to make reliable (avoiding infinite loops, for example) and so isn&#39;t recommended for general use! If you find a <i>good</i> use for it then please let me know.</p>
 
@@ -1664,13 +1690,13 @@
 
     <p>For most drivers the value used here has a direct effect on the memory used by the statement handle while it&#39;s active, so don&#39;t be too generous. If you can&#39;t be sure what value to use you could execute an extra select statement to determine the longest value. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;{LongReadLen} = $dbh-&gt;selectrow_array(qq{
+    <pre><code data-language="perl">  $dbh-&gt;{LongReadLen} = $dbh-&gt;selectrow_array(qq{
           SELECT MAX(OCTET_LENGTH(long_column_name))
           FROM table WHERE ...
       });
       $sth = $dbh-&gt;prepare(qq{
           SELECT long_column_name, ... FROM table WHERE ...
-      });</pre>
+      });</code></pre>
 
     <p>You may need to take extra care if the table can be modified between the first select and the second being executed. You may also need to use a different function if OCTET_LENGTH() does not work for long types in your database. For example, for Sybase use DATALENGTH() and for Oracle use LENGTHB().</p>
 
@@ -1756,24 +1782,24 @@
 
     <p>The arguments to the code reference will be the same as to the method, including the invocant (a database handle or statement handle). For example, say that to callback to some code on a call to <code>prepare()</code>:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;{Callbacks} = {
+    <pre><code data-language="perl">  $dbh-&gt;{Callbacks} = {
           prepare =&gt; sub {
               my ($dbh, $query, $attrs) = @_;
               print &quot;Preparing q{$query}\n&quot;
           },
-      };</pre>
+      };</code></pre>
 
     <p>The callback would then be executed when you called the <code>prepare()</code> method:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;prepare(&#39;SELECT 1&#39;);</pre>
+    <pre><code data-language="perl">  $dbh-&gt;prepare(&#39;SELECT 1&#39;);</code></pre>
 
     <p>And the output of course would be:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  Preparing q{SELECT 1}</pre>
+    <pre><code data-language="perl">  Preparing q{SELECT 1}</code></pre>
 
     <p>Because callbacks are executed <i>before</i> the methods they&#39;re associated with, you can modify the arguments before they&#39;re passed on to the method call. For example, to make sure that all calls to <code>prepare()</code> are immediately prepared by <a href="/module/DBD::Pg">DBD::Pg</a>, add a callback that makes sure that the <code>pg_prepare_now</code> attribute is always set:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $dbh = DBI-&gt;connect($dsn, $username, $auth, {
+    <pre><code data-language="perl">  my $dbh = DBI-&gt;connect($dsn, $username, $auth, {
           Callbacks =&gt; {
               prepare =&gt; sub {
                   $_[2] ||= {};
@@ -1781,28 +1807,28 @@
                   return; # must return nothing
               },
           }
-      });</pre>
+      });</code></pre>
 
     <p>Note that we are editing the contents of <code>@_</code> directly. In this case we&#39;ve created the attributes hash if it&#39;s not passed to the <code>prepare</code> call.</p>
 
     <p>You can also prevent the associated method from ever executing. While a callback executes, <code>$_</code> holds the method name. (This allows multiple callbacks to share the same code reference and still know what method was called.) To prevent the method from executing, simply <code>undef $_</code>. For example, if you wanted to disable calls to <code>ping()</code>, you could do this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;{Callbacks} = {
+    <pre><code data-language="perl">  $dbh-&gt;{Callbacks} = {
           ping =&gt; sub {
               # tell dispatch to not call the method:
               undef $_;
               # return this value instead:
               return &quot;42 bells&quot;;
           }
-      };</pre>
+      };</code></pre>
 
     <p>As with other attributes, Callbacks can be specified on a handle or via the attributes to <code>connect()</code>. Callbacks can also be applied to a statement methods on a statement handle. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth-&gt;{Callbacks} = {
+    <pre><code data-language="perl">  $sth-&gt;{Callbacks} = {
           execute =&gt; sub {
               print &quot;Executing &quot;, shift-&gt;{Statement}, &quot;\n&quot;;
           }
-      };</pre>
+      };</code></pre>
 
     <p>The <code>Callbacks</code> attribute of a database handle isn&#39;t copied to any statement handles it creates. So setting callbacks for a statement handle requires you to set the <code>Callbacks</code> attribute on the statement handle yourself, as in the example above, or use the special <code>ChildCallbacks</code> key described below.</p>
 
@@ -1812,7 +1838,7 @@
 
     <p>The first is the <code>ChildCallbacks</code> key. When a statement handle is created from a database handle the <code>ChildCallbacks</code> key of the database handle&#39;s <code>Callbacks</code> attribute, if any, becomes the new <code>Callbacks</code> attribute of the statement handle. This allows you to define callbacks for all statement handles created from a database handle. For example, if you wanted to count how many times <code>execute</code> was called in your application, you could write:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $exec_count = 0;
+    <pre><code data-language="perl">  my $exec_count = 0;
       my $dbh = DBI-&gt;connect( $dsn, $username, $auth, {
           Callbacks =&gt; {
               ChildCallbacks =&gt; {
@@ -1823,7 +1849,7 @@
 
       END {
           print &quot;The execute method was called $exec_count times\n&quot;;
-      }</pre>
+      }</code></pre>
 
     <p>The other two special keys are <code>connect_cached.new</code> and <code>connect_cached.reused</code>. These keys define callbacks that are called when <code>connect_cached()</code> is called, but allow different behaviors depending on whether a new handle is created or a handle is returned. The callback is invoked with these arguments: <code>$dbh, $dsn, $user, $auth, $attr</code>.</p>
 
@@ -1831,7 +1857,7 @@
 
     <p>Because the <code>connect_cached.*</code> callbacks are invoked before connect_cached() has applied the connect attributes you can use a callback to edit the attributes that will be applied. To prevent a cached handle from having its transactions committed before it&#39;s returned, you can eliminate the <code>AutoCommit</code> attribute in a <code>connect_cached.reused</code> callback, like so:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $cb = {
+    <pre><code data-language="perl">  my $cb = {
           &#39;connect_cached.reused&#39; =&gt; sub { delete $_[4]-&gt;{AutoCommit} },
       };
 
@@ -1843,13 +1869,13 @@
               AutoCommit =&gt; 1,
               Callbacks  =&gt; $cb,
           });
-      }</pre>
+      }</code></pre>
 
     <p>The upshot is that new database handles are created with <code>AutoCommit</code> enabled, while cached database handles are left in whatever transaction state they happened to be in when retrieved from the cache.</p>
 
     <p>A more common application for callbacks is setting connection state only when a new connection is made (by connect() or connect_cached()). Adding a callback to the connected method makes this easy. This method is a no-op by default (unless you subclass the DBI and change it). The DBI calls it to indicate that a new connection has been made and the connection attributes have all been set. You can give it a bit of added functionality by applying a callback to it. For example, to make sure that MySQL understands your application&#39;s ANSI-compliant SQL, set it up like so:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $dbh = DBI-&gt;connect($dsn, $username, $auth, {
+    <pre><code data-language="perl">  my $dbh = DBI-&gt;connect($dsn, $username, $auth, {
           Callbacks =&gt; {
               connected =&gt; sub {
                   shift-&gt;do(q{
@@ -1858,20 +1884,20 @@
                   return;
               },
           }
-      });</pre>
+      });</code></pre>
 
     <p>One significant limitation with callbacks is that there can only be one per method per handle. This means it&#39;s easy for one use of callbacks to interfere with, or typically simply overwrite, another use of callbacks. For this reason modules using callbacks should document the fact clearly so application authors can tell if use of callbacks by the module will clash with use of callbacks by the application.</p>
 
     <p>You might be able to work around this issue by taking a copy of the original callback and calling it within your own. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $prev_cb = $h-&gt;{Callbacks}{method_name};
+    <pre><code data-language="perl">  my $prev_cb = $h-&gt;{Callbacks}{method_name};
       $h-&gt;{Callbacks}{method_name} = sub {
         if ($prev_cb) {
             my @result = $prev_cb-&gt;(@_);
             return @result if not $_; # $prev_cb vetoed call
         }
         ... your callback logic here ...
-      };</pre>
+      };</code></pre>
 
     <h3 id="private_your_module_name_-">private_your_module_name_*</h3>
 
@@ -1881,12 +1907,12 @@
 
     <p>Because of the way the Perl tie mechanism works you cannot reliably use the <code>||=</code> operator directly to initialise the attribute, like this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $foo = $dbh-&gt;{private_yourmodname_foo} ||= { ... }; # WRONG</pre>
+    <pre><code data-language="perl">  my $foo = $dbh-&gt;{private_yourmodname_foo} ||= { ... }; # WRONG</code></pre>
 
     <p>you should use a two step approach like this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $foo = $dbh-&gt;{private_yourmodname_foo};
-      $foo ||= $dbh-&gt;{private_yourmodname_foo} = { ... };</pre>
+    <pre><code data-language="perl">  my $foo = $dbh-&gt;{private_yourmodname_foo};
+      $foo ||= $dbh-&gt;{private_yourmodname_foo} = { ... };</code></pre>
 
     <p>This attribute is primarily of interest to people sub-classing DBI, or for applications to piggy-back extra information onto DBI handles.</p>
 
@@ -1900,13 +1926,13 @@
 
     <h3 id="clone">clone</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $new_dbh = $dbh-&gt;clone(\%attr);</pre>
+    <pre><code data-language="perl">  $new_dbh = $dbh-&gt;clone(\%attr);</code></pre>
 
     <p>The <code>clone</code> method duplicates the $dbh connection by connecting with the same parameters ($dsn, $user, $password) as originally used.</p>
 
     <p>The attributes for the cloned connect are the same as those used for the <i>original</i> connect, with any other attributes in <code>\%attr</code> merged over them. Effectively the same as doing:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  %attributes_used = ( %original_attributes, %attr );</pre>
+    <pre><code data-language="perl">  %attributes_used = ( %original_attributes, %attr );</code></pre>
 
     <p>If \%attr is not given then it defaults to a hash containing all the attributes in the attribute cache of $dbh excluding any non-code references, plus the main boolean attributes (RaiseError, PrintError, AutoCommit, etc.). <i>This behaviour is unreliable and so use of clone without an argument is deprecated and may cause a warning in a future release.</i></p>
 
@@ -1916,8 +1942,8 @@
 
     <h3 id="data_sources1">data_sources</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @ary = $dbh-&gt;data_sources();
-      @ary = $dbh-&gt;data_sources(\%attr);</pre>
+    <pre><code data-language="perl">  @ary = $dbh-&gt;data_sources();
+      @ary = $dbh-&gt;data_sources(\%attr);</code></pre>
 
     <p>Returns a list of data sources (databases) available via the $dbh driver&#39;s data_sources() method, plus any extra data sources that the driver can discover via the connected $dbh. Typically the extra data sources are other databases managed by the same server process that the $dbh is connected to.</p>
 
@@ -1927,9 +1953,9 @@
 
     <h3 id="do">do</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rows = $dbh-&gt;do($statement)           or die $dbh-&gt;errstr;
+    <pre><code data-language="perl">  $rows = $dbh-&gt;do($statement)           or die $dbh-&gt;errstr;
       $rows = $dbh-&gt;do($statement, \%attr)   or die $dbh-&gt;errstr;
-      $rows = $dbh-&gt;do($statement, \%attr, @bind_values) or die ...</pre>
+      $rows = $dbh-&gt;do($statement, \%attr, @bind_values) or die ...</code></pre>
 
     <p>Prepare and execute a single statement. Returns the number of rows affected or <code>undef</code> on error. A return value of <code>-1</code> means the number of rows is not known, not applicable, or not available.</p>
 
@@ -1937,20 +1963,20 @@
 
     <p>The default <code>do</code> method is logically similar to:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  sub do {
+    <pre><code data-language="perl">  sub do {
           my($dbh, $statement, $attr, @bind_values) = @_;
           my $sth = $dbh-&gt;prepare($statement, $attr) or return undef;
           $sth-&gt;execute(@bind_values) or return undef;
           my $rows = $sth-&gt;rows;
           ($rows == 0) ? &quot;0E0&quot; : $rows; # always return true if no error
-      }</pre>
+      }</code></pre>
 
     <p>For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $rows_deleted = $dbh-&gt;do(q{
+    <pre><code data-language="perl">  my $rows_deleted = $dbh-&gt;do(q{
           DELETE FROM table
           WHERE status = ?
-      }, undef, &#39;DONE&#39;) or die $dbh-&gt;errstr;</pre>
+      }, undef, &#39;DONE&#39;) or die $dbh-&gt;errstr;</code></pre>
 
     <p>Using placeholders and <code>@bind_values</code> with the <code>do</code> method can be useful because it avoids the need to correctly quote any variables in the <code>$statement</code>. But if you&#39;ll be executing the statement many times then it&#39;s more efficient to <code>prepare</code> it once and call <code>execute</code> many times instead.</p>
 
@@ -1960,8 +1986,8 @@
 
     <h3 id="last_insert_id">last_insert_id</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rv = $dbh-&gt;last_insert_id($catalog, $schema, $table, $field);
-      $rv = $dbh-&gt;last_insert_id($catalog, $schema, $table, $field, \%attr);</pre>
+    <pre><code data-language="perl">  $rv = $dbh-&gt;last_insert_id($catalog, $schema, $table, $field);
+      $rv = $dbh-&gt;last_insert_id($catalog, $schema, $table, $field, \%attr);</code></pre>
 
     <p>Returns a value &#39;identifying&#39; the row just inserted, if possible. Typically this would be a value assigned by the database server to a column with an <i>auto_increment</i> or <i>serial</i> type. Returns undef if the driver does not support the method or can&#39;t determine the value.</p>
 
@@ -1989,9 +2015,9 @@
 
     <h3 id="selectrow_array">selectrow_array</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @row_ary = $dbh-&gt;selectrow_array($statement);
+    <pre><code data-language="perl">  @row_ary = $dbh-&gt;selectrow_array($statement);
       @row_ary = $dbh-&gt;selectrow_array($statement, \%attr);
-      @row_ary = $dbh-&gt;selectrow_array($statement, \%attr, @bind_values);</pre>
+      @row_ary = $dbh-&gt;selectrow_array($statement, \%attr, @bind_values);</code></pre>
 
     <p>This utility method combines <a href="#prepare">&quot;prepare&quot;</a>, <a href="#execute">&quot;execute&quot;</a> and <a href="#fetchrow_array">&quot;fetchrow_array&quot;</a> into a single call. If called in a list context, it returns the first row of data from the statement. The <code>$statement</code> parameter can be a previously prepared statement handle, in which case the <code>prepare</code> is skipped.</p>
 
@@ -2001,9 +2027,9 @@
 
     <h3 id="selectrow_arrayref">selectrow_arrayref</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $ary_ref = $dbh-&gt;selectrow_arrayref($statement);
+    <pre><code data-language="perl">  $ary_ref = $dbh-&gt;selectrow_arrayref($statement);
       $ary_ref = $dbh-&gt;selectrow_arrayref($statement, \%attr);
-      $ary_ref = $dbh-&gt;selectrow_arrayref($statement, \%attr, @bind_values);</pre>
+      $ary_ref = $dbh-&gt;selectrow_arrayref($statement, \%attr, @bind_values);</code></pre>
 
     <p>This utility method combines <a href="#prepare">&quot;prepare&quot;</a>, <a href="#execute">&quot;execute&quot;</a> and <a href="#fetchrow_arrayref">&quot;fetchrow_arrayref&quot;</a> into a single call. It returns the first row of data from the statement. The <code>$statement</code> parameter can be a previously prepared statement handle, in which case the <code>prepare</code> is skipped.</p>
 
@@ -2011,9 +2037,9 @@
 
     <h3 id="selectrow_hashref">selectrow_hashref</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $hash_ref = $dbh-&gt;selectrow_hashref($statement);
+    <pre><code data-language="perl">  $hash_ref = $dbh-&gt;selectrow_hashref($statement);
       $hash_ref = $dbh-&gt;selectrow_hashref($statement, \%attr);
-      $hash_ref = $dbh-&gt;selectrow_hashref($statement, \%attr, @bind_values);</pre>
+      $hash_ref = $dbh-&gt;selectrow_hashref($statement, \%attr, @bind_values);</code></pre>
 
     <p>This utility method combines <a href="#prepare">&quot;prepare&quot;</a>, <a href="#execute">&quot;execute&quot;</a> and <a href="#fetchrow_hashref">&quot;fetchrow_hashref&quot;</a> into a single call. It returns the first row of data from the statement. The <code>$statement</code> parameter can be a previously prepared statement handle, in which case the <code>prepare</code> is skipped.</p>
 
@@ -2021,9 +2047,9 @@
 
     <h3 id="selectall_arrayref">selectall_arrayref</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $ary_ref = $dbh-&gt;selectall_arrayref($statement);
+    <pre><code data-language="perl">  $ary_ref = $dbh-&gt;selectall_arrayref($statement);
       $ary_ref = $dbh-&gt;selectall_arrayref($statement, \%attr);
-      $ary_ref = $dbh-&gt;selectall_arrayref($statement, \%attr, @bind_values);</pre>
+      $ary_ref = $dbh-&gt;selectall_arrayref($statement, \%attr, @bind_values);</code></pre>
 
     <p>This utility method combines <a href="#prepare">&quot;prepare&quot;</a>, <a href="#execute">&quot;execute&quot;</a> and <a href="#fetchall_arrayref">&quot;fetchall_arrayref&quot;</a> into a single call. It returns a reference to an array containing a reference to an array (or hash, see below) for each row of data fetched.</p>
 
@@ -2037,25 +2063,25 @@
 
     <p>You may often want to fetch an array of rows where each row is stored as a hash. That can be done simple using:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $emps = $dbh-&gt;selectall_arrayref(
+    <pre><code data-language="perl">  my $emps = $dbh-&gt;selectall_arrayref(
           &quot;SELECT ename FROM emp ORDER BY ename&quot;,
           { Slice =&gt; {} }
       );
       foreach my $emp ( @$emps ) {
           print &quot;Employee: $emp-&gt;{ename}\n&quot;;
-      }</pre>
+      }</code></pre>
 
     <p>Or, to fetch into an array instead of an array ref:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @result = @{ $dbh-&gt;selectall_arrayref($sql, { Slice =&gt; {} }) };</pre>
+    <pre><code data-language="perl">  @result = @{ $dbh-&gt;selectall_arrayref($sql, { Slice =&gt; {} }) };</code></pre>
 
     <p>See <a href="#fetchall_arrayref">&quot;fetchall_arrayref&quot;</a> method for more details.</p>
 
     <h3 id="selectall_hashref">selectall_hashref</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $hash_ref = $dbh-&gt;selectall_hashref($statement, $key_field);
+    <pre><code data-language="perl">  $hash_ref = $dbh-&gt;selectall_hashref($statement, $key_field);
       $hash_ref = $dbh-&gt;selectall_hashref($statement, $key_field, \%attr);
-      $hash_ref = $dbh-&gt;selectall_hashref($statement, $key_field, \%attr, @bind_values);</pre>
+      $hash_ref = $dbh-&gt;selectall_hashref($statement, $key_field, \%attr, @bind_values);</code></pre>
 
     <p>This utility method combines <a href="#prepare">&quot;prepare&quot;</a>, <a href="#execute">&quot;execute&quot;</a> and <a href="#fetchall_hashref">&quot;fetchall_hashref&quot;</a> into a single call. It returns a reference to a hash containing one entry, at most, for each row, as returned by fetchall_hashref().</p>
 
@@ -2071,9 +2097,9 @@
 
     <h3 id="selectcol_arrayref">selectcol_arrayref</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $ary_ref = $dbh-&gt;selectcol_arrayref($statement);
+    <pre><code data-language="perl">  $ary_ref = $dbh-&gt;selectcol_arrayref($statement);
       $ary_ref = $dbh-&gt;selectcol_arrayref($statement, \%attr);
-      $ary_ref = $dbh-&gt;selectcol_arrayref($statement, \%attr, @bind_values);</pre>
+      $ary_ref = $dbh-&gt;selectcol_arrayref($statement, \%attr, @bind_values);</code></pre>
 
     <p>This utility method combines <a href="#prepare">&quot;prepare&quot;</a>, <a href="#execute">&quot;execute&quot;</a>, and fetching one column from all the rows, into a single call. It returns a reference to an array containing the values of the first column from each row.</p>
 
@@ -2083,16 +2109,16 @@
 
     <p>The <code>selectcol_arrayref</code> method defaults to pushing a single column value (the first) from each row into the result array. However, it can also push another column, or even multiple columns per row, into the result array. This behaviour can be specified via a &#39;<code>Columns</code>&#39; attribute which must be a ref to an array containing the column number or numbers to use. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  # get array of id and name pairs:
+    <pre><code data-language="perl">  # get array of id and name pairs:
       my $ary_ref = $dbh-&gt;selectcol_arrayref(&quot;select id, name from table&quot;, { Columns=&gt;[1,2] });
-      my %hash = @$ary_ref; # build hash from key-value pairs so $hash{$id} =&gt; name</pre>
+      my %hash = @$ary_ref; # build hash from key-value pairs so $hash{$id} =&gt; name</code></pre>
 
     <p>You can specify a maximum number of rows to fetch by including a &#39;<code>MaxRows</code>&#39; attribute in \%attr.</p>
 
     <h3 id="prepare">prepare</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare($statement)          or die $dbh-&gt;errstr;
-      $sth = $dbh-&gt;prepare($statement, \%attr)  or die $dbh-&gt;errstr;</pre>
+    <pre><code data-language="perl">  $sth = $dbh-&gt;prepare($statement)          or die $dbh-&gt;errstr;
+      $sth = $dbh-&gt;prepare($statement, \%attr)  or die $dbh-&gt;errstr;</code></pre>
 
     <p>Prepares a statement for later execution by the database engine and returns a reference to a statement handle object.</p>
 
@@ -2108,9 +2134,9 @@
 
     <h3 id="prepare_cached">prepare_cached</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare_cached($statement)
+    <pre><code data-language="perl">  $sth = $dbh-&gt;prepare_cached($statement)
       $sth = $dbh-&gt;prepare_cached($statement, \%attr)
-      $sth = $dbh-&gt;prepare_cached($statement, \%attr, $if_active)</pre>
+      $sth = $dbh-&gt;prepare_cached($statement, \%attr, $if_active)</code></pre>
 
     <p>Like <a href="#prepare">&quot;prepare&quot;</a> except that the statement handle returned will be stored in a hash associated with the <code>$dbh</code>. If another call is made to <code>prepare_cached</code> with the same <code>$statement</code> and <code>%attr</code> parameter values, then the corresponding cached <code>$sth</code> will be returned without contacting the database server.</p>
 
@@ -2138,7 +2164,7 @@
 
     <p>Here are some examples of <code>prepare_cached</code>:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  sub insert_hash {
+    <pre><code data-language="perl">  sub insert_hash {
         my ($table, $field_values) = @_;
         # sort to keep field order, and thus sql, stable for prepare_cached
         my @fields = sort keys %$field_values;
@@ -2158,11 +2184,11 @@
         $qualifier = &quot;where &quot;.join(&quot; and &quot;, map { &quot;$_=?&quot; } @fields) if @fields;
         $sth = $dbh-&gt;prepare_cached(&quot;SELECT * FROM $table $qualifier&quot;);
         return $dbh-&gt;selectall_arrayref($sth, {}, @values);
-      }</pre>
+      }</code></pre>
 
     <p><i>Caveat emptor:</i> This caching can be useful in some applications, but it can also cause problems and should be used with care. Here is a contrived case where caching would cause a significant problem:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $sth = $dbh-&gt;prepare_cached(&#39;SELECT * FROM foo WHERE bar=?&#39;);
+    <pre><code data-language="perl">  my $sth = $dbh-&gt;prepare_cached(&#39;SELECT * FROM foo WHERE bar=?&#39;);
       $sth-&gt;execute(...);
       while (my $data = $sth-&gt;fetchrow_hashref) {
 
@@ -2172,7 +2198,7 @@
         while (my $data2 = $sth2-&gt;fetchrow_arrayref) {
           do_stuff(...);
         }
-      }</pre>
+      }</code></pre>
 
     <p>In this example, since both handles are preparing the exact same statement, <code>$sth2</code> will not be its own statement handle, but a duplicate of <code>$sth</code> returned from the cache. The results will certainly not be what you expect. Typically the inner fetch loop will work normally, fetching all the records and terminating when there are no more, but now that $sth is the same as $sth2 the outer fetch loop will also terminate.</p>
 
@@ -2180,19 +2206,19 @@
 
     <p>The cache used by prepare_cached() is keyed by both the statement and any attributes so you can also avoid this issue by doing something like:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare_cached(&quot;...&quot;, { dbi_dummy =&gt; __FILE__.__LINE__ });</pre>
+    <pre><code data-language="perl">  $sth = $dbh-&gt;prepare_cached(&quot;...&quot;, { dbi_dummy =&gt; __FILE__.__LINE__ });</code></pre>
 
     <p>which will ensure that prepare_cached only returns statements cached by that line of code in that source file.</p>
 
     <p>If you&#39;d like the cache to managed intelligently, you can tie the hashref returned by <code>CachedKids</code> to an appropriate caching module, such as <a href="/module/Tie::Cache::LRU">Tie::Cache::LRU</a>:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $cache;
+    <pre><code data-language="perl">  my $cache;
       tie %$cache, &#39;Tie::Cache::LRU&#39;, 500;
-      $dbh-&gt;{CachedKids} = $cache;</pre>
+      $dbh-&gt;{CachedKids} = $cache;</code></pre>
 
     <h3 id="commit">commit</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc  = $dbh-&gt;commit     or die $dbh-&gt;errstr;</pre>
+    <pre><code data-language="perl">  $rc  = $dbh-&gt;commit     or die $dbh-&gt;errstr;</code></pre>
 
     <p>Commit (make permanent) the most recent series of database changes if the database supports transactions and AutoCommit is off.</p>
 
@@ -2202,7 +2228,7 @@
 
     <h3 id="rollback">rollback</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc  = $dbh-&gt;rollback   or die $dbh-&gt;errstr;</pre>
+    <pre><code data-language="perl">  $rc  = $dbh-&gt;rollback   or die $dbh-&gt;errstr;</code></pre>
 
     <p>Rollback (undo) the most recent series of uncommitted database changes if the database supports transactions and AutoCommit is off.</p>
 
@@ -2212,7 +2238,7 @@
 
     <h3 id="begin_work">begin_work</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc  = $dbh-&gt;begin_work   or die $dbh-&gt;errstr;</pre>
+    <pre><code data-language="perl">  $rc  = $dbh-&gt;begin_work   or die $dbh-&gt;errstr;</code></pre>
 
     <p>Enable transactions (by turning <code>AutoCommit</code> off) until the next call to <code>commit</code> or <code>rollback</code>. After the next <code>commit</code> or <code>rollback</code>, <code>AutoCommit</code> will automatically be turned on again.</p>
 
@@ -2222,7 +2248,7 @@
 
     <h3 id="disconnect">disconnect</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $dbh-&gt;disconnect  or warn $dbh-&gt;errstr;</pre>
+    <pre><code data-language="perl">  $rc = $dbh-&gt;disconnect  or warn $dbh-&gt;errstr;</code></pre>
 
     <p>Disconnects the database from the database handle. <code>disconnect</code> is typically only used before exiting the program. The handle is of little use after disconnecting.</p>
 
@@ -2236,7 +2262,7 @@
 
     <h3 id="ping">ping</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $dbh-&gt;ping;</pre>
+    <pre><code data-language="perl">  $rc = $dbh-&gt;ping;</code></pre>
 
     <p>Attempts to determine, in a reasonably efficient way, if the database server is still running and the connection to it is still working. Individual drivers should implement this function in the most suitable manner for their database engine.</p>
 
@@ -2246,37 +2272,37 @@
 
     <h3 id="get_info">get_info</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $value = $dbh-&gt;get_info( $info_type );</pre>
+    <pre><code data-language="perl">  $value = $dbh-&gt;get_info( $info_type );</code></pre>
 
     <p>Returns information about the implementation, i.e. driver and data source capabilities, restrictions etc. It returns <code>undef</code> for unknown or unimplemented information types. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $database_version  = $dbh-&gt;get_info(  18 ); # SQL_DBMS_VER
-      $max_select_tables = $dbh-&gt;get_info( 106 ); # SQL_MAXIMUM_TABLES_IN_SELECT</pre>
+    <pre><code data-language="perl">  $database_version  = $dbh-&gt;get_info(  18 ); # SQL_DBMS_VER
+      $max_select_tables = $dbh-&gt;get_info( 106 ); # SQL_MAXIMUM_TABLES_IN_SELECT</code></pre>
 
     <p>See <a href="#Standards-Reference-Information">&quot;Standards Reference Information&quot;</a> for more detailed information about the information types and their meanings and possible return values.</p>
 
     <p>The DBI::Const::GetInfoType module exports a %GetInfoType hash that can be used to map info type names to numbers. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $database_version = $dbh-&gt;get_info( $GetInfoType{SQL_DBMS_VER} );</pre>
+    <pre><code data-language="perl">  $database_version = $dbh-&gt;get_info( $GetInfoType{SQL_DBMS_VER} );</code></pre>
 
     <p>The names are a merging of the ANSI and ODBC standards (which differ in some cases). See <a href="/module/DBI::Const::GetInfoType">DBI::Const::GetInfoType</a> for more details.</p>
 
     <p>Because some DBI methods make use of get_info(), drivers are strongly encouraged to support <i>at least</i> the following very minimal set of information types to ensure the DBI itself works properly:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> Type  Name                        Example A     Example B
+    <pre><code data-language="perl"> Type  Name                        Example A     Example B
      ----  --------------------------  ------------  ----------------
        17  SQL_DBMS_NAME               &#39;ACCESS&#39;      &#39;Oracle&#39;
        18  SQL_DBMS_VER                &#39;03.50.0000&#39;  &#39;08.01.0721 ...&#39;
        29  SQL_IDENTIFIER_QUOTE_CHAR   &#39;`&#39;           &#39;&quot;&#39;
        41  SQL_CATALOG_NAME_SEPARATOR  &#39;.&#39;           &#39;@&#39;
-      114  SQL_CATALOG_LOCATION        1             2</pre>
+      114  SQL_CATALOG_LOCATION        1             2</code></pre>
 
     <h3 id="table_info">table_info</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;table_info( $catalog, $schema, $table, $type );
+    <pre><code data-language="perl">  $sth = $dbh-&gt;table_info( $catalog, $schema, $table, $type );
       $sth = $dbh-&gt;table_info( $catalog, $schema, $table, $type, \%attr );
 
-      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</pre>
+      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</code></pre>
 
     <p>Returns an active statement handle that can be used to fetch information about tables and views that exist in the database.</p>
 
@@ -2284,8 +2310,8 @@
 
     <p>The value of $type is a comma-separated list of one or more types of tables to be returned in the result set. Each value may optionally be quoted, e.g.:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $type = &quot;TABLE&quot;;
-      $type = &quot;&#39;TABLE&#39;,&#39;VIEW&#39;&quot;;</pre>
+    <pre><code data-language="perl">  $type = &quot;TABLE&quot;;
+      $type = &quot;&#39;TABLE&#39;,&#39;VIEW&#39;&quot;;</code></pre>
 
     <p>In addition the following special cases may also be supported by some drivers:</p>
 
@@ -2293,7 +2319,7 @@
 
     <li><p>If the value of $catalog is &#39;%&#39; and $schema and $table name are empty strings, the result set contains a list of catalog names. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;table_info(&#39;%&#39;, &#39;&#39;, &#39;&#39;);</pre>
+    <pre><code data-language="perl">  $sth = $dbh-&gt;table_info(&#39;%&#39;, &#39;&#39;, &#39;&#39;);</code></pre>
 
     </li>
     <li><p>If the value of $schema is &#39;%&#39; and $catalog and $table are empty strings, the result set contains a list of schema names.</p>
@@ -2326,9 +2352,9 @@
 
     <h3 id="column_info">column_info</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;column_info( $catalog, $schema, $table, $column );
+    <pre><code data-language="perl">  $sth = $dbh-&gt;column_info( $catalog, $schema, $table, $column );
 
-      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</pre>
+      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</code></pre>
 
     <p>Returns an active statement handle that can be used to fetch information about columns in specified tables.</p>
 
@@ -2364,9 +2390,9 @@
 
     <p><b>NULLABLE</b>: Indicates if a column can accept NULLs. The following values are defined:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  SQL_NO_NULLS          0
+    <pre><code data-language="perl">  SQL_NO_NULLS          0
       SQL_NULLABLE          1
-      SQL_NULLABLE_UNKNOWN  2</pre>
+      SQL_NULLABLE_UNKNOWN  2</code></pre>
 
     <p><b>REMARKS</b>: A description of the column.</p>
 
@@ -2374,16 +2400,16 @@
 
     <p>Note that this may be an expression and not simply the text used for the default value in the original CREATE TABLE statement. For example, given:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    col1 char(30) default current_user    -- a &#39;function&#39;
-        col2 char(30) default &#39;string&#39;        -- a string literal</pre>
+    <pre><code data-language="perl">    col1 char(30) default current_user    -- a &#39;function&#39;
+        col2 char(30) default &#39;string&#39;        -- a string literal</code></pre>
 
     <p>where &quot;current_user&quot; is the name of a function, the corresponding <code>COLUMN_DEF</code> values would be:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    Database        col1                     col2
+    <pre><code data-language="perl">    Database        col1                     col2
         --------        ----                     ----
         Oracle:         current_user             &#39;string&#39;
         Postgres:       &quot;current_user&quot;()         &#39;string&#39;::text
-        MS SQL:         (user_name())            (&#39;string&#39;)</pre>
+        MS SQL:         (user_name())            (&#39;string&#39;)</code></pre>
 
     <p><b>SQL_DATA_TYPE</b>: The SQL data type.</p>
 
@@ -2397,7 +2423,7 @@
 
     <p>SQL/CLI defines the following additional columns:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  CHAR_SET_CAT
+    <pre><code data-language="perl">  CHAR_SET_CAT
       CHAR_SET_SCHEM
       CHAR_SET_NAME
       COLLATION_CAT
@@ -2414,7 +2440,7 @@
       SCOPE_NAME
       MAX_CARDINALITY
       DTD_IDENTIFIER
-      IS_SELF_REF</pre>
+      IS_SELF_REF</code></pre>
 
     <p>Drivers capable of supplying any of those values should do so in the corresponding column and supply undef values for the others.</p>
 
@@ -2428,9 +2454,9 @@
 
     <h3 id="primary_key_info">primary_key_info</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;primary_key_info( $catalog, $schema, $table );
+    <pre><code data-language="perl">  $sth = $dbh-&gt;primary_key_info( $catalog, $schema, $table );
 
-      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</pre>
+      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</code></pre>
 
     <p>Returns an active statement handle that can be used to fetch information about columns that make up the primary key for a table. The arguments don&#39;t accept search patterns (unlike table_info()).</p>
 
@@ -2456,20 +2482,20 @@
 
     <h3 id="primary_key">primary_key</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @key_column_names = $dbh-&gt;primary_key( $catalog, $schema, $table );</pre>
+    <pre><code data-language="perl">  @key_column_names = $dbh-&gt;primary_key( $catalog, $schema, $table );</code></pre>
 
     <p>Simple interface to the primary_key_info() method. Returns a list of the column names that comprise the primary key of the specified table. The list is in primary key column sequence order. If there is no primary key then an empty list is returned.</p>
 
     <h3 id="foreign_key_info">foreign_key_info</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;foreign_key_info( $pk_catalog, $pk_schema, $pk_table
+    <pre><code data-language="perl">  $sth = $dbh-&gt;foreign_key_info( $pk_catalog, $pk_schema, $pk_table
                                    , $fk_catalog, $fk_schema, $fk_table );
 
       $sth = $dbh-&gt;foreign_key_info( $pk_catalog, $pk_schema, $pk_table
                                    , $fk_catalog, $fk_schema, $fk_table
                                    , \%attr );
 
-      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</pre>
+      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</code></pre>
 
     <p>Returns an active statement handle that can be used to fetch information about foreign keys in and/or referencing the specified table(s). The arguments don&#39;t accept search patterns (unlike table_info()).</p>
 
@@ -2485,11 +2511,11 @@
 
     <p>For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;foreign_key_info( undef, $user, &#39;master&#39;);
+    <pre><code data-language="perl">  $sth = $dbh-&gt;foreign_key_info( undef, $user, &#39;master&#39;);
       $sth = $dbh-&gt;foreign_key_info( undef, undef,   undef , undef, $user, &#39;detail&#39;);
       $sth = $dbh-&gt;foreign_key_info( undef, $user, &#39;master&#39;, undef, $user, &#39;detail&#39;);
 
-      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</pre>
+      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</code></pre>
 
     <p>Note: The support for the selection criteria, such as <code>$catalog</code>, is driver specific. If the driver doesn&#39;t support catalogs and/or schemas, it may ignore these criteria.</p>
 
@@ -2515,11 +2541,11 @@
 
     <p><b>UPDATE_RULE ( UPDATE_RULE )</b>: The referential action for the UPDATE rule. The following codes are defined:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  CASCADE              0
+    <pre><code data-language="perl">  CASCADE              0
       RESTRICT             1
       SET NULL             2
       NO ACTION            3
-      SET DEFAULT          4</pre>
+      SET DEFAULT          4</code></pre>
 
     <p><b>DELETE_RULE ( DELETE_RULE )</b>: The referential action for the DELETE rule. The codes are the same as for UPDATE_RULE.</p>
 
@@ -2529,9 +2555,9 @@
 
     <p><b>DEFERRABILITY ( DEFERABILITY )</b>: The deferrability of the foreign key constraint. The following codes are defined:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  INITIALLY DEFERRED   5
+    <pre><code data-language="perl">  INITIALLY DEFERRED   5
       INITIALLY IMMEDIATE  6
-      NOT DEFERRABLE       7</pre>
+      NOT DEFERRABLE       7</code></pre>
 
     <p><b> ( UNIQUE_OR_PRIMARY )</b>: This column is necessary if a driver includes all candidate (i.e. primary and alternate) keys in the result set (as specified by SQL/CLI). The value of this column is UNIQUE if the foreign key references an alternate key and PRIMARY if the foreign key references a primary key, or it may be undefined if the driver doesn&#39;t have access to the information.</p>
 
@@ -2541,9 +2567,9 @@
 
     <p><b>Warning:</b> This method is experimental and may change.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;statistics_info( $catalog, $schema, $table, $unique_only, $quick );
+    <pre><code data-language="perl">  $sth = $dbh-&gt;statistics_info( $catalog, $schema, $table, $unique_only, $quick );
 
-      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</pre>
+      # then $sth-&gt;fetchall_arrayref or $sth-&gt;fetchall_hashref etc</code></pre>
 
     <p>Returns an active statement handle that can be used to fetch statistical information about a table and its indexes.</p>
 
@@ -2591,8 +2617,8 @@
 
     <h3 id="tables">tables</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @names = $dbh-&gt;tables( $catalog, $schema, $table, $type );
-      @names = $dbh-&gt;tables;        # deprecated</pre>
+    <pre><code data-language="perl">  @names = $dbh-&gt;tables( $catalog, $schema, $table, $type );
+      @names = $dbh-&gt;tables;        # deprecated</code></pre>
 
     <p>Simple interface to table_info(). Returns a list of matching table names, possibly including a catalog/schema prefix.</p>
 
@@ -2602,13 +2628,13 @@
 
     <h3 id="type_info_all">type_info_all</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $type_info_all = $dbh-&gt;type_info_all;</pre>
+    <pre><code data-language="perl">  $type_info_all = $dbh-&gt;type_info_all;</code></pre>
 
     <p>Returns a reference to an array which holds information about each data type variant supported by the database and driver. The array and its contents should be treated as read-only.</p>
 
     <p>The first item is a reference to an &#39;index&#39; hash of <code>Name =</code>&gt; <code>Index</code> pairs. The items following that are references to arrays, one per supported data type variant. The leading index hash defines the names and order of the fields within the arrays that follow it. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $type_info_all = [
+    <pre><code data-language="perl">  $type_info_all = [
         {   TYPE_NAME         =&gt; 0,
             DATA_TYPE         =&gt; 1,
             COLUMN_SIZE       =&gt; 2,     # was PRECISION originally
@@ -2635,7 +2661,7 @@
         [ &#39;INTEGER&#39;, SQL_INTEGER,
             undef,  &quot;&quot;, &quot;&quot;, undef,0, 0,1,0,0,0,undef,0,  0, 10
         ],
-      ];</pre>
+      ];</code></pre>
 
     <p>More than one row may have the same value in the <code>DATA_TYPE</code> field if there are different ways to spell the type name and/or there are variants of the type with different attributes (e.g., with and without <code>AUTO_UNIQUE_VALUE</code> set, with and without <code>UNSIGNED_ATTRIBUTE</code>, etc).</p>
 
@@ -2651,7 +2677,7 @@
 
     <h3 id="type_info">type_info</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @type_info = $dbh-&gt;type_info($data_type);</pre>
+    <pre><code data-language="perl">  @type_info = $dbh-&gt;type_info($data_type);</code></pre>
 
     <p>Returns a list of hash references holding information about one or more variants of $data_type. The list is ordered by <code>DATA_TYPE</code> first and then by how closely each type maps to the corresponding ODBC SQL data type, closest first. If called in a scalar context then only the first (best) element is returned.</p>
 
@@ -2720,10 +2746,10 @@
 
     <p>Indicates how the data type can be used in a WHERE clause, as follows:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  0 - Cannot be used in a WHERE clause
+    <pre><code data-language="perl">  0 - Cannot be used in a WHERE clause
       1 - Only with a LIKE predicate
       2 - All comparison operators except LIKE
-      3 - Can be used in a WHERE clause with any comparison operator</pre>
+      3 - Can be used in a WHERE clause with any comparison operator</code></pre>
 
     </dd>
     <dt id="UNSIGNED_ATTRIBUTE-boolean-">UNSIGNED_ATTRIBUTE (boolean)</dt>
@@ -2775,7 +2801,7 @@
 
     <p>Although not mentioned explicitly in the standards, it seems there is a simple relationship between these values:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DATA_TYPE == (10 * SQL_DATA_TYPE) + SQL_DATETIME_SUB</pre>
+    <pre><code data-language="perl">  DATA_TYPE == (10 * SQL_DATA_TYPE) + SQL_DATETIME_SUB</code></pre>
 
     </dd>
     <dt id="NUM_PREC_RADIX-integer-">NUM_PREC_RADIX (integer)</dt>
@@ -2794,11 +2820,11 @@
 
     <p>For example, to find the type name for the fields in a select statement you can do:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  @names = map { scalar $dbh-&gt;type_info($_)-&gt;{TYPE_NAME} } @{ $sth-&gt;{TYPE} }</pre>
+    <pre><code data-language="perl">  @names = map { scalar $dbh-&gt;type_info($_)-&gt;{TYPE_NAME} } @{ $sth-&gt;{TYPE} }</code></pre>
 
     <p>Since DBI and ODBC drivers vary in how they map their types into the ISO standard types you may need to search for more than one type. Here&#39;s an example looking for a usable type to store a date:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $my_date_type = $dbh-&gt;type_info( [ SQL_DATE, SQL_TIMESTAMP ] );</pre>
+    <pre><code data-language="perl">  $my_date_type = $dbh-&gt;type_info( [ SQL_DATE, SQL_TIMESTAMP ] );</code></pre>
 
     <p>Similarly, to more reliably find a type to store small integers, you could use a list starting with <code>SQL_SMALLINT</code>, <code>SQL_INTEGER</code>, <code>SQL_DECIMAL</code>, etc.</p>
 
@@ -2806,13 +2832,13 @@
 
     <h3 id="quote">quote</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sql = $dbh-&gt;quote($value);
-      $sql = $dbh-&gt;quote($value, $data_type);</pre>
+    <pre><code data-language="perl">  $sql = $dbh-&gt;quote($value);
+      $sql = $dbh-&gt;quote($value, $data_type);</code></pre>
 
     <p>Quote a string literal for use as a literal value in an SQL statement, by escaping any special characters (such as quotation marks) contained within the string and adding the required type of outer quotation marks.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sql = sprintf &quot;SELECT foo FROM bar WHERE baz = %s&quot;,
-                    $dbh-&gt;quote(&quot;Don&#39;t&quot;);</pre>
+    <pre><code data-language="perl">  $sql = sprintf &quot;SELECT foo FROM bar WHERE baz = %s&quot;,
+                    $dbh-&gt;quote(&quot;Don&#39;t&quot;);</code></pre>
 
     <p>For most database types, at least those that conform to SQL standards, quote would return <code>&#39;Don&#39;&#39;t&#39;</code> (including the outer quotation marks). For others it may return something like <code>&#39;Don\&#39;t&#39;</code></p>
 
@@ -2824,36 +2850,36 @@
 
     <p>It is valid for the quote() method to return an SQL expression that evaluates to the desired string. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $quoted = $dbh-&gt;quote(&quot;one\ntwo\0three&quot;)</pre>
+    <pre><code data-language="perl">  $quoted = $dbh-&gt;quote(&quot;one\ntwo\0three&quot;)</code></pre>
 
     <p>may return something like:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  CONCAT(&#39;one&#39;, CHAR(12), &#39;two&#39;, CHAR(0), &#39;three&#39;)</pre>
+    <pre><code data-language="perl">  CONCAT(&#39;one&#39;, CHAR(12), &#39;two&#39;, CHAR(0), &#39;three&#39;)</code></pre>
 
     <p>The quote() method should <i>not</i> be used with <a href="#Placeholders-and-Bind-Values">&quot;Placeholders and Bind Values&quot;</a>.</p>
 
     <h3 id="quote_identifier">quote_identifier</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sql = $dbh-&gt;quote_identifier( $name );
-      $sql = $dbh-&gt;quote_identifier( $catalog, $schema, $table, \%attr );</pre>
+    <pre><code data-language="perl">  $sql = $dbh-&gt;quote_identifier( $name );
+      $sql = $dbh-&gt;quote_identifier( $catalog, $schema, $table, \%attr );</code></pre>
 
     <p>Quote an identifier (table name etc.) for use in an SQL statement, by escaping any special characters (such as double quotation marks) it contains and adding the required type of outer quotation marks.</p>
 
     <p>Undefined names are ignored and the remainder are quoted and then joined together, typically with a dot (<code>.</code>) character. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $id = $dbh-&gt;quote_identifier( undef, &#39;Her schema&#39;, &#39;My table&#39; );</pre>
+    <pre><code data-language="perl">  $id = $dbh-&gt;quote_identifier( undef, &#39;Her schema&#39;, &#39;My table&#39; );</code></pre>
 
     <p>would, for most database types, return <code>&quot;Her schema&quot;.&quot;My table&quot;</code> (including all the double quotation marks).</p>
 
     <p>If three names are supplied then the first is assumed to be a catalog name and special rules may be applied based on what <a href="#get_info">&quot;get_info&quot;</a> returns for SQL_CATALOG_NAME_SEPARATOR (41) and SQL_CATALOG_LOCATION (114). For example, for Oracle:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $id = $dbh-&gt;quote_identifier( &#39;link&#39;, &#39;schema&#39;, &#39;table&#39; );</pre>
+    <pre><code data-language="perl">  $id = $dbh-&gt;quote_identifier( &#39;link&#39;, &#39;schema&#39;, &#39;table&#39; );</code></pre>
 
     <p>would return <code>&quot;schema&quot;.&quot;table&quot;@&quot;link&quot;</code>.</p>
 
     <h3 id="take_imp_data">take_imp_data</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $imp_data = $dbh-&gt;take_imp_data;</pre>
+    <pre><code data-language="perl">  $imp_data = $dbh-&gt;take_imp_data;</code></pre>
 
     <p>Leaves the $dbh in an almost dead, zombie-like, state and returns a binary string of raw implementation data from the driver which describes the current database connection. Effectively it detaches the underlying database API connection data from the DBI handle. After calling take_imp_data(), all other methods except <code>DESTROY</code> will generate a warning and return undef.</p>
 
@@ -2881,8 +2907,8 @@
 
     <p>Example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;{AutoCommit} = ...;       # set/write
-      ... = $h-&gt;{AutoCommit};       # get/read</pre>
+    <pre><code data-language="perl">  $h-&gt;{AutoCommit} = ...;       # set/write
+      ... = $h-&gt;{AutoCommit};       # get/read</code></pre>
 
     <h3 id="AutoCommit">AutoCommit</h3>
 
@@ -2896,9 +2922,9 @@
 
     <p>For the purposes of this description, we can divide databases into three categories:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  Databases which don&#39;t support transactions at all.
+    <pre><code data-language="perl">  Databases which don&#39;t support transactions at all.
       Databases in which a transaction is always active.
-      Databases in which a transaction must be explicitly started (<code>&#39;BEGIN WORK&#39;</code>).</pre>
+      Databases in which a transaction must be explicitly started (<code>&#39;BEGIN WORK&#39;</code>).</code></pre>
 
     <p><b>* Databases which don&#39;t support transactions at all</b></p>
 
@@ -2930,7 +2956,7 @@
 
     <p>Holds the handle of the parent driver. The only recommended use for this is to find the name of the driver using:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;{Driver}-&gt;{Name}</pre>
+    <pre><code data-language="perl">  $dbh-&gt;{Driver}-&gt;{Name}</code></pre>
 
     <h3 id="Name">Name</h3>
 
@@ -2952,10 +2978,10 @@
 
     <p>Some <code>RowCacheSize</code> values have special meaning, as follows:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  0 - Automatically determine a reasonable cache size for each <code>SELECT</code>
+    <pre><code data-language="perl">  0 - Automatically determine a reasonable cache size for each <code>SELECT</code>
       1 - Disable the local row cache
      &gt;1 - Cache this many rows
-     &lt;0 - Cache as many rows that will fit into this much memory for each <code>SELECT</code>.</pre>
+     &lt;0 - Cache as many rows that will fit into this much memory for each <code>SELECT</code>.</code></pre>
 
     <p>Note that large cache sizes may require a very large amount of memory (<i>cached rows * maximum size of row</i>). Also, a large cache will cause a longer delay not only for the first fetch, but also whenever the cache needs refilling.</p>
 
@@ -2977,17 +3003,17 @@
 
     <h3 id="bind_param">bind_param</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth-&gt;bind_param($p_num, $bind_value)
+    <pre><code data-language="perl">  $sth-&gt;bind_param($p_num, $bind_value)
       $sth-&gt;bind_param($p_num, $bind_value, \%attr)
-      $sth-&gt;bind_param($p_num, $bind_value, $bind_type)</pre>
+      $sth-&gt;bind_param($p_num, $bind_value, $bind_type)</code></pre>
 
     <p>The <code>bind_param</code> method takes a copy of $bind_value and associates it (binds it) with a placeholder, identified by $p_num, embedded in the prepared statement. Placeholders are indicated with question mark character (<code>?</code>). For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;{RaiseError} = 1;        # save having to check each method call
+    <pre><code data-language="perl">  $dbh-&gt;{RaiseError} = 1;        # save having to check each method call
       $sth = $dbh-&gt;prepare(&quot;SELECT name, age FROM people WHERE name LIKE ?&quot;);
       $sth-&gt;bind_param(1, &quot;John%&quot;);  # placeholders are numbered from 1
       $sth-&gt;execute;
-      DBI::dump_results($sth);</pre>
+      DBI::dump_results($sth);</code></pre>
 
     <p>See <a href="#Placeholders-and-Bind-Values">&quot;Placeholders and Bind Values&quot;</a> for more information.</p>
 
@@ -2995,17 +3021,17 @@
 
     <p>The <code>\%attr</code> parameter can be used to hint at the data type the placeholder should have. This is rarely needed. Typically, the driver is only interested in knowing if the placeholder should be bound as a number or a string.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth-&gt;bind_param(1, $value, { TYPE =&gt; SQL_INTEGER });</pre>
+    <pre><code data-language="perl">  $sth-&gt;bind_param(1, $value, { TYPE =&gt; SQL_INTEGER });</code></pre>
 
     <p>As a short-cut for the common case, the data type can be passed directly, in place of the <code>\%attr</code> hash reference. This example is equivalent to the one above:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth-&gt;bind_param(1, $value, SQL_INTEGER);</pre>
+    <pre><code data-language="perl">  $sth-&gt;bind_param(1, $value, SQL_INTEGER);</code></pre>
 
     <p>The <code>TYPE</code> value indicates the standard (non-driver-specific) type for this parameter. To specify the driver-specific type, the driver may support a driver-specific attribute, such as <code>{ ora_type =&gt; 97 }</code>.</p>
 
     <p>The SQL_INTEGER and other related constants can be imported using</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  use DBI qw(:sql_types);</pre>
+    <pre><code data-language="perl">  use DBI qw(:sql_types);</code></pre>
 
     <p>See <a href="#DBI-Constants">&quot;DBI Constants&quot;</a> for more information.</p>
 
@@ -3013,13 +3039,13 @@
 
     <p>Perl only has string and number scalar data types. All database types that aren&#39;t numbers are bound as strings and must be in a format the database will understand except where the bind_param() TYPE attribute specifies a type that implies a particular format. For example, given:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth-&gt;bind_param(1, $value, SQL_DATETIME);</pre>
+    <pre><code data-language="perl">  $sth-&gt;bind_param(1, $value, SQL_DATETIME);</code></pre>
 
     <p>the driver should expect $value to be in the ODBC standard SQL_DATETIME format, which is &#39;YYYY-MM-DD HH:MM:SS&#39;. Similarly for SQL_DATE, SQL_TIME etc.</p>
 
     <p>As an alternative to specifying the data type in the <code>bind_param</code> call, you can let the driver pass the value as the default type (<code>VARCHAR</code>). You can then use an SQL function to convert the type within the statement. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  INSERT INTO price(code, price) VALUES (?, CONVERT(MONEY,?))</pre>
+    <pre><code data-language="perl">  INSERT INTO price(code, price) VALUES (?, CONVERT(MONEY,?))</code></pre>
 
     <p>The <code>CONVERT</code> function used here is just an example. The actual function and syntax will vary between different databases and is non-portable.</p>
 
@@ -3027,9 +3053,9 @@
 
     <h3 id="bind_param_inout">bind_param_inout</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $sth-&gt;bind_param_inout($p_num, \$bind_value, $max_len)  or die $sth-&gt;errstr;
+    <pre><code data-language="perl">  $rc = $sth-&gt;bind_param_inout($p_num, \$bind_value, $max_len)  or die $sth-&gt;errstr;
       $rv = $sth-&gt;bind_param_inout($p_num, \$bind_value, $max_len, \%attr)     or ...
-      $rv = $sth-&gt;bind_param_inout($p_num, \$bind_value, $max_len, $bind_type) or ...</pre>
+      $rv = $sth-&gt;bind_param_inout($p_num, \$bind_value, $max_len, $bind_type) or ...</code></pre>
 
     <p>This method acts like <a href="#bind_param">&quot;bind_param&quot;</a>, but also enables values to be updated by the statement. The statement is typically a call to a stored procedure. The <code>$bind_value</code> must be passed as a reference to the actual value to be used.</p>
 
@@ -3041,18 +3067,18 @@
 
     <h3 id="bind_param_array">bind_param_array</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $sth-&gt;bind_param_array($p_num, $array_ref_or_value)
+    <pre><code data-language="perl">  $rc = $sth-&gt;bind_param_array($p_num, $array_ref_or_value)
       $rc = $sth-&gt;bind_param_array($p_num, $array_ref_or_value, \%attr)
-      $rc = $sth-&gt;bind_param_array($p_num, $array_ref_or_value, $bind_type)</pre>
+      $rc = $sth-&gt;bind_param_array($p_num, $array_ref_or_value, $bind_type)</code></pre>
 
     <p>The <code>bind_param_array</code> method is used to bind an array of values to a placeholder embedded in the prepared statement which is to be executed with <a href="#execute_array">&quot;execute_array&quot;</a>. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;{RaiseError} = 1;        # save having to check each method call
+    <pre><code data-language="perl">  $dbh-&gt;{RaiseError} = 1;        # save having to check each method call
       $sth = $dbh-&gt;prepare(&quot;INSERT INTO staff (first_name, last_name, dept) VALUES(?, ?, ?)&quot;);
       $sth-&gt;bind_param_array(1, [ &#39;John&#39;, &#39;Mary&#39;, &#39;Tim&#39; ]);
       $sth-&gt;bind_param_array(2, [ &#39;Booth&#39;, &#39;Todd&#39;, &#39;Robinson&#39; ]);
       $sth-&gt;bind_param_array(3, &quot;SALES&quot;); # scalar will be reused for each row
-      $sth-&gt;execute_array( { ArrayTupleStatus =&gt; \my @tuple_status } );</pre>
+      $sth-&gt;execute_array( { ArrayTupleStatus =&gt; \my @tuple_status } );</code></pre>
 
     <p>The <code>%attr</code> ($bind_type) argument is the same as defined for <a href="#bind_param">&quot;bind_param&quot;</a>. Refer to <a href="#bind_param">&quot;bind_param&quot;</a> for general details on using placeholders.</p>
 
@@ -3068,8 +3094,8 @@
 
     <h3 id="execute">execute</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rv = $sth-&gt;execute                or die $sth-&gt;errstr;
-      $rv = $sth-&gt;execute(@bind_values)  or die $sth-&gt;errstr;</pre>
+    <pre><code data-language="perl">  $rv = $sth-&gt;execute                or die $sth-&gt;errstr;
+      $rv = $sth-&gt;execute(@bind_values)  or die $sth-&gt;errstr;</code></pre>
 
     <p>Perform whatever processing is necessary to execute the prepared statement. An <code>undef</code> is returned if an error occurs. A successful <code>execute</code> always returns true regardless of the number of rows affected, even if it&#39;s zero (see below). It is always important to check the return status of <code>execute</code> (and most other DBI methods) for errors if you&#39;re not using <a href="#RaiseError">&quot;RaiseError&quot;</a>.</p>
 
@@ -3087,11 +3113,11 @@
 
     <h3 id="execute_array">execute_array</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tuples = $sth-&gt;execute_array(\%attr) or die $sth-&gt;errstr;
+    <pre><code data-language="perl">  $tuples = $sth-&gt;execute_array(\%attr) or die $sth-&gt;errstr;
       $tuples = $sth-&gt;execute_array(\%attr, @bind_values) or die $sth-&gt;errstr;
 
       ($tuples, $rows) = $sth-&gt;execute_array(\%attr) or die $sth-&gt;errstr;
-      ($tuples, $rows) = $sth-&gt;execute_array(\%attr, @bind_values) or die $sth-&gt;errstr;</pre>
+      ($tuples, $rows) = $sth-&gt;execute_array(\%attr, @bind_values) or die $sth-&gt;errstr;</code></pre>
 
     <p>Execute the prepared statement once for each parameter tuple (group of values) provided either in the @bind_values, or by prior calls to <a href="#bind_param_array">&quot;bind_param_array&quot;</a>, or via a reference passed in \%attr.</p>
 
@@ -3121,7 +3147,7 @@
 
     <p>For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare(&quot;INSERT INTO staff (first_name, last_name) VALUES (?, ?)&quot;);
+    <pre><code data-language="perl">  $sth = $dbh-&gt;prepare(&quot;INSERT INTO staff (first_name, last_name) VALUES (?, ?)&quot;);
       my $tuples = $sth-&gt;execute_array(
           { ArrayTupleStatus =&gt; \my @tuple_status },
           \@first_names,
@@ -3138,7 +3164,7 @@
               printf &quot;Failed to insert (%s, %s): %s\n&quot;,
                   $first_names[$tuple], $last_names[$tuple], $status-&gt;[1];
           }
-      }</pre>
+      }</code></pre>
 
     <p>Support for data returning statements such as SELECT is driver-specific and subject to change. At present, the default implementation provided by DBI only supports non-data returning statements.</p>
 
@@ -3150,11 +3176,11 @@
 
     <h3 id="execute_for_fetch">execute_for_fetch</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tuples = $sth-&gt;execute_for_fetch($fetch_tuple_sub);
+    <pre><code data-language="perl">  $tuples = $sth-&gt;execute_for_fetch($fetch_tuple_sub);
       $tuples = $sth-&gt;execute_for_fetch($fetch_tuple_sub, \@tuple_status);
 
       ($tuples, $rows) = $sth-&gt;execute_for_fetch($fetch_tuple_sub);
-      ($tuples, $rows) = $sth-&gt;execute_for_fetch($fetch_tuple_sub, \@tuple_status);</pre>
+      ($tuples, $rows) = $sth-&gt;execute_for_fetch($fetch_tuple_sub, \@tuple_status);</code></pre>
 
     <p>The execute_for_fetch() method is used to perform bulk operations and although it is most often used via the execute_array() method you can use it directly. The main difference between execute_array and execute_for_fetch is the former does column or row-wise binding and the latter uses row-wise binding.</p>
 
@@ -3174,7 +3200,7 @@
 
     <p>For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $sel = $dbh1-&gt;prepare(&quot;select foo, bar from table1&quot;);
+    <pre><code data-language="perl">  my $sel = $dbh1-&gt;prepare(&quot;select foo, bar from table1&quot;);
       $sel-&gt;execute;
 
       my $ins = $dbh2-&gt;prepare(&quot;insert into table2 (foo, bar) values (?,?)&quot;);
@@ -3182,18 +3208,18 @@
 
       my @tuple_status;
       $rc = $ins-&gt;execute_for_fetch($fetch_tuple_sub, \@tuple_status);
-      my @errors = grep { ref $_ } @tuple_status;</pre>
+      my @errors = grep { ref $_ } @tuple_status;</code></pre>
 
     <p>Similarly, if you already have an array containing the data rows to be processed you&#39;d use a subroutine to shift off and return each array ref in turn:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $ins-&gt;execute_for_fetch( sub { shift @array_of_arrays }, \@tuple_status);</pre>
+    <pre><code data-language="perl">  $ins-&gt;execute_for_fetch( sub { shift @array_of_arrays }, \@tuple_status);</code></pre>
 
     <p>The <code>execute_for_fetch</code> method was added in DBI 1.38.</p>
 
     <h3 id="fetchrow_arrayref">fetchrow_arrayref</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $ary_ref = $sth-&gt;fetchrow_arrayref;
-      $ary_ref = $sth-&gt;fetch;    # alias</pre>
+    <pre><code data-language="perl">  $ary_ref = $sth-&gt;fetchrow_arrayref;
+      $ary_ref = $sth-&gt;fetch;    # alias</code></pre>
 
     <p>Fetches the next row of data and returns a reference to an array holding the field values. Null fields are returned as <code>undef</code> values in the array. This is the fastest way to fetch data, particularly if used with <code>$sth-&gt;bind_columns</code>.</p>
 
@@ -3203,7 +3229,7 @@
 
     <h3 id="fetchrow_array">fetchrow_array</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> @ary = $sth-&gt;fetchrow_array;</pre>
+    <pre><code data-language="perl"> @ary = $sth-&gt;fetchrow_array;</code></pre>
 
     <p>An alternative to <code>fetchrow_arrayref</code>. Fetches the next row of data and returns it as a list containing the field values. Null fields are returned as <code>undef</code> values in the list.</p>
 
@@ -3213,8 +3239,8 @@
 
     <h3 id="fetchrow_hashref">fetchrow_hashref</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> $hash_ref = $sth-&gt;fetchrow_hashref;
-     $hash_ref = $sth-&gt;fetchrow_hashref($name);</pre>
+    <pre><code data-language="perl"> $hash_ref = $sth-&gt;fetchrow_hashref;
+     $hash_ref = $sth-&gt;fetchrow_hashref($name);</code></pre>
 
     <p>An alternative to <code>fetchrow_arrayref</code>. Fetches the next row of data and returns it as a reference to a hash containing field name and field value pairs. Null fields are returned as <code>undef</code> values in the hash.</p>
 
@@ -3230,9 +3256,9 @@
 
     <h3 id="fetchall_arrayref">fetchall_arrayref</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref;
+    <pre><code data-language="perl">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref;
       $tbl_ary_ref = $sth-&gt;fetchall_arrayref( $slice );
-      $tbl_ary_ref = $sth-&gt;fetchall_arrayref( $slice, $max_rows  );</pre>
+      $tbl_ary_ref = $sth-&gt;fetchall_arrayref( $slice, $max_rows  );</code></pre>
 
     <p>The <code>fetchall_arrayref</code> method can be used to fetch all the data to be returned from a prepared and executed statement handle. It returns a reference to an array that contains one reference per row.</p>
 
@@ -3246,11 +3272,11 @@
 
     <p>For example, to fetch just the first column of every row:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref([0]);</pre>
+    <pre><code data-language="perl">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref([0]);</code></pre>
 
     <p>To fetch the second to last and last column of every row:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref([-2,-1]);</pre>
+    <pre><code data-language="perl">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref([-2,-1]);</code></pre>
 
     <p>Those two examples both return a reference to an array of array refs.</p>
 
@@ -3258,11 +3284,11 @@
 
     <p>For example, to fetch all fields of every row as a hash ref:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref({});</pre>
+    <pre><code data-language="perl">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref({});</code></pre>
 
     <p>To fetch only the fields called &quot;foo&quot; and &quot;bar&quot; of every row as a hash ref (with keys named &quot;foo&quot; and &quot;BAR&quot;, regardless of the original capitalization):</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref({ foo=&gt;1, BAR=&gt;1 });</pre>
+    <pre><code data-language="perl">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref({ foo=&gt;1, BAR=&gt;1 });</code></pre>
 
     <p>Those two examples both return a reference to an array of hash refs.</p>
 
@@ -3270,18 +3296,18 @@
 
     <p>For example, to fetch only the first and second columns of every row as a hash ref (with keys named &quot;k&quot; and &quot;v&quot; regardless of their original names):</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref( \{ 0 =&gt; &#39;k&#39;, 1 =&gt; &#39;v&#39; } );</pre>
+    <pre><code data-language="perl">  $tbl_ary_ref = $sth-&gt;fetchall_arrayref( \{ 0 =&gt; &#39;k&#39;, 1 =&gt; &#39;v&#39; } );</code></pre>
 
     <p>If $max_rows is defined and greater than or equal to zero then it is used to limit the number of rows fetched before returning. fetchall_arrayref() can then be called again to fetch more rows. This is especially useful when you need the better performance of fetchall_arrayref() but don&#39;t have enough memory to fetch and return all the rows in one go.</p>
 
     <p>Here&#39;s an example (assumes RaiseError is enabled):</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $rows = []; # cache for batches of rows
+    <pre><code data-language="perl">  my $rows = []; # cache for batches of rows
       while( my $row = ( shift(@$rows) || # get row from cache, or reload cache:
                          shift(@{$rows=$sth-&gt;fetchall_arrayref(undef,10_000)||[]}) )
       ) {
         ...
-      }</pre>
+      }</code></pre>
 
     <p>That <i>might</i> be the fastest way to fetch and process lots of rows using the DBI, but it depends on the relative cost of method calls vs memory allocation.</p>
 
@@ -3289,7 +3315,7 @@
 
     <h3 id="fetchall_hashref">fetchall_hashref</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $hash_ref = $sth-&gt;fetchall_hashref($key_field);</pre>
+    <pre><code data-language="perl">  $hash_ref = $sth-&gt;fetchall_hashref($key_field);</code></pre>
 
     <p>The <code>fetchall_hashref</code> method can be used to fetch all the data to be returned from a prepared and executed statement handle. It returns a reference to a hash containing a key for each distinct value of the $key_field column that was fetched. For each key the corresponding value is a reference to a hash containing all the selected columns and their values, as returned by <code>fetchrow_hashref()</code>.</p>
 
@@ -3297,26 +3323,26 @@
 
     <p>The $key_field parameter provides the name of the field that holds the value to be used for the key for the returned hash. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;{FetchHashKeyName} = &#39;NAME_lc&#39;;
+    <pre><code data-language="perl">  $dbh-&gt;{FetchHashKeyName} = &#39;NAME_lc&#39;;
       $sth = $dbh-&gt;prepare(&quot;SELECT FOO, BAR, ID, NAME, BAZ FROM TABLE&quot;);
       $sth-&gt;execute;
       $hash_ref = $sth-&gt;fetchall_hashref(&#39;id&#39;);
-      print &quot;Name for id 42 is $hash_ref-&gt;{42}-&gt;{name}\n&quot;;</pre>
+      print &quot;Name for id 42 is $hash_ref-&gt;{42}-&gt;{name}\n&quot;;</code></pre>
 
     <p>The $key_field parameter can also be specified as an integer column number (counting from 1). If $key_field doesn&#39;t match any column in the statement, as a name first then as a number, then an error is returned.</p>
 
     <p>For queries returning more than one &#39;key&#39; column, you can specify multiple column names by passing $key_field as a reference to an array containing one or more key column names (or index numbers). For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare(&quot;SELECT foo, bar, baz FROM table&quot;);
+    <pre><code data-language="perl">  $sth = $dbh-&gt;prepare(&quot;SELECT foo, bar, baz FROM table&quot;);
       $sth-&gt;execute;
       $hash_ref = $sth-&gt;fetchall_hashref( [ qw(foo bar) ] );
-      print &quot;For foo 42 and bar 38, baz is $hash_ref-&gt;{42}-&gt;{38}-&gt;{baz}\n&quot;;</pre>
+      print &quot;For foo 42 and bar 38, baz is $hash_ref-&gt;{42}-&gt;{38}-&gt;{baz}\n&quot;;</code></pre>
 
     <p>The fetchall_hashref() method is normally used only where the key fields values for each row are unique. If multiple rows are returned with the same values for the key fields then later rows overwrite earlier ones.</p>
 
     <h3 id="finish">finish</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc  = $sth-&gt;finish;</pre>
+    <pre><code data-language="perl">  $rc  = $sth-&gt;finish;</code></pre>
 
     <p>Indicate that no more data will be fetched from this statement handle before it is either executed again or destroyed. You almost certainly do <i>not</i> need to call this method.</p>
 
@@ -3328,7 +3354,7 @@
 
     <p>Consider a query like:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  SELECT foo FROM table WHERE bar=? ORDER BY baz</pre>
+    <pre><code data-language="perl">  SELECT foo FROM table WHERE bar=? ORDER BY baz</code></pre>
 
     <p>on a very large table. When executed, the database server will have to use temporary buffer space to store the sorted rows. If, after executing the handle and selecting just a few rows, the handle won&#39;t be re-executed for some time and won&#39;t be destroyed, the <code>finish</code> method can be used to tell the server that the buffer space can be freed.</p>
 
@@ -3340,7 +3366,7 @@
 
     <h3 id="rows">rows</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rv = $sth-&gt;rows;</pre>
+    <pre><code data-language="perl">  $rv = $sth-&gt;rows;</code></pre>
 
     <p>Returns the number of rows affected by the last row affecting command, or -1 if the number of rows is not known or not available.</p>
 
@@ -3352,9 +3378,9 @@
 
     <h3 id="bind_col">bind_col</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $sth-&gt;bind_col($column_number, \$var_to_bind);
+    <pre><code data-language="perl">  $rc = $sth-&gt;bind_col($column_number, \$var_to_bind);
       $rc = $sth-&gt;bind_col($column_number, \$var_to_bind, \%attr );
-      $rc = $sth-&gt;bind_col($column_number, \$var_to_bind, $bind_type );</pre>
+      $rc = $sth-&gt;bind_col($column_number, \$var_to_bind, $bind_type );</code></pre>
 
     <p>Binds a Perl variable and/or some attributes to an output column (field) of a <code>SELECT</code> statement. Column numbers count up from 1. You do not need to bind output columns in order to fetch data. For maximum portability between drivers, bind_col() should be called after execute() and not before. See also <a href="#bind_columns">&quot;bind_columns&quot;</a> for an example.</p>
 
@@ -3366,7 +3392,7 @@
 
     <p>The <code>\%attr</code> parameter can be used to hint at the data type formatting the column should have. For example, you can use:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth-&gt;bind_col(1, undef, { TYPE =&gt; SQL_DATETIME });</pre>
+    <pre><code data-language="perl">  $sth-&gt;bind_col(1, undef, { TYPE =&gt; SQL_DATETIME });</code></pre>
 
     <p>to specify that you&#39;d like the column (which presumably is some kind of datetime type) to be returned in the standard format for SQL_DATETIME, which is &#39;YYYY-MM-DD HH:MM:SS&#39;, rather than the native formatting the database would normally use.</p>
 
@@ -3374,13 +3400,13 @@
 
     <p>As a short-cut for the common case, the data type can be passed directly, in place of the <code>\%attr</code> hash reference. This example is equivalent to the one above:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth-&gt;bind_col(1, undef, SQL_DATETIME);</pre>
+    <pre><code data-language="perl">  $sth-&gt;bind_col(1, undef, SQL_DATETIME);</code></pre>
 
     <p>The <code>TYPE</code> value indicates the standard (non-driver-specific) type for this parameter. To specify the driver-specific type, the driver may support a driver-specific attribute, such as <code>{ ora_type =&gt; 97 }</code>.</p>
 
     <p>The SQL_DATETIME and other related constants can be imported using</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  use DBI qw(:sql_types);</pre>
+    <pre><code data-language="perl">  use DBI qw(:sql_types);</code></pre>
 
     <p>See <a href="#DBI-Constants">&quot;DBI Constants&quot;</a> for more information.</p>
 
@@ -3416,7 +3442,7 @@
 
     <h3 id="bind_columns">bind_columns</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rc = $sth-&gt;bind_columns(@list_of_refs_to_vars_to_bind);</pre>
+    <pre><code data-language="perl">  $rc = $sth-&gt;bind_columns(@list_of_refs_to_vars_to_bind);</code></pre>
 
     <p>Calls <a href="#bind_col">&quot;bind_col&quot;</a> for each column of the <code>SELECT</code> statement.</p>
 
@@ -3426,7 +3452,7 @@
 
     <p>For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;{RaiseError} = 1; # do this, or check every call for errors
+    <pre><code data-language="perl">  $dbh-&gt;{RaiseError} = 1; # do this, or check every call for errors
       $sth = $dbh-&gt;prepare(q{ SELECT region, sales FROM sales_by_region });
       $sth-&gt;execute;
       my ($region, $sales);
@@ -3440,22 +3466,22 @@
       # Column binding is the most efficient way to fetch data
       while ($sth-&gt;fetch) {
           print &quot;$region: $sales\n&quot;;
-      }</pre>
+      }</code></pre>
 
     <p>For compatibility with old scripts, the first parameter will be ignored if it is <code>undef</code> or a hash reference.</p>
 
     <p>Here&#39;s a more fancy example that binds columns to the values <i>inside</i> a hash (thanks to H.Merijn Brand):</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth-&gt;execute;
+    <pre><code data-language="perl">  $sth-&gt;execute;
       my %row;
       $sth-&gt;bind_columns( \( @row{ @{$sth-&gt;{NAME_lc} } } ));
       while ($sth-&gt;fetch) {
           print &quot;$row{region}: $row{sales}\n&quot;;
-      }</pre>
+      }</code></pre>
 
     <h3 id="dump_results">dump_results</h3>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $rows = $sth-&gt;dump_results($maxlen, $lsep, $fsep, $fh);</pre>
+    <pre><code data-language="perl">  $rows = $sth-&gt;dump_results($maxlen, $lsep, $fsep, $fh);</code></pre>
 
     <p>Fetches all the rows from <code>$sth</code>, calls <code>DBI::neat_list</code> for each row, and prints the results to <code>$fh</code> (defaults to <code>STDOUT</code>) separated by <code>$lsep</code> (default <code>&quot;\n&quot;</code>). <code>$fsep</code> defaults to <code>&quot;, &quot;</code> and <code>$maxlen</code> defaults to 35.</p>
 
@@ -3471,7 +3497,7 @@
 
     <p>Example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  ... = $h-&gt;{NUM_OF_FIELDS};    # get/read</pre>
+    <pre><code data-language="perl">  ... = $h-&gt;{NUM_OF_FIELDS};    # get/read</code></pre>
 
     <p>Some drivers cannot provide valid values for some or all of these attributes until after <code>$sth-&gt;execute</code> has been successfully called. Typically the attribute will be <code>undef</code> in these situations.</p>
 
@@ -3499,7 +3525,7 @@
 
     <p>Returns a reference to an array of field names for each column. The names may contain spaces but should not be truncated or have any trailing space. Note that the names have the letter case (upper, lower or mixed) as returned by the driver being used. Portable applications should use <a href="#NAME_lc">&quot;NAME_lc&quot;</a> or <a href="#NAME_uc">&quot;NAME_uc&quot;</a>.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  print &quot;First column name: $sth-&gt;{NAME}-&gt;[0]\n&quot;;</pre>
+    <pre><code data-language="perl">  print &quot;First column name: $sth-&gt;{NAME}-&gt;[0]\n&quot;;</code></pre>
 
     <p>Also note that the name returned for (aggregate) functions like <code>count(*)</code> or <code>max(c_foo)</code> is determined by the database server and not by <code>DBI</code> or the <code>DBD</code> backend.</p>
 
@@ -3533,10 +3559,10 @@
 
     <p>The value of each hash entry is the perl index number of the corresponding column (counting from 0). For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare(&quot;select Id, Name from table&quot;);
+    <pre><code data-language="perl">  $sth = $dbh-&gt;prepare(&quot;select Id, Name from table&quot;);
       $sth-&gt;execute;
       @row = $sth-&gt;fetchrow_array;
-      print &quot;Name $row[ $sth-&gt;{NAME_lc_hash}{name} ]\n&quot;;</pre>
+      print &quot;Name $row[ $sth-&gt;{NAME_lc_hash}{name} ]\n&quot;;</code></pre>
 
     <h3 id="TYPE">TYPE</h3>
 
@@ -3546,7 +3572,7 @@
 
     <p>The values correspond to the international standards (ANSI X3.135 and ISO/IEC 9075) which, in general terms, means ODBC. Driver-specific types that don&#39;t exactly match standard types should generally return the same values as an ODBC driver supplied by the makers of the database. That might include private type numbers in ranges the vendor has officially registered with the ISO working group:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  ftp://sqlstandards.org/SC32/SQL_Registry/</pre>
+    <pre><code data-language="perl">  ftp://sqlstandards.org/SC32/SQL_Registry/</code></pre>
 
     <p>Where there&#39;s no vendor-supplied ODBC driver to be compatible with, the DBI driver can use type numbers in the range that is now officially reserved for use by the DBI: -9999 to -9000.</p>
 
@@ -3576,7 +3602,7 @@
 
     <p>Returns a reference to an array indicating the possibility of each column returning a null. Possible values are <code>0</code> (or an empty string) = no, <code>1</code> = yes, <code>2</code> = unknown.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  print &quot;First column may return NULL\n&quot; if $sth-&gt;{NULLABLE}-&gt;[0];</pre>
+    <pre><code data-language="perl">  print &quot;First column may return NULL\n&quot; if $sth-&gt;{NULLABLE}-&gt;[0];</code></pre>
 
     <h3 id="CursorName">CursorName</h3>
 
@@ -3632,11 +3658,11 @@
 
     <p>It is possible that the values in the hash returned by <code>ParamTypes</code> are not exactly the same as those passed to bind_param() or execute(). Param attributes specified using the abbreviated form, like this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    $sth-&gt;bind_param(1, SQL_INTEGER);</pre>
+    <pre><code data-language="perl">    $sth-&gt;bind_param(1, SQL_INTEGER);</code></pre>
 
     <p>are returned in the expanded form, as if called like this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    $sth-&gt;bind_param(1, { TYPE =&gt; SQL_INTEGER });</pre>
+    <pre><code data-language="perl">    $sth-&gt;bind_param(1, { TYPE =&gt; SQL_INTEGER });</code></pre>
 
     <p>The driver may have modified the type information in some way based on the bound values, other hints provided by the prepare()&#39;d SQL statement, or alternate type mappings required by the driver or target database system. The driver may also add private keys (with names beginning with the drivers reserved prefix, e.g., odbc_xxx).</p>
 
@@ -3644,13 +3670,13 @@
 
     <p>The keys and values in the returned hash can be passed to the various bind_param() methods to effectively reproduce a previous param binding. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  # assuming $sth1 is a previously prepared statement handle
+    <pre><code data-language="perl">  # assuming $sth1 is a previously prepared statement handle
       my $sth2 = $dbh-&gt;prepare( $sth1-&gt;{Statement} );
       my $ParamValues = $sth1-&gt;{ParamValues} || {};
       my $ParamTypes  = $sth1-&gt;{ParamTypes}  || {};
       $sth2-&gt;bind_param($_, $ParamValues-&gt;{$_} $ParamTypes-&gt;{$_})
         for keys %{ {%$ParamValues, %$ParamTypes} };
-      $sth2-&gt;execute();</pre>
+      $sth2-&gt;execute();</code></pre>
 
     <p>The <code>ParamTypes</code> attribute was added in DBI 1.49. Implementation is the responsibility of individual drivers; the DBI layer default implementation simply returns undef.</p>
 
@@ -3664,14 +3690,14 @@
 
     <p>For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $sth = $dbh-&gt;prepare(&quot;INSERT INTO staff (id, name) values (?,?)&quot;);
+    <pre><code data-language="perl">  $sth = $dbh-&gt;prepare(&quot;INSERT INTO staff (id, name) values (?,?)&quot;);
       $sth-&gt;execute_array({},[1,2], [&#39;fred&#39;,&#39;dave&#39;]);
       if ($sth-&gt;{ParamArrays}) {
           foreach $param (keys %{$sth-&gt;{ParamArrays}}) {
               printf &quot;Parameters for %s : %s\n&quot;, $param,
               join(&quot;,&quot;, @{$sth-&gt;{ParamArrays}-&gt;{$param}});
           }
-      }</pre>
+      }</code></pre>
 
     <p>It is possible that the values in the hash returned by <code>ParamArrays</code> are not <i>exactly</i> the same as those passed to <a href="#bind_param_array">&quot;bind_param_array&quot;</a> or <a href="#execute_array">&quot;execute_array&quot;</a>. The driver may have slightly modified values in some way based on the TYPE the value was bound with. For example a floating point value bound as an SQL_INTEGER type may be returned as an integer.</p>
 
@@ -3691,11 +3717,11 @@
 
     <p>An application can retrieve metadata information from the DBMS by issuing appropriate queries on the views of the Information Schema. Unfortunately, <code>INFORMATION_SCHEMA</code> views are seldom supported by the DBMS. Special methods (catalog methods) are available to return result sets for a small but important portion of that metadata:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  column_info
+    <pre><code data-language="perl">  column_info
       foreign_key_info
       primary_key_info
       table_info
-      statistics_info</pre>
+      statistics_info</code></pre>
 
     <p>All catalog methods accept arguments in order to restrict the result sets. Passing <code>undef</code> to an optional argument does not constrain the search for that argument. However, an empty string (&#39;&#39;) is treated as a regular search criteria and will only match an empty value.</p>
 
@@ -3707,8 +3733,8 @@
 
     <p><b>Caveat</b>: The underscore (&#39;_&#39;) is valid and often used in SQL identifiers. Passing such a value to a search pattern argument may return more rows than expected! To include pattern characters as literals, they must be preceded by an escape character which can be achieved with</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $esc = $dbh-&gt;get_info( 14 );  # SQL_SEARCH_PATTERN_ESCAPE
-      $search_pattern =~ s/([_%])/$esc$1/g;</pre>
+    <pre><code data-language="perl">  $esc = $dbh-&gt;get_info( 14 );  # SQL_SEARCH_PATTERN_ESCAPE
+      $search_pattern =~ s/([_%])/$esc$1/g;</code></pre>
 
     <p>The ODBC and SQL/CLI specifications define a way to change the default behaviour described above: All arguments (except <i>list value arguments</i>) are treated as <i>identifier</i> if the <code>SQL_ATTR_METADATA_ID</code> attribute is set to <code>SQL_TRUE</code>. <i>Quoted identifiers</i> are very similar to <i>ordinary values</i>, i.e. their body (the string within the quotes) is interpreted literally. <i>Unquoted identifiers</i> are compared in UPPERCASE.</p>
 
@@ -3722,7 +3748,7 @@
 
     <p>The recommended way to implement robust transactions in Perl applications is to use <code>RaiseError</code> and <span style="white-space: nowrap;"><code>eval { ... }</code></span> (which is very fast, unlike <span style="white-space: nowrap;"><code>eval &quot;...&quot;</code></span>). For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;{AutoCommit} = 0;  # enable transactions, if possible
+    <pre><code data-language="perl">  $dbh-&gt;{AutoCommit} = 0;  # enable transactions, if possible
       $dbh-&gt;{RaiseError} = 1;
       eval {
           foo(...)        # do lots of work here
@@ -3736,11 +3762,11 @@
           # but do it in an eval{} as it may also fail
           eval { $dbh-&gt;rollback };
           # add other application on-error-clean-up code here
-      }</pre>
+      }</code></pre>
 
     <p>If the <code>RaiseError</code> attribute is not set, then DBI calls would need to be manually checked for errors, typically like this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $h-&gt;method(@args) or die $h-&gt;errstr;</pre>
+    <pre><code data-language="perl">  $h-&gt;method(@args) or die $h-&gt;errstr;</code></pre>
 
     <p>With <code>RaiseError</code> set, the DBI will automatically <code>die</code> if any DBI method call on that handle (or a child handle) fails, so you don&#39;t have to test the return value of each method call. See <a href="#RaiseError">&quot;RaiseError&quot;</a> for more details.</p>
 
@@ -3766,7 +3792,7 @@
 
     <p>Here&#39;s a complete example program to select and fetch some data:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $data_source = &quot;dbi::DriverName:db_name&quot;;
+    <pre><code data-language="perl">  my $data_source = &quot;dbi::DriverName:db_name&quot;;
       my $dbh = DBI-&gt;connect($data_source, $user, $password)
           or die &quot;Can&#39;t connect to $data_source: $DBI::errstr&quot;;
 
@@ -3787,11 +3813,11 @@
       # check for problems which may have terminated the fetch early
       die $sth-&gt;errstr if $sth-&gt;err;
 
-      $dbh-&gt;disconnect;</pre>
+      $dbh-&gt;disconnect;</code></pre>
 
     <p>Here&#39;s a complete example program to insert some data from a file. (This example uses <code>RaiseError</code> to avoid needing to check each call).</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  my $dbh = DBI-&gt;connect(&quot;dbi:DriverName:db_name&quot;, $user, $password, {
+    <pre><code data-language="perl">  my $dbh = DBI-&gt;connect(&quot;dbi:DriverName:db_name&quot;, $user, $password, {
           RaiseError =&gt; 1, AutoCommit =&gt; 0
       });
 
@@ -3808,15 +3834,15 @@
       close FH;
 
       $dbh-&gt;commit;
-      $dbh-&gt;disconnect;</pre>
+      $dbh-&gt;disconnect;</code></pre>
 
     <p>Here&#39;s how to convert fetched NULLs (undefined values) into empty strings:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  while($row = $sth-&gt;fetchrow_arrayref) {
+    <pre><code data-language="perl">  while($row = $sth-&gt;fetchrow_arrayref) {
         # this is a fast and simple way to deal with nulls:
         foreach (@$row) { $_ = &#39;&#39; unless defined }
         print &quot;@$row\n&quot;;
-      }</pre>
+      }</code></pre>
 
     <p>The <code>q{...}</code> style quoting used in these examples avoids clashing with quotes that may be used in the SQL statement. Use the double-quote like <code>qq{...}</code> operator if you want to interpolate variables into the string. See <a href="/module/perlop#Quote-and-Quote-like-Operators">&quot;Quote and Quote-like Operators&quot; in perlop</a> for more details.</p>
 
@@ -3861,7 +3887,7 @@
 
     <p>The DBI provides a <code>cancel</code> method for statement handles. The <code>cancel</code> method should abort the current operation and is designed to be called from a signal handler. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $SIG{INT} = sub { $sth-&gt;cancel };</pre>
+    <pre><code data-language="perl">  $SIG{INT} = sub { $sth-&gt;cancel };</code></pre>
 
     <p>However, few drivers implement this (the DBI provides a default method that just returns <code>undef</code>) and, even if implemented, there is still a possibility that the statement handle, and even the parent database handle, will not be usable afterwards.</p>
 
@@ -3873,7 +3899,7 @@
 
     <p>The traditional way to implement a timeout is to set <code>$SIG{ALRM}</code> to refer to some code that will be executed when an ALRM signal arrives and then to call alarm($seconds) to schedule an ALRM signal to be delivered $seconds in the future. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  eval {
+    <pre><code data-language="perl">  eval {
         local $SIG{ALRM} = sub { die &quot;TIMEOUT\n&quot; }; # N.B. \n required
         eval {
           alarm($seconds);
@@ -3884,7 +3910,7 @@
         die &quot;$@&quot; if $@;
       };
       if ( $@ eq &quot;TIMEOUT\n&quot; ) { ... }
-      elsif ($@) { ... } # some other error</pre>
+      elsif ($@) { ... } # some other error</code></pre>
 
     <p>The first (outer) eval is used to avoid the unlikely but possible chance that the &quot;code to execute&quot; dies and the alarm fires before it is cancelled. Without the outer eval, if this happened your program will die if you have no ALRM handler or a non-local alarm handler will be called.</p>
 
@@ -3899,7 +3925,7 @@
 
     <p>The code would look something like this (for the DBD-Oracle connect()):</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">   use POSIX qw(:signal_h);
+    <pre><code data-language="perl">   use POSIX qw(:signal_h);
 
        my $mask = POSIX::SigSet-&gt;new( SIGALRM ); # signals to mask in the handler
        my $action = POSIX::SigAction-&gt;new(
@@ -3922,7 +3948,7 @@
        if ( $@ ) {
          if ($@ eq &quot;connect timeout\n&quot;) {...}
          else { # connect died }
-       }</pre>
+       }</code></pre>
 
     <p>See previous example for the reasoning around the double eval.</p>
 
@@ -3948,11 +3974,11 @@
 
     <p>So, having put your overriding methods into the right classes, and setup the inheritance hierarchy, how do you get the DBI to use them? You have two choices, either a static method call using the name of your subclass:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh = MySubDBI-&gt;connect(...);</pre>
+    <pre><code data-language="perl">  $dbh = MySubDBI-&gt;connect(...);</code></pre>
 
     <p>or specifying a <code>RootClass</code> attribute:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh = DBI-&gt;connect(..., { RootClass =&gt; &#39;MySubDBI&#39; });</pre>
+    <pre><code data-language="perl">  $dbh = DBI-&gt;connect(..., { RootClass =&gt; &#39;MySubDBI&#39; });</code></pre>
 
     <p>If both forms are used then the attribute takes precedence.</p>
 
@@ -3960,7 +3986,7 @@
 
     <p>When subclassing is being used then, after a successful new connect, the DBI-&gt;connect method automatically calls:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  $dbh-&gt;connected($dsn, $user, $pass, \%attr);</pre>
+    <pre><code data-language="perl">  $dbh-&gt;connected($dsn, $user, $pass, \%attr);</code></pre>
 
     <p>The default method does nothing. The call is made just to simplify any post-connection setup that your subclass may want to perform. The parameters are the same as passed to DBI-&gt;connect. If your subclass supplies a connected method, it should be part of the MySubDBI::db package.</p>
 
@@ -3968,7 +3994,7 @@
 
     <p>Here&#39;s a brief example of a DBI subclass. A more thorough example can be found in <i>t/subclass.t</i> in the DBI distribution.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  package MySubDBI;
+    <pre><code data-language="perl">  package MySubDBI;
 
       use strict;
 
@@ -3999,7 +4025,7 @@
         do_something_magical_with_row_data($row)
             or return $sth-&gt;set_err(1234, &quot;The magic failed&quot;, undef, &quot;fetch&quot;);
         return $row;
-      }</pre>
+      }</code></pre>
 
     <p>When calling a SUPER::method that returns a handle, be careful to check the return value before trying to do other things with it in your overridden method. This is especially important if you want to set a hash attribute on the handle, as Perl&#39;s autovivification will bite you by (in)conveniently creating an unblessed hashref, which your method will then return with usually baffling results later on like the error &quot;dbih_getcom handle HASH(0xa4451a8) is not a DBI handle (has no magic&quot;. It&#39;s best to check right after the call and return undef immediately on error, just like DBI would and just like the example above.</p>
 
@@ -4023,14 +4049,14 @@
 
     <p>Trace <i>levels</i> are as follows:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  0 - Trace disabled.
+    <pre><code data-language="perl">  0 - Trace disabled.
       1 - Trace top-level DBI method calls returning with results or errors.
       2 - As above, adding tracing of top-level method entry with parameters.
       3 - As above, adding some high-level information from the driver
           and some internal information from the DBI.
       4 - As above, adding more detailed information from the driver.
           This is the first level to trace all the rows being fetched.
-      5 to 15 - As above but with more and more internal information.</pre>
+      5 to 15 - As above but with more and more internal information.</code></pre>
 
     <p>Trace level 1 is best for a simple overview of what&#39;s happening. Trace levels 2 thru 4 a good choice for general purpose tracing. Levels 5 and above are best reserved for investigating a specific problem, when you need to see &quot;inside&quot; the driver and DBI.</p>
 
@@ -4042,7 +4068,7 @@
 
     <p>Currently the DBI only defines two trace flags:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  ALL - turn on all DBI and driver flags (not recommended)
+    <pre><code data-language="perl">  ALL - turn on all DBI and driver flags (not recommended)
       SQL - trace SQL statements executed
             (not yet implemented in DBI but implemented in some DBDs)
       CON - trace connection process
@@ -4051,7 +4077,7 @@
       DBD - trace only DBD messages
             (not implemented by all DBDs yet)
       TXN - trace transactions
-            (not implemented in all DBDs yet)</pre>
+            (not implemented in all DBDs yet)</code></pre>
 
     <p>The <a href="#parse_trace_flags">&quot;parse_trace_flags&quot;</a> and <a href="#parse_trace_flag">&quot;parse_trace_flag&quot;</a> methods are used to convert trace flag names into the corresponding integer bit flags.</p>
 
@@ -4065,7 +4091,7 @@
 
     <p>All of those methods use parse_trace_flags() and so allow you set both the trace level and multiple trace flags by using a string containing the trace level and/or flag names separated by vertical bar (&quot;<code>|</code>&quot;) or comma (&quot;<code>,</code>&quot;) characters. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  local $h-&gt;{TraceLevel} = &quot;3|SQL|foo&quot;;</pre>
+    <pre><code data-language="perl">  local $h-&gt;{TraceLevel} = &quot;3|SQL|foo&quot;;</code></pre>
 
     <h2 id="Trace-Output">Trace Output</h2>
 
@@ -4093,15 +4119,15 @@
 
     <p>A simple example of using PerlIO layers is to use a scalar as the output:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    my $scalar = &#39;&#39;;
+    <pre><code data-language="perl">    my $scalar = &#39;&#39;;
         open( my $fh, &quot;+&gt;:scalar&quot;, \$scalar );
-        $dbh-&gt;trace( 2, $fh );</pre>
+        $dbh-&gt;trace( 2, $fh );</code></pre>
 
     <p>Now all trace output is simply appended to $scalar.</p>
 
     <p>A more complex application of tracing to a layered filehandle is the use of a custom layer (<i>Refer to </i><a href="/module/Perlio::via">Perlio::via</a> <i>for details on creating custom PerlIO layers.</i>). Consider an application with the following logger module:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    package MyFancyLogger;
+    <pre><code data-language="perl">    package MyFancyLogger;
 
         sub new
         {
@@ -4139,11 +4165,11 @@
             delete $self-&gt;{_fh};
         }
 
-        1;</pre>
+        1;</code></pre>
 
     <p>To redirect DBI traces to this logger requires creating a package for the layer:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    package PerlIO::via::MyFancyLogLayer;
+    <pre><code data-language="perl">    package PerlIO::via::MyFancyLogLayer;
 
         sub PUSHED
         {
@@ -4174,15 +4200,15 @@
             return 0;
         }
 
-        1;</pre>
+        1;</code></pre>
 
     <p>The application can then cause DBI traces to be routed to the logger using</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    use PerlIO::via::MyFancyLogLayer;
+    <pre><code data-language="perl">    use PerlIO::via::MyFancyLogLayer;
 
         open my $fh, &#39;&gt;:via(MyFancyLogLayer)&#39;, MyFancyLogger-&gt;new();
 
-        $dbh-&gt;trace(&#39;SQL&#39;, $fh);</pre>
+        $dbh-&gt;trace(&#39;SQL&#39;, $fh);</code></pre>
 
     <p>Now all trace output will be processed by MyFancyLogger&#39;s log() method.</p>
 
@@ -4198,9 +4224,9 @@
 
     <p>The DBI includes a handy utility called dbilogstrip that can be used to &#39;normalize&#39; the log content. It can be used as a filter like this:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    DBI_TRACE=2 perl yourscript.pl ...args1... 2&gt;&amp;1 | dbilogstrip &gt; dbitrace1.log
+    <pre><code data-language="perl">    DBI_TRACE=2 perl yourscript.pl ...args1... 2&gt;&amp;1 | dbilogstrip &gt; dbitrace1.log
         DBI_TRACE=2 perl yourscript.pl ...args2... 2&gt;&amp;1 | dbilogstrip &gt; dbitrace2.log
-        diff -u dbitrace1.log dbitrace2.log</pre>
+        diff -u dbitrace1.log dbitrace2.log</code></pre>
 
     <p>See <a href="/module/dbilogstrip">dbilogstrip</a> for more information.</p>
 
@@ -4236,17 +4262,17 @@
 
     <p>The DBI_TRACE environment variable specifies the global default trace settings for the DBI at startup. Can also be used to direct trace output to a file. When the DBI is loaded it does:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI-&gt;trace(split /=/, $ENV{DBI_TRACE}, 2) if $ENV{DBI_TRACE};</pre>
+    <pre><code data-language="perl">  DBI-&gt;trace(split /=/, $ENV{DBI_TRACE}, 2) if $ENV{DBI_TRACE};</code></pre>
 
     <p>So if <code>DBI_TRACE</code> contains an &quot;<code>=</code>&quot; character then what follows it is used as the name of the file to append the trace to.</p>
 
     <p>output appended to that file. If the name begins with a number followed by an equal sign (<code>=</code>), then the number and the equal sign are stripped off from the name, and the number is used to set the trace level. For example:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI_TRACE=1=dbitrace.log perl your_test_script.pl</pre>
+    <pre><code data-language="perl">  DBI_TRACE=1=dbitrace.log perl your_test_script.pl</code></pre>
 
     <p>On Unix-like systems using a Bourne-like shell, you can do this easily on the command line:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  DBI_TRACE=2 perl your_test_script.pl</pre>
+    <pre><code data-language="perl">  DBI_TRACE=2 perl your_test_script.pl</code></pre>
 
     <p>See <a href="#TRACING">&quot;TRACING&quot;</a> for more information.</p>
 
@@ -4318,7 +4344,7 @@
 
     <p>More detailed information about the semantics of certain DBI methods that are based on ODBC and SQL/CLI standards is available on-line via microsoft.com, for ODBC, and www.jtc1sc32.org for the SQL/CLI standard:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> DBI method        ODBC function     SQL/CLI Working Draft
+    <pre><code data-language="perl"> DBI method        ODBC function     SQL/CLI Working Draft
      ----------        -------------     ---------------------
      column_info       SQLColumns        Page 124
      foreign_key_info  SQLForeignKeys    Page 163
@@ -4326,33 +4352,33 @@
      primary_key_info  SQLPrimaryKeys    Page 254
      table_info        SQLTables         Page 294
      type_info         SQLGetTypeInfo    Page 239
-     statistics_info   SQLStatistics</pre>
+     statistics_info   SQLStatistics</code></pre>
 
     <p>To find documentation on the ODBC function you can use the MSDN search facility at:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">    http://msdn.microsoft.com/Search</pre>
+    <pre><code data-language="perl">    http://msdn.microsoft.com/Search</code></pre>
 
     <p>and search for something like <code>&quot;SQLColumns returns&quot;</code>.</p>
 
     <p>And for SQL/CLI standard information on SQLColumns you&#39;d read page 124 of the (very large) SQL/CLI Working Draft available from:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  http://jtc1sc32.org/doc/N0701-0750/32N0744T.pdf</pre>
+    <pre><code data-language="perl">  http://jtc1sc32.org/doc/N0701-0750/32N0744T.pdf</code></pre>
 
     <h2 id="Standards-Reference-Information">Standards Reference Information</h2>
 
     <p>A hyperlinked, browsable version of the BNF syntax for SQL92 (plus Oracle 7 SQL and PL/SQL) is available here:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  http://cui.unige.ch/db-research/Enseignement/analyseinfo/SQL92/BNFindex.html</pre>
+    <pre><code data-language="perl">  http://cui.unige.ch/db-research/Enseignement/analyseinfo/SQL92/BNFindex.html</code></pre>
 
     <p>A BNF syntax for SQL3 is available here:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  http://www.sqlstandards.org/SC32/WG3/Progression_Documents/Informal_working_drafts/iso-9075-2-1999.bnf</pre>
+    <pre><code data-language="perl">  http://www.sqlstandards.org/SC32/WG3/Progression_Documents/Informal_working_drafts/iso-9075-2-1999.bnf</code></pre>
 
     <p>The following links provide further useful information about SQL. Some of these are rather dated now but may still be useful.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  http://www.jcc.com/SQLPages/jccs_sql.htm
+    <pre><code data-language="perl">  http://www.jcc.com/SQLPages/jccs_sql.htm
       http://www.contrib.andrew.cmu.edu/~shadow/sql.html
-      http://www.altavista.com/query?q=sql+tutorial</pre>
+      http://www.altavista.com/query?q=sql+tutorial</code></pre>
 
     <h2 id="Books-and-Articles">Books and Articles</h2>
 
@@ -4368,75 +4394,75 @@
 
     <p>Index of DBI related modules available from CPAN:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://search.cpan.org/search?mode=module&amp;query=DBIx%3A%3A
-     http://search.cpan.org/search?mode=doc&amp;query=DBI</pre>
+    <pre><code data-language="perl"> http://search.cpan.org/search?mode=module&amp;query=DBIx%3A%3A
+     http://search.cpan.org/search?mode=doc&amp;query=DBI</code></pre>
 
     <p>For a good comparison of RDBMS-OO mappers and some OO-RDBMS mappers (including Class::DBI, Alzabo, and DBIx::RecordSet in the former category and Tangram and SPOPS in the latter) see the Perl Object-Oriented Persistence project pages at:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://poop.sourceforge.net</pre>
+    <pre><code data-language="perl"> http://poop.sourceforge.net</code></pre>
 
     <p>A similar page for Java toolkits can be found at:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://c2.com/cgi-bin/wiki?ObjectRelationalToolComparison</pre>
+    <pre><code data-language="perl"> http://c2.com/cgi-bin/wiki?ObjectRelationalToolComparison</code></pre>
 
     <h2 id="Mailing-List">Mailing List</h2>
 
     <p>The <i>dbi-users</i> mailing list is the primary means of communication among users of the DBI and its related modules. For details send email to:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> dbi-users-help@perl.org</pre>
+    <pre><code data-language="perl"> dbi-users-help@perl.org</code></pre>
 
     <p>There are typically between 700 and 900 messages per month. You have to subscribe in order to be able to post. However you can opt for a &#39;post-only&#39; subscription.</p>
 
     <p>Mailing list archives (of variable quality) are held at:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://groups.google.com/groups?group=perl.dbi.users
+    <pre><code data-language="perl"> http://groups.google.com/groups?group=perl.dbi.users
      http://www.xray.mpe.mpg.de/mailing-lists/dbi/
-     http://www.mail-archive.com/dbi-users%40perl.org/</pre>
+     http://www.mail-archive.com/dbi-users%40perl.org/</code></pre>
 
     <h2 id="Assorted-Related-WWW-Links">Assorted Related WWW Links</h2>
 
     <p>The DBI &quot;Home Page&quot;:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://dbi.perl.org/</pre>
+    <pre><code data-language="perl"> http://dbi.perl.org/</code></pre>
 
     <p>Other DBI related links:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://tegan.deltanet.com/~phlip/DBUIdoc.html
+    <pre><code data-language="perl"> http://tegan.deltanet.com/~phlip/DBUIdoc.html
      http://dc.pm.org/perl_db.html
      http://wdvl.com/Authoring/DB/Intro/toc.html
      http://www.hotwired.com/webmonkey/backend/tutorials/tutorial1.html
      http://bumppo.net/lists/macperl/1999/06/msg00197.html
      http://www.perlmonks.org/?node=DBI%20recipes
-     http://www.perlmonks.org/?node=Speeding%20up%20the%20DBI</pre>
+     http://www.perlmonks.org/?node=Speeding%20up%20the%20DBI</code></pre>
 
     <p>Other database related links:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://www.jcc.com/sql_stnd.html
+    <pre><code data-language="perl"> http://www.jcc.com/sql_stnd.html
      http://cuiwww.unige.ch/OSG/info/FreeDB/FreeDB.home.html
-     http://www.connectionstrings.com/</pre>
+     http://www.connectionstrings.com/</code></pre>
 
     <p>Security, especially the &quot;SQL Injection&quot; attack:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://www.ngssoftware.com/research/papers.html
+    <pre><code data-language="perl"> http://www.ngssoftware.com/research/papers.html
      http://www.ngssoftware.com/papers/advanced_sql_injection.pdf
      http://www.ngssoftware.com/papers/more_advanced_sql_injection.pdf
      http://www.esecurityplanet.com/trends/article.php/2243461
      http://www.spidynamics.com/papers/SQLInjectionWhitePaper.pdf
      http://www.imperva.com/application_defense_center/white_papers/blind_sql_server_injection.html
-     http://online.securityfocus.com/infocus/1644</pre>
+     http://online.securityfocus.com/infocus/1644</code></pre>
 
     <p>Commercial and Data Warehouse Links</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://www.dwinfocenter.org
+    <pre><code data-language="perl"> http://www.dwinfocenter.org
      http://www.datawarehouse.com
      http://www.datamining.org
      http://www.olapcouncil.org
      http://www.idwa.org
-     http://www.knowledgecenters.org/dwcenter.asp</pre>
+     http://www.knowledgecenters.org/dwcenter.asp</code></pre>
 
     <p>Recommended Perl Programming Links</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://language.perl.com/style/</pre>
+    <pre><code data-language="perl"> http://language.perl.com/style/</code></pre>
 
     <h2 id="FAQ">FAQ</h2>
 
@@ -4500,7 +4526,7 @@
 
     <p>The DBI source code is maintained using Subversion (a replacement for CVS, see <a href="http://subversion.tigris.org/">http://subversion.tigris.org/</a>). To access the source you&#39;ll need to install a Subversion client. Then, to get the source code, do:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  svn checkout http://svn.perl.org/modules/dbi/trunk</pre>
+    <pre><code data-language="perl">  svn checkout http://svn.perl.org/modules/dbi/trunk</code></pre>
 
     <p>If it prompts for a username and password use your perl.org account if you have one, else just &#39;guest&#39; and &#39;guest&#39;. The source code will be in a new subdirectory called <code>trunk</code>.</p>
 
@@ -4508,11 +4534,11 @@
 
     <p>After making your changes you can generate a patch file, but before you do, make sure your source is still up to date using:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  svn update</pre>
+    <pre><code data-language="perl">  svn update</code></pre>
 
     <p>If you get any conflicts reported you&#39;ll need to fix them first. Then generate the patch file from within the <code>trunk</code> directory using:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  svn diff &gt; foo.patch</pre>
+    <pre><code data-language="perl">  svn diff &gt; foo.patch</code></pre>
 
     <p>Read the patch file, as a sanity check, and then email it to dbi-dev@perl.org.</p>
 
@@ -4520,29 +4546,29 @@
 
     <p>Unpack a fresh copy of the distribution:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  tar xfz DBI-1.40.tar.gz</pre>
+    <pre><code data-language="perl">  tar xfz DBI-1.40.tar.gz</code></pre>
 
     <p>Rename the newly created top level directory:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  mv DBI-1.40 DBI-1.40.your_foo</pre>
+    <pre><code data-language="perl">  mv DBI-1.40 DBI-1.40.your_foo</code></pre>
 
     <p>Edit the contents of DBI-1.40.your_foo/* till it does what you want.</p>
 
     <p>Test your changes and then remove all temporary files:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  make test &amp;&amp; make distclean</pre>
+    <pre><code data-language="perl">  make test &amp;&amp; make distclean</code></pre>
 
     <p>Go back to the directory you originally unpacked the distribution:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  cd ..</pre>
+    <pre><code data-language="perl">  cd ..</code></pre>
 
     <p>Unpack <i>another</i> copy of the original distribution you started with:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  tar xfz DBI-1.40.tar.gz</pre>
+    <pre><code data-language="perl">  tar xfz DBI-1.40.tar.gz</code></pre>
 
     <p>Then create a patch file by performing a recursive <code>diff</code> on the two top level directories:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  diff -r -u DBI-1.40 DBI-1.40.your_foo &gt; DBI-1.40.your_foo.patch</pre>
+    <pre><code data-language="perl">  diff -r -u DBI-1.40 DBI-1.40.your_foo &gt; DBI-1.40.your_foo.patch</code></pre>
 
     <h2 id="Speak-before-you-patch">Speak before you patch</h2>
 
@@ -4552,19 +4578,19 @@
 
     <p>A German translation of this manual (possibly slightly out of date) is available, thanks to O&#39;Reilly, at:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  http://www.oreilly.de/catalog/perldbiger/</pre>
+    <pre><code data-language="perl">  http://www.oreilly.de/catalog/perldbiger/</code></pre>
 
     <p>Some other translations:</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false"> http://cronopio.net/perl/                              - Spanish
-     http://member.nifty.ne.jp/hippo2000/dbimemo.htm        - Japanese</pre>
+    <pre><code data-language="perl"> http://cronopio.net/perl/                              - Spanish
+     http://member.nifty.ne.jp/hippo2000/dbimemo.htm        - Japanese</code></pre>
 
     <h1 id="TRAINING">TRAINING</h1>
 
     <p>References to DBI related training resources. No recommendation implied.</p>
 
-    <pre class="brush: pl; class-name: 'highlight'; toolbar: false; gutter: false">  http://www.treepax.co.uk/
-      http://www.keller.com/dbweb/</pre>
+    <pre><code data-language="perl">  http://www.treepax.co.uk/
+      http://www.keller.com/dbweb/</code></pre>
 
     <p>(If you offer professional DBI related training services, please send me your details so I can add them here.)</p>
 
@@ -4593,6 +4619,8 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/jquery.hashgrid.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/rainbow.min.js"></script>
+<script src="/js/rainbow.generic.js"></script>
 
 
 <!-- Prompt IE 6 users to install Chrome Frame. Remove this to 'support' IE 6. -->

@@ -3,7 +3,9 @@
 
 body {
     font-family: 'Helvetica';
-    background: #fcfcfc;
+    background: #fff;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 /* Bootstrap Overrides
@@ -21,12 +23,13 @@ p { margin-bottom: 18px; }
 ---------------------------------------------------------------------------- */
 
 #sidebar {
+    font-size: 13px;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     width: 300px;
-    background: #f5f5f5;
+    background: #f1f1f5;
     border-right: 1px solid rgba(0,0,0,0.148438);
     overflow-x: hidden;
     overflow-y: auto;
@@ -39,7 +42,7 @@ p { margin-bottom: 18px; }
     text-overflow: ellipsis;
 	white-space: nowrap;
     overflow: hidden;
-    line-height: 27px; /* 1.5 */
+    line-height: 27px; /* 1.25 - ish */
 }
 
 
@@ -75,14 +78,13 @@ ul ul ul ul { text-indent: 49px; margin: 0;   }
 
 
 #sidebar a.filename {
-    color: rgba(254,254,255,1);
     font-weight: bold;
-    color: #777;
-    text-shadow: 1px 1px 0px #eee;
-    background: rgba(0,0,0,0.1);
+    color: #999;
+    text-shadow: 1px 1px 0px #fff;
+    margin: 7px 0 0 0;
     text-indent: 10px;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    border-top: 1px solid rgba(255,255,255,0.4);
+/*    border-top: 1px solid rgba(0,0,0,0.1);*/
+/*    border-top: 1px solid rgba(255,255,255,0.4);*/
 }
 
 #index > li:first-child a {
@@ -92,7 +94,9 @@ ul ul ul ul { text-indent: 49px; margin: 0;   }
 
 #sidebar a.filename:hover {
 /*    color: rgba(255,255,255,1);*/
-    background: rgba(0,0,0,0.15);
+    background: rgba(0,0,0,0.1);
+    color: #777;
+    text-shadow: 1px 1px 0px #eee;
 }
 
 
@@ -109,22 +113,43 @@ h1 a { line-height: 40px !important; color: #666; }
 /* Content
 ---------------------------------------------------------------------------- */
 
+#content .subhead {
+    margin-bottom: 42px;
+}
+
+#content .subhead h1 {
+    font-size: 36px;
+    line-height: 36px;
+    margin-bottom: 9px;
+    text-indent: -2px;
+/*    letter-spacing: -1px;*/
+    border: none;
+}
+
+#content .subhead p {
+/*    line-height: 18px;*/
+    margin-bottom: 21px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
 
 #banner {
-    position: fixed;
+    display: none;
+    position: absolute;
     top: 0;
     right: 0;
-    left: 301px;
-    height: 40px;
-    line-height: 40px;
-    border-bottom: 1px solid rgba(0,0,0,0.148438);
-    background: #f5f5f5;
-    z-index: 99;
+    left: 300px;
+/*    height: 40px;*/
+/*    line-height: 40px;*/
+/*    border-bottom: 1px solid rgba(0,0,0,0.148438);*/
+/*    background: #666;*/
+/*    z-index: 99;*/
     
 }
 
 #banner h1 {
-    color: #666;
+/*    color: #f5f5f5;*/
     font-size: 21px;
     text-indent: 36px;
     height: 41px;
@@ -135,22 +160,47 @@ h1 a { line-height: 40px !important; color: #666; }
 #content {
     position: absolute;
     top: 0;
-    right: 0;
-    padding: 58px 36px;
     left: 300px;
+    right: 0;
+/*    width: 720px;*/
+    padding: 27px 36px;
 }
 
 
 
+/* Styles
+---------------------------------------------------------------------------- */
 
+#content h1 {
+    font-size: 24px;
+    line-height: 36px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 18px;
+}
 
+#content h2 {
+    font-size: 21px;
+    line-height: 36px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 18px;
+}
 
+#content h3 {
+    font-size: 18px;
+    line-height: 36px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 18px;
+}
 
 
 
 /* Misc Util Classes
 ---------------------------------------------------------------------------- */
 
+.section-filter {
+    margin: 20px 10px 10px 15px;
+    width: 238px;
+}
 
 /* Bootstrap bugfixes
 ============================================================================ */
