@@ -6,6 +6,8 @@ body {
     background: #fff;
     font-size: 14px;
     line-height: 21px;
+    padding: 0;
+    margin: 0;
 }
 
 /* Bootstrap Overrides
@@ -30,32 +32,62 @@ p { margin-bottom: 21px; }
     bottom: 0;
     width: 300px;
     background: #f1f1f5;
-    border-right: 1px solid rgba(0,0,0,0.148438);
+    border-right: 1px solid #cdcdd0;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
+
 #sidebar a {
     display: block;
-    width: 285px;
-    padding: 0 15px 0 0;
+    width: 300px;
     text-overflow: ellipsis;
-	white-space: nowrap;
+    white-space: nowrap;
     overflow: hidden;
-    line-height: 27px; /* 1.25 - ish */
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
 }
 
-
-#sidebar a:hover { background: rgba(0,0,0,0.05); color: #005580; }
 
 
 /* Sidebar list indentation
 ---------------------------------------------------------------------------- */
 
-ul { list-style: none; margin: 0; padding: 0; }
+ul { list-style: none; margin: 0; padding: 0; text-indent: 10px; }
 ul ul { text-indent: 23px; margin: 0; }
 ul ul ul { text-indent: 36px; margin: 0;  }
 ul ul ul ul { text-indent: 49px; margin: 0;   }
+
+
+.nav .nav-header {
+    text-transform: none;
+    font-size: 13px;
+}
+
+.nav {
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar a:hover {
+    background: #e5e5e9;
+}
+
+.nav-list > .active > a,
+.nav-list > .active > a:hover {
+    background: #369 !important; /* FIXME */
+    color: #fff;
+}
+
+
+.nav-list > .active > a.nav-header,
+.nav-list > .active > a.nav-header:hover {
+    background: transparent !important;  /* FIXME */
+    color: #999;
+    text-shadow: 0px 1px 0px #f6f6f6;    
+}
+
 
 #sidebar a.toggle {
     font-size: 9px;
@@ -64,8 +96,8 @@ ul ul ul ul { text-indent: 49px; margin: 0;   }
     text-indent: 0;
     color: #999;
     position: absolute;
-    height: 27px;
-    line-height: 28px; /* Better Vertical Alignment */
+    height: 24px;
+    line-height: 27px;
 }
 
 #sidebar ul ul a.toggle { width: 19px; }
@@ -75,30 +107,6 @@ ul ul ul ul { text-indent: 49px; margin: 0;   }
     background: none;
     color: #222;
 }
-
-
-#sidebar a.filename {
-    font-weight: bold;
-    color: #999;
-    text-shadow: 1px 1px 0px #fff;
-    margin: 7px 0 0 0;
-    text-indent: 10px;
-/*    border-top: 1px solid rgba(0,0,0,0.1);*/
-/*    border-top: 1px solid rgba(255,255,255,0.4);*/
-}
-
-#index > li:first-child a {
-    border-top: 0;
-}
-
-
-#sidebar a.filename:hover {
-/*    color: rgba(255,255,255,1);*/
-    background: rgba(0,0,0,0.1);
-    color: #777;
-    text-shadow: 1px 1px 0px #eee;
-}
-
 
 
 /* Sidebar Header
@@ -173,11 +181,6 @@ code {
 
 #content dd {
     margin: 0;
-}
-
-.nav {
-/*    margin: 0 !important;*/
-/*    padding: 0 !important;*/
 }
 
 

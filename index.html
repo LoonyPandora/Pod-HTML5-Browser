@@ -26,342 +26,173 @@
     <link rel="apple-touch-icon" href="/img/apple-touch-icon-72x72.png" sizes="72x72">
     <link rel="apple-touch-icon" href="/img/apple-touch-icon-114x114.png" sizes="114x114">
 </head>
-<body data-spy="scroll">
+<body data-spy="scroll" data-offset="21">
 
 
 <div id="sidebar">
     <input type="text" class="search-query section-filter" placeholder="Filter Contents">
 
-    <ul id="index">
-        <li><a href="#" class="filename" data-toggle="collapse" data-target="#Dancer_Plugin_Passphrase">Dancer::Plugin::Passphrase</a></li>
-        
-        <ul id="Dancer_Plugin_Passphrase" class="collapse in">
-            <li><a href="#NAME">Name</a></li>
-            <li><a href="#NAME">Synopsis</a></li>
-            <li><a href="#NAME">Keywords</a></li>
-            <li><a href="#NAME">Methods</a></li>
-            <ul>
-                <li><a href="#NAME">matches</a></li>
-                <li><a href="#" class="toggle">&#9660;</a><a href="#NAME">generate_hash</a></li>
-                <ul>
-                    <li><a href="#NAME">rfc2307</a></li>
-                    <li><a href="#NAME">scheme</a></li>
-                    <li><a href="#NAME">cost</a></li>
-                    <li><a href="#NAME">raw_salt</a></li>
-                    <li><a href="#NAME">raw_hash</a></li>
-                </ul>
-                <li><a href="#NAME">generate_random</a></li>
-            </ul>
-        </ul>
-        
-        <li><a href="#" class="filename" data-toggle="collapse" data-target="#DBI_pm">Bot::BasicBot::Pluggable::Module::12345678</a></li>
-        
-    <ul id="DBI_pm" class="collapse in">
-        <li><a href="#" class="toggle">&#9654;</a><a href="#NAME">Name</a></li>
-        <li><a href="#" class="toggle">&#9660;</a><a href="#SYNOPSIS">Synopsis</a>
-        <ul>
-          <li><a href="#GETTING-HELP">Getting Help</a></li>
-          <li><a href="#" class="toggle">&#9654;</a><a href="#NOTES">Notes</a></li>
-          <li><a href="#" class="toggle">&#9654;</a><a href="#NOTES">Notes</a></li>
-          <li><a href="#GETTING-HELP">Getting Help</a></li>
-          <li><a href="#" class="toggle">&#9654;</a><a href="#NOTES">Notes</a></li>
-          <li><a href="#GETTING-HELP">Getting Help</a></li>
-          <li><a href="#GETTING-HELP">Getting Help</a></li>
-        </ul>
-        </li>
-        <li><a href="#DESCRIPTION">Description</a>
-        <ul>
-          <li><a href="#Architecture-of-a-DBI-Application">Architecture of a DBI Application</a></li>
-          <li><a href="#Notation-and-Conventions">Notation and Conventions</a></li>
-          <li><a href="#Outline-Usage">Outline Usage</a></li>
-          <li><a href="#General-Interface-Rules-Caveats">General Interface Rules &amp; Caveats</a></li>
-          <li><a href="#Naming-Conventions-and-Name-Space">Naming Conventions and Name Space</a></li>
-          <li><a href="#SQL---A-Query-Language">SQL - A Query Language</a></li>
-          <li><a href="#Placeholders-and-Bind-Values">Placeholders and Bind Values</a></li>
-        </ul>
-        </li>
-        <li><a href="#THE-DBI-PACKAGE-AND-CLASS">THE DBI PACKAGE AND CLASS</a>
-        <ul>
-          <li><a href="#DBI-Constants">DBI Constants</a></li>
-          <li><a href="#DBI-Class-Methods">DBI Class Methods</a>
-            <ul>
-              <li><a href="#parse_dsn">parse_dsn</a></li>
-              <li><a href="#connect">connect</a></li>
-              <li><a href="#connect_cached">connect_cached</a></li>
-              <li><a href="#available_drivers">available_drivers</a></li>
-              <li><a href="#installed_drivers">installed_drivers</a></li>
-              <li><a href="#installed_versions">installed_versions</a></li>
-              <li><a href="#data_sources">data_sources</a></li>
-              <li><a href="#trace">trace</a></li>
-              <li><a href="#visit_handles">visit_handles</a></li>
+    <ul class="nav nav-list">
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer">Dancer</a></li>
+        <ul id="Dancer" class="collapse in nav nav-list">
+          <li><a href="#NAME">NAME</a></li>
+          <li><a href="#" class="toggle">&#9654;</a><a href="#SYNOPSIS">SYNOPSIS</a></li>
+          <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+          <li><a href="#" class="toggle">&#9654;</a><a href="#MORE-DOCUMENTATION">MORE DOCUMENTATION</a></li>
+          <li><a href="#EXPORTS">EXPORTS</a>
+            <ul class="nav nav-list">
+              <li><a href="#moose">:moose</a></li>
+              <li><a href="#syntax">:syntax</a></li>
+              <li><a href="#tests">:tests</a></li>
+              <li><a href="#script">:script</a></li>
+              <li><a href="#keyword">!keyword</a></li>
             </ul>
           </li>
-          <li><a href="#DBI-Utility-Functions">DBI Utility Functions</a>
-            <ul>
-              <li><a href="#data_string_desc">data_string_desc</a></li>
-              <li><a href="#data_string_diff">data_string_diff</a></li>
-              <li><a href="#data_diff">data_diff</a></li>
-              <li><a href="#neat">neat</a></li>
-              <li><a href="#neat_list">neat_list</a></li>
-              <li><a href="#looks_like_number">looks_like_number</a></li>
-              <li><a href="#hash">hash</a></li>
-              <li><a href="#sql_type_cast">sql_type_cast</a></li>
+          <li><a href="#FUNCTIONS">FUNCTIONS</a>
+            <ul class="nav nav-list">
+              <li><a href="#" class="toggle">&#9654;</a><a href="#after">after</a></li>
+              <li><a href="#" class="toggle">&#9660;</a><a href="#any">any</a></li>
+              <li><a href="#before">before</a></li>
+              <li><a href="#before_template">before_template</a></li>
+              <li><a href="#cookies">cookies</a></li>
+              <li><a href="#cookie">cookie</a></li>
+              <li><a href="#config">config</a></li>
+              <li><a href="#content_type">content_type</a></li>
+              <li><a href="#dance">dance</a></li>
+              <li><a href="#debug">debug</a></li>
+              <li><a href="#dirname">dirname</a></li>
+              <li><a href="#engine">engine</a></li>
+              <li><a href="#error">error</a></li>
+              <li><a href="#false">false</a></li>
+              <li><a href="#forward">forward</a></li>
+              <li><a href="#from_dumper-structure-">from_dumper ($structure)</a></li>
+              <li><a href="#from_json-structure-options-">from_json ($structure, %options)</a></li>
+              <li><a href="#from_yaml-structure-">from_yaml ($structure)</a></li>
+              <li><a href="#from_xml-structure-options-">from_xml ($structure, %options)</a></li>
+              <li><a href="#get">get</a></li>
+              <li><a href="#halt">halt</a></li>
+              <li><a href="#headers">headers</a></li>
+              <li><a href="#header">header</a></li>
+              <li><a href="#push_header">push_header</a></li>
+              <li><a href="#hook">hook</a></li>
+              <li><a href="#info">info</a></li>
+              <li><a href="#layout">layout</a></li>
+              <li><a href="#logger">logger</a></li>
+              <li><a href="#load">load</a></li>
+              <li><a href="#load_app">load_app</a></li>
+              <li><a href="#mime">mime</a></li>
+              <li><a href="#params">params</a></li>
+              <li><a href="#param">param</a></li>
+              <li><a href="#pass">pass</a></li>
+              <li><a href="#patch">patch</a></li>
+              <li><a href="#path">path</a></li>
+              <li><a href="#post">post</a></li>
+              <li><a href="#prefix">prefix</a></li>
+              <li><a href="#del">del</a></li>
+              <li><a href="#options">options</a></li>
+              <li><a href="#put">put</a></li>
+              <li><a href="#redirect">redirect</a></li>
+              <li><a href="#render_with_layout">render_with_layout</a></li>
+              <li><a href="#request">request</a></li>
+              <li><a href="#send_error">send_error</a></li>
+              <li><a href="#send_file">send_file</a></li>
+              <li><a href="#set">set</a></li>
+              <li><a href="#setting">setting</a></li>
+              <li><a href="#set_cookie">set_cookie</a></li>
+              <li><a href="#session">session</a></li>
+              <li><a href="#splat">splat</a></li>
+              <li><a href="#start">start</a></li>
+              <li><a href="#status">status</a></li>
+              <li><a href="#template">template</a></li>
+              <li><a href="#to_dumper-structure-">to_dumper ($structure)</a></li>
+              <li><a href="#to_json-structure-options-">to_json ($structure, %options)</a></li>
+              <li><a href="#to_yaml-structure-">to_yaml ($structure)</a></li>
+              <li><a href="#to_xml-structure-options-">to_xml ($structure, %options)</a></li>
+              <li><a href="#true">true</a></li>
+              <li><a href="#upload">upload</a></li>
+              <li><a href="#uri_for">uri_for</a></li>
+              <li><a href="#captures">captures</a></li>
+              <li><a href="#var">var</a></li>
+              <li><a href="#vars">vars</a></li>
+              <li><a href="#warning">warning</a></li>
             </ul>
           </li>
-          <li><a href="#DBI-Dynamic-Attributes">DBI Dynamic Attributes</a>
-            <ul>
-              <li><a href="#DBI::err">$DBI::err</a></li>
-              <li><a href="#DBI::errstr">$DBI::errstr</a></li>
-              <li><a href="#DBI::state">$DBI::state</a></li>
-              <li><a href="#DBI::rows">$DBI::rows</a></li>
-              <li><a href="#DBI::lasth">$DBI::lasth</a></li>
-            </ul>
-          </li>
+          <li><a href="#AUTHOR">AUTHOR</a></li>
+          <li><a href="#SOURCE-CODE">SOURCE CODE</a></li>
+          <li><a href="#GETTING-HELP-CONTRIBUTING">GETTING HELP / CONTRIBUTING</a></li>
+          <li><a href="#DEPENDENCIES">DEPENDENCIES</a></li>
+          <li><a href="#LICENSE">LICENSE</a></li>
+          <li><a href="#SEE-ALSO">SEE ALSO</a></li>
         </ul>
-        </li>
-        <li><a href="#METHODS-COMMON-TO-ALL-HANDLES">METHODS COMMON TO ALL HANDLES</a>
-        <ul>
-          <li>
-            <ul>
-              <li><a href="#err">err</a></li>
-              <li><a href="#errstr">errstr</a></li>
-              <li><a href="#state">state</a></li>
-              <li><a href="#set_err">set_err</a></li>
-              <li><a href="#trace1">trace</a></li>
-              <li><a href="#trace_msg">trace_msg</a></li>
-              <li><a href="#func">func</a></li>
-              <li><a href="#can">can</a></li>
-              <li><a href="#parse_trace_flags">parse_trace_flags</a></li>
-              <li><a href="#parse_trace_flag">parse_trace_flag</a></li>
-              <li><a href="#private_attribute_info">private_attribute_info</a></li>
-              <li><a href="#swap_inner_handle">swap_inner_handle</a></li>
-              <li><a href="#visit_child_handles">visit_child_handles</a></li>
-            </ul>
-          </li>
+
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Config">Dancer::Config</a></li>
+        <ul id="Dancer_Config" class="collapse in nav nav-list">
+          <li><a href="#NAME">NAME</a></li>
+          <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+          <li><a href="#DESCRIPTION">DESCRIPTION</a></li>            
         </ul>
-        </li>
-        <li><a href="#ATTRIBUTES-COMMON-TO-ALL-HANDLES">ATTRIBUTES COMMON TO ALL HANDLES</a>
-        <ul>
-          <li>
-            <ul>
-              <li><a href="#Warn">Warn</a></li>
-              <li><a href="#Active">Active</a></li>
-              <li><a href="#Executed">Executed</a></li>
-              <li><a href="#Kids">Kids</a></li>
-              <li><a href="#ActiveKids">ActiveKids</a></li>
-              <li><a href="#CachedKids">CachedKids</a></li>
-              <li><a href="#Type">Type</a></li>
-              <li><a href="#ChildHandles">ChildHandles</a></li>
-              <li><a href="#CompatMode">CompatMode</a></li>
-              <li><a href="#InactiveDestroy">InactiveDestroy</a></li>
-              <li><a href="#AutoInactiveDestroy">AutoInactiveDestroy</a></li>
-              <li><a href="#PrintWarn">PrintWarn</a></li>
-              <li><a href="#PrintError">PrintError</a></li>
-              <li><a href="#RaiseError">RaiseError</a></li>
-              <li><a href="#HandleError">HandleError</a></li>
-              <li><a href="#HandleSetErr">HandleSetErr</a></li>
-              <li><a href="#ErrCount">ErrCount</a></li>
-              <li><a href="#ShowErrorStatement">ShowErrorStatement</a></li>
-              <li><a href="#TraceLevel">TraceLevel</a></li>
-              <li><a href="#FetchHashKeyName">FetchHashKeyName</a></li>
-              <li><a href="#ChopBlanks">ChopBlanks</a></li>
-              <li><a href="#LongReadLen">LongReadLen</a></li>
-              <li><a href="#LongTruncOk">LongTruncOk</a></li>
-              <li><a href="#TaintIn">TaintIn</a></li>
-              <li><a href="#TaintOut">TaintOut</a></li>
-              <li><a href="#Taint">Taint</a></li>
-              <li><a href="#Profile">Profile</a></li>
-              <li><a href="#ReadOnly">ReadOnly</a></li>
-              <li><a href="#Callbacks">Callbacks</a></li>
-              <li><a href="#private_your_module_name_-">private_your_module_name_*</a></li>
-            </ul>
-          </li>
+
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Config_Object">Dancer::Config::Object</a></li>
+        <ul id="Dancer_Config_Object" class="collapse in nav nav-list">
+          <li><a href="#NAME">NAME</a></li>
+          <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+          <li><a href="#DESCRIPTION">DESCRIPTION</a></li>            
         </ul>
-        </li>
-        <li><a href="#DBI-DATABASE-HANDLE-OBJECTS">DBI DATABASE HANDLE OBJECTS</a>
-        <ul>
-          <li><a href="#Database-Handle-Methods">Database Handle Methods</a>
-            <ul>
-              <li><a href="#clone">clone</a></li>
-              <li><a href="#data_sources1">data_sources</a></li>
-              <li><a href="#do">do</a></li>
-              <li><a href="#last_insert_id">last_insert_id</a></li>
-              <li><a href="#selectrow_array">selectrow_array</a></li>
-              <li><a href="#selectrow_arrayref">selectrow_arrayref</a></li>
-              <li><a href="#selectrow_hashref">selectrow_hashref</a></li>
-              <li><a href="#selectall_arrayref">selectall_arrayref</a></li>
-              <li><a href="#selectall_hashref">selectall_hashref</a></li>
-              <li><a href="#selectcol_arrayref">selectcol_arrayref</a></li>
-              <li><a href="#prepare">prepare</a></li>
-              <li><a href="#prepare_cached">prepare_cached</a></li>
-              <li><a href="#commit">commit</a></li>
-              <li><a href="#rollback">rollback</a></li>
-              <li><a href="#begin_work">begin_work</a></li>
-              <li><a href="#disconnect">disconnect</a></li>
-              <li><a href="#ping">ping</a></li>
-              <li><a href="#get_info">get_info</a></li>
-              <li><a href="#table_info">table_info</a></li>
-              <li><a href="#column_info">column_info</a></li>
-              <li><a href="#primary_key_info">primary_key_info</a></li>
-              <li><a href="#primary_key">primary_key</a></li>
-              <li><a href="#foreign_key_info">foreign_key_info</a></li>
-              <li><a href="#statistics_info">statistics_info</a></li>
-              <li><a href="#tables">tables</a></li>
-              <li><a href="#type_info_all">type_info_all</a></li>
-              <li><a href="#type_info">type_info</a></li>
-              <li><a href="#quote">quote</a></li>
-              <li><a href="#quote_identifier">quote_identifier</a></li>
-              <li><a href="#take_imp_data">take_imp_data</a></li>
-            </ul>
-          </li>
-          <li><a href="#Database-Handle-Attributes">Database Handle Attributes</a>
-            <ul>
-              <li><a href="#AutoCommit">AutoCommit</a></li>
-              <li><a href="#Driver">Driver</a></li>
-              <li><a href="#Name">Name</a></li>
-              <li><a href="#Statement">Statement</a></li>
-              <li><a href="#RowCacheSize">RowCacheSize</a></li>
-              <li><a href="#Username">Username</a></li>
-            </ul>
-          </li>
-        </ul>
-        </li>
-        <li><a href="#DBI-STATEMENT-HANDLE-OBJECTS">DBI STATEMENT HANDLE OBJECTS</a>
-        <ul>
-          <li><a href="#Statement-Handle-Methods">Statement Handle Methods</a>
-            <ul>
-              <li><a href="#bind_param">bind_param</a></li>
-              <li><a href="#bind_param_inout">bind_param_inout</a></li>
-              <li><a href="#bind_param_array">bind_param_array</a></li>
-              <li><a href="#execute">execute</a></li>
-              <li><a href="#execute_array">execute_array</a></li>
-              <li><a href="#execute_for_fetch">execute_for_fetch</a></li>
-              <li><a href="#fetchrow_arrayref">fetchrow_arrayref</a></li>
-              <li><a href="#fetchrow_array">fetchrow_array</a></li>
-              <li><a href="#fetchrow_hashref">fetchrow_hashref</a></li>
-              <li><a href="#fetchall_arrayref">fetchall_arrayref</a></li>
-              <li><a href="#fetchall_hashref">fetchall_hashref</a></li>
-              <li><a href="#finish">finish</a></li>
-              <li><a href="#rows">rows</a></li>
-              <li><a href="#bind_col">bind_col</a></li>
-              <li><a href="#bind_columns">bind_columns</a></li>
-              <li><a href="#dump_results">dump_results</a></li>
-            </ul>
-          </li>
-          <li><a href="#Statement-Handle-Attributes">Statement Handle Attributes</a>
-            <ul>
-              <li><a href="#NUM_OF_FIELDS">NUM_OF_FIELDS</a></li>
-              <li><a href="#NUM_OF_PARAMS">NUM_OF_PARAMS</a></li>
-              <li><a href="#NAME1">NAME</a></li>
-              <li><a href="#NAME_lc">NAME_lc</a></li>
-              <li><a href="#NAME_uc">NAME_uc</a></li>
-              <li><a href="#NAME_hash">NAME_hash</a></li>
-              <li><a href="#NAME_lc_hash">NAME_lc_hash</a></li>
-              <li><a href="#NAME_uc_hash">NAME_uc_hash</a></li>
-              <li><a href="#TYPE">TYPE</a></li>
-              <li><a href="#PRECISION">PRECISION</a></li>
-              <li><a href="#SCALE">SCALE</a></li>
-              <li><a href="#NULLABLE">NULLABLE</a></li>
-              <li><a href="#CursorName">CursorName</a></li>
-              <li><a href="#Database">Database</a></li>
-              <li><a href="#Statement1">Statement</a></li>
-              <li><a href="#ParamValues">ParamValues</a></li>
-              <li><a href="#ParamTypes">ParamTypes</a></li>
-              <li><a href="#ParamArrays">ParamArrays</a></li>
-              <li><a href="#RowsInCache">RowsInCache</a></li>
-            </ul>
-          </li>
-        </ul>
-        </li>
-        <li><a href="#FURTHER-INFORMATION">FURTHER INFORMATION</a>
-        <ul>
-          <li><a href="#Catalog-Methods">Catalog Methods</a></li>
-          <li><a href="#Transactions">Transactions</a></li>
-          <li><a href="#Handling-BLOB-LONG-Memo-Fields">Handling BLOB / LONG / Memo Fields</a></li>
-          <li><a href="#Simple-Examples">Simple Examples</a></li>
-          <li><a href="#Threads-and-Thread-Safety">Threads and Thread Safety</a></li>
-          <li><a href="#Signal-Handling-and-Canceling-Operations">Signal Handling and Canceling Operations</a></li>
-          <li><a href="#Subclassing-the-DBI">Subclassing the DBI</a></li>
-        </ul>
-        </li>
-        <li><a href="#TRACING">TRACING</a>
-        <ul>
-          <li><a href="#Trace-Settings">Trace Settings</a></li>
-          <li><a href="#Trace-Levels">Trace Levels</a></li>
-          <li><a href="#Trace-Flags">Trace Flags</a></li>
-          <li><a href="#Enabling-Trace">Enabling Trace</a></li>
-          <li><a href="#Trace-Output">Trace Output</a></li>
-          <li><a href="#Tracing-to-Layered-Filehandles">Tracing to Layered Filehandles</a></li>
-          <li><a href="#Trace-Content">Trace Content</a></li>
-          <li><a href="#Tracing-Tips">Tracing Tips</a></li>
-        </ul>
-        </li>
-        <li><a href="#DBI-ENVIRONMENT-VARIABLES">DBI ENVIRONMENT VARIABLES</a>
-        <ul>
-          <li><a href="#DBI_DSN">DBI_DSN</a></li>
-          <li><a href="#DBI_DRIVER">DBI_DRIVER</a></li>
-          <li><a href="#DBI_AUTOPROXY">DBI_AUTOPROXY</a></li>
-          <li><a href="#DBI_USER">DBI_USER</a></li>
-          <li><a href="#DBI_PASS">DBI_PASS</a></li>
-          <li><a href="#DBI_DBNAME-obsolete-">DBI_DBNAME (obsolete)</a></li>
-          <li><a href="#DBI_TRACE">DBI_TRACE</a></li>
-          <li><a href="#PERL_DBI_DEBUG-obsolete-">PERL_DBI_DEBUG (obsolete)</a></li>
-          <li><a href="#DBI_PROFILE">DBI_PROFILE</a></li>
-          <li><a href="#DBI_PUREPERL">DBI_PUREPERL</a></li>
-        </ul>
-        </li>
-        <li><a href="#WARNING-AND-ERROR-MESSAGES">WARNING AND ERROR MESSAGES</a>
-        <ul>
-          <li><a href="#Fatal-Errors">Fatal Errors</a></li>
-        </ul>
-        </li>
-        <li><a href="#Pure-Perl-DBI">Pure-Perl DBI</a></li>
-        <li><a href="#SEE-ALSO">SEE ALSO</a>
-        <ul>
-          <li><a href="#Driver-and-Database-Documentation">Driver and Database Documentation</a></li>
-          <li><a href="#ODBC-and-SQL-CLI-Standards-Reference-Information">ODBC and SQL/CLI Standards Reference Information</a></li>
-          <li><a href="#Standards-Reference-Information">Standards Reference Information</a></li>
-          <li><a href="#Books-and-Articles">Books and Articles</a></li>
-          <li><a href="#Perl-Modules">Perl Modules</a></li>
-          <li><a href="#Mailing-List">Mailing List</a></li>
-          <li><a href="#Assorted-Related-WWW-Links">Assorted Related WWW Links</a></li>
-          <li><a href="#FAQ">FAQ</a></li>
-        </ul>
-        </li>
-        <li><a href="#AUTHORS">AUTHORS</a></li>
-        <li><a href="#COPYRIGHT">COPYRIGHT</a></li>
-        <li><a href="#SUPPORT-WARRANTY">SUPPORT / WARRANTY</a>
-        <ul>
-          <li><a href="#Support">Support</a></li>
-          <li><a href="#Sponsor-Enhancements">Sponsor Enhancements</a></li>
-        </ul>
-        </li>
-        <li><a href="#ACKNOWLEDGEMENTS">ACKNOWLEDGEMENTS</a></li>
-        <li><a href="#CONTRIBUTING">CONTRIBUTING</a>
-        <ul>
-          <li><a href="#Browsing-the-source-code-repository">Browsing the source code repository</a></li>
-          <li><a href="#How-to-create-a-patch-using-Subversion">How to create a patch using Subversion</a></li>
-          <li><a href="#How-to-create-a-patch-without-Subversion">How to create a patch without Subversion</a></li>
-          <li><a href="#Speak-before-you-patch">Speak before you patch</a></li>
-        </ul>
-        </li>
-        <li><a href="#TRANSLATIONS">TRANSLATIONS</a></li>
-        <li><a href="#TRAINING">TRAINING</a></li>
-        <li><a href="#OTHER-RELATED-WORK-AND-PERL-MODULES">OTHER RELATED WORK AND PERL MODULES</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Cookie">Dancer::Cookie</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Cookies">Dancer::Cookies</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Deprecation">Dancer::Deprecation</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Engine">Dancer::Engine</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Error">Dancer::Error</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Exception">Dancer::Exception</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Exception_Base">Dancer::Exception::Base</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_FileUtils">Dancer::FileUtils</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_HTTP">Dancer::HTTP</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Handler_Debug">Dancer::Handler::Debug</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Handler_PSGI">Dancer::Handler::PSGI</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Hook">Dancer::Hook</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Hook_Properties">Dancer::Hook::Properties</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger">Dancer::Logger</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Abstract">Dancer::Logger::Abstract</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Capture">Dancer::Logger::Capture</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Capture_Trap">Dancer::Logger::Capture::Trap</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Console">Dancer::Logger::Console</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Diag">Dancer::Logger::Diag</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_File">Dancer::Logger::File</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Note">Dancer::Logger::Note</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Null">Dancer::Logger::Null</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_MIME">Dancer::MIME</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_ModuleLoader">Dancer::ModuleLoader</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Object">Dancer::Object</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Object_Singleton">Dancer::Object::Singleton</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Plugin">Dancer::Plugin</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Plugin_Ajax">Dancer::Plugin::Ajax</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Request">Dancer::Request</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Request_Upload">Dancer::Request::Upload</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Response">Dancer::Response</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Route_Cache">Dancer::Route::Cache</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Serializer">Dancer::Serializer</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Serializer_JSON">Dancer::Serializer::JSON</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Serializer_Mutable">Dancer::Serializer::Mutable</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Serializer_XML">Dancer::Serializer::XML</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Serializer_YAML">Dancer::Serializer::YAML</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Session">Dancer::Session</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Session_Abstract">Dancer::Session::Abstract</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Session_Simple">Dancer::Session::Simple</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Session_YAML">Dancer::Session::YAML</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Template">Dancer::Template</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Template_Abstract">Dancer::Template::Abstract</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Template_Simple">Dancer::Template::Simple</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Template_TemplateToolkit">Dancer::Template::TemplateToolkit</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Test">Dancer::Test</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Timer">Dancer::Timer</a></li>
     </ul>
-
-        <li><a href="#" class="filename" data-toggle="collapse" data-target="#DBI_pm">DBD::SQLite</a></li>
-        <li><a href="#" class="filename" data-toggle="collapse" data-target="#DBI_pm">DBD::PostgreSQL</a></li>
-
-    </ul>
-
 </div>
 
 
 <div id="content">
     <div class="subhead">
-        <h1>Dancer::Plugin::Passphrase</h1>
-        <p>Passphrases and Passwords as objects for Dancer</p>
+        <h1>Dancer</h1>
+        <p>Lightweight, yet powerful web application framework</p>
     </div>
 
 <h1 id="NAME">NAME</h1>
