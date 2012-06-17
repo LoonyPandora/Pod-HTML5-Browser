@@ -32,9 +32,9 @@
 <div id="sidebar">
     <input type="text" class="search-query section-filter" placeholder="Filter Contents">
 
-    <ul class="nav nav-list">
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer">Dancer</a></li>
-        <ul id="Dancer" class="collapse in nav nav-list">
+    <ul class="nav nav-list accordion-group">
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer" data-parent="#sidebar">Dancer</a></li>
+        <ul id="Dancer" class="collapse nav nav-list">
           <li><a href="#NAME">NAME</a></li>
           <li><a href="#" class="toggle">&#9654;</a><a href="#SYNOPSIS">SYNOPSIS</a></li>
           <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
@@ -124,67 +124,300 @@
           <li><a href="#LICENSE">LICENSE</a></li>
           <li><a href="#SEE-ALSO">SEE ALSO</a></li>
         </ul>
-
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Config">Dancer::Config</a></li>
-        <ul id="Dancer_Config" class="collapse in nav nav-list">
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Config" data-parent="#sidebar">Dancer::Config</a></li>
+        <ul id="Dancer_Config" class="collapse nav nav-list">
           <li><a href="#NAME">NAME</a></li>
           <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
           <li><a href="#DESCRIPTION">DESCRIPTION</a></li>            
         </ul>
-
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Config_Object">Dancer::Config::Object</a></li>
-        <ul id="Dancer_Config_Object" class="collapse in nav nav-list">
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Config_Object" data-parent="#sidebar">Dancer::Config::Object</a></li>
+        <ul id="Dancer_Config_Object" class="collapse nav nav-list">
           <li><a href="#NAME">NAME</a></li>
           <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
           <li><a href="#DESCRIPTION">DESCRIPTION</a></li>            
         </ul>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Cookie">Dancer::Cookie</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Cookies">Dancer::Cookies</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Deprecation">Dancer::Deprecation</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Engine">Dancer::Engine</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Error">Dancer::Error</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Exception">Dancer::Exception</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Exception_Base">Dancer::Exception::Base</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_FileUtils">Dancer::FileUtils</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_HTTP">Dancer::HTTP</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Handler_Debug">Dancer::Handler::Debug</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Handler_PSGI">Dancer::Handler::PSGI</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Hook">Dancer::Hook</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Hook_Properties">Dancer::Hook::Properties</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger">Dancer::Logger</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Abstract">Dancer::Logger::Abstract</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Capture">Dancer::Logger::Capture</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Capture_Trap">Dancer::Logger::Capture::Trap</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Console">Dancer::Logger::Console</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Diag">Dancer::Logger::Diag</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_File">Dancer::Logger::File</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Note">Dancer::Logger::Note</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Logger_Null">Dancer::Logger::Null</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_MIME">Dancer::MIME</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_ModuleLoader">Dancer::ModuleLoader</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Object">Dancer::Object</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Object_Singleton">Dancer::Object::Singleton</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Plugin">Dancer::Plugin</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Plugin_Ajax">Dancer::Plugin::Ajax</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Request">Dancer::Request</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Request_Upload">Dancer::Request::Upload</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Response">Dancer::Response</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Route_Cache">Dancer::Route::Cache</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Serializer">Dancer::Serializer</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Serializer_JSON">Dancer::Serializer::JSON</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Serializer_Mutable">Dancer::Serializer::Mutable</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Serializer_XML">Dancer::Serializer::XML</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Serializer_YAML">Dancer::Serializer::YAML</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Session">Dancer::Session</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Session_Abstract">Dancer::Session::Abstract</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Session_Simple">Dancer::Session::Simple</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Session_YAML">Dancer::Session::YAML</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Template">Dancer::Template</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Template_Abstract">Dancer::Template::Abstract</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Template_Simple">Dancer::Template::Simple</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Template_TemplateToolkit">Dancer::Template::TemplateToolkit</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Test">Dancer::Test</a></li>
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer_Timer">Dancer::Timer</a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Cookie">Dancer::Cookie</a></li>
+        <ul id="Dancer_Cookie" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Cookies">Dancer::Cookies</a></li>
+        <ul id="Dancer_Cookies" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Deprecation">Dancer::Deprecation</a></li>
+        <ul id="Dancer_Deprecation" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Engine">Dancer::Engine</a></li>
+        <ul id="Dancer_Engine" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Error">Dancer::Error</a></li>
+        <ul id="Dancer_Error" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Exception">Dancer::Exception</a></li>
+        <ul id="Dancer_Exception" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Exception_Base">Dancer::Exception::Base</a></li>
+        <ul id="Dancer_Exception_Base" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_FileUtils">Dancer::FileUtils</a></li>
+        <ul id="Dancer_FileUtils" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_HTTP">Dancer::HTTP</a></li>
+        <ul id="Dancer_HTTP" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Handler_Debug">Dancer::Handler::Debug</a></li>
+        <ul id="Dancer_Handler_Debug" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Handler_PSGI">Dancer::Handler::PSGI</a></li>
+        <ul id="Dancer_Handler_PSGI" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Hook">Dancer::Hook</a></li>
+        <ul id="Dancer_Hook" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Hook_Properties">Dancer::Hook::Properties</a></li>
+        <ul id="Dancer_Hook_Properties" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Logger">Dancer::Logger</a></li>
+        <ul id="Dancer_Logger" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Logger_Abstract">Dancer::Logger::Abstract</a></li>
+        <ul id="Dancer_Logger_Abstract" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Logger_Capture">Dancer::Logger::Capture</a></li>
+        <ul id="Dancer_Logger_Capture" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Logger_Capture_Trap">Dancer::Logger::Capture::Trap</a></li>
+        <ul id="Dancer_Logger_Capture_Trap" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Logger_Console">Dancer::Logger::Console</a></li>
+        <ul id="Dancer_Logger_Console" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Logger_Diag">Dancer::Logger::Diag</a></li>
+        <ul id="Dancer_Logger_Diag" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Logger_File">Dancer::Logger::File</a></li>
+        <ul id="Dancer_Logger_File" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Logger_Note">Dancer::Logger::Note</a></li>
+        <ul id="Dancer_Logger_Note" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Logger_Null">Dancer::Logger::Null</a></li>
+        <ul id="Dancer_Logger_Null" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_MIME">Dancer::MIME</a></li>
+        <ul id="Dancer_MIME" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_ModuleLoader">Dancer::ModuleLoader</a></li>
+        <ul id="Dancer_ModuleLoader" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Object">Dancer::Object</a></li>
+        <ul id="Dancer_Object" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Object_Singleton">Dancer::Object::Singleton</a></li>
+        <ul id="Dancer_Object_Singleton" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Plugin">Dancer::Plugin</a></li>
+        <ul id="Dancer_Plugin" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Plugin_Ajax">Dancer::Plugin::Ajax</a></li>
+        <ul id="Dancer_Plugin_Ajax" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Request">Dancer::Request</a></li>
+        <ul id="Dancer_Request" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Request_Upload">Dancer::Request::Upload</a></li>
+        <ul id="Dancer_Request_Upload" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Response">Dancer::Response</a></li>
+        <ul id="Dancer_Response" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Route_Cache">Dancer::Route::Cache</a></li>
+        <ul id="Dancer_Route_Cache" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Serializer">Dancer::Serializer</a></li>
+        <ul id="Dancer_Serializer" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Serializer_JSON">Dancer::Serializer::JSON</a></li>
+        <ul id="Dancer_Serializer_JSON" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Serializer_Mutable">Dancer::Serializer::Mutable</a></li>
+        <ul id="Dancer_Serializer_Mutable" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Serializer_XML">Dancer::Serializer::XML</a></li>
+        <ul id="Dancer_Serializer_XML" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Serializer_YAML">Dancer::Serializer::YAML</a></li>
+        <ul id="Dancer_Serializer_YAML" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Session">Dancer::Session</a></li>
+        <ul id="Dancer_Session" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Session_Abstract">Dancer::Session::Abstract</a></li>
+        <ul id="Dancer_Session_Abstract" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Session_Simple">Dancer::Session::Simple</a></li>
+        <ul id="Dancer_Session_Simple" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Session_YAML">Dancer::Session::YAML</a></li>
+        <ul id="Dancer_Session_YAML" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Template">Dancer::Template</a></li>
+        <ul id="Dancer_Template" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Template_Abstract">Dancer::Template::Abstract</a></li>
+        <ul id="Dancer_Template_Abstract" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Template_Simple">Dancer::Template::Simple</a></li>
+        <ul id="Dancer_Template_Simple" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Template_TemplateToolkit">Dancer::Template::TemplateToolkit</a></li>
+        <ul id="Dancer_Template_TemplateToolkit" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Test">Dancer::Test</a></li>
+        <ul id="Dancer_Test" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-parent="#sidebar" data-target="#Dancer_Timer">Dancer::Timer</a></li>
+        <ul id="Dancer_Timer" class="collapse nav nav-list">
+            <li><a href="#NAME">NAME</a></li>
+            <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+            <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+        </ul>
     </ul>
 </div>
 

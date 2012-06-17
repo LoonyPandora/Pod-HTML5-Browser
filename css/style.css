@@ -147,7 +147,7 @@ h1 a { line-height: 40px !important; color: #666; }
     left: 300px;
     right: 0;
 /*    max-width: 1024px;*/
-    padding: 27px 36px;
+    padding: 21px 36px 42px 36px;
 }
 
 code {
@@ -187,9 +187,10 @@ code {
 /* Misc Util Classes
 ---------------------------------------------------------------------------- */
 
-.section-filter {
-    margin: 20px 10px 10px 15px;
+input.section-filter {
+    margin: 21px 10px 21px 15px;
     width: 238px;
+    display: block !important;
 }
 
 /* Bootstrap bugfixes
@@ -203,3 +204,8 @@ code {
 }
 
 
+.accordion-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
