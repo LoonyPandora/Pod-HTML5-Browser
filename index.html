@@ -33,6 +33,24 @@
     <input type="text" class="search-query section-filter" placeholder="Filter Contents">
 
     <ul class="nav nav-list accordion-group">
+        <li>
+            <a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer" data-parent="#sidebar">Search Results</a>
+        </li>
+        <ul class="search-results">
+            <li><a href="#moose">
+                <p>:m<b>oo</b>se</p>
+                <small>This will export everything except functions which clash with Moose. Currently these are.</small>
+            </a></li>
+            <li><a href="#NAME">
+                <p>:syntax</p>
+                <small><i>no description</i></small>
+            </a></li>
+            <li><a href="#NAME">
+                <p>cookie</p>
+                <small>Accesses a cookie value (or sets it). Note that this method will eventually be preferred over.</small>
+            </a></li>
+        </ul>
+        <li class="divider"></li>
         <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer" data-parent="#sidebar">Dancer</a></li>
         <ul id="Dancer" class="collapse nav nav-list">
           <li><a href="#NAME">NAME</a></li>
@@ -1760,7 +1778,7 @@ $(document).ready(function() {
       // FIXME: This is an ugly hack because the copy/pasted HTML
       // Has leading spaces on each line of the code blocks
       $(e).text($.trim( $(e).text().replace(/\n    /g,'\n')));
-      
+
       // TODO: This is slow, parses the code twice...
       var highlighter = hljs.highlightAuto($(e).text());
 

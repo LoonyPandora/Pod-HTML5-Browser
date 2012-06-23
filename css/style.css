@@ -60,6 +60,28 @@ ul ul ul { text-indent: 36px; margin: 0;  }
 ul ul ul ul { text-indent: 49px; margin: 0;   }
 
 
+#sidebar p {
+    line-height: 14px;
+    margin: 4px 0 0 0;
+}
+
+#sidebar small {
+    font-size: 11px;
+    text-indent: 0;
+    width: 275px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.search-results ul a {
+    height: 42px;
+/*    outline: 1px solid red;*/
+}
+    
+
+
 .nav .nav-header {
     text-transform: none;
     font-size: 13px;
@@ -146,7 +168,7 @@ h1 a { line-height: 40px !important; color: #666; }
     top: 0;
     left: 300px;
     right: 0;
-/*    max-width: 1024px;*/
+    max-width: 1024px;
     padding: 21px 36px 42px 36px;
 }
 
