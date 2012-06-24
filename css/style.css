@@ -10,15 +10,24 @@ body {
     margin: 0;
 }
 
+
+code {
+    font-family: Monospace;
+}
+
+/*
+background-color: #e5e5e5;
+border-bottom: 1px solid #ffffff;
+*/
+
 /* Bootstrap Overrides
 ---------------------------------------------------------------------------- */
 
-#index { margin: 0; }
-
-
-a{ color: #369; }
+ul { list-style: none; }
+a { color: #369; }
 a:hover { text-decoration: none; }
 p { margin-bottom: 21px; }
+
 
 
 /* Default Navigation Sidebar
@@ -35,12 +44,22 @@ p { margin-bottom: 21px; }
     border-right: 1px solid #cdcdd0;
     overflow-x: hidden;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
+#sidebar ul          { text-indent: 10px; margin: 0; padding: 0; }
+#sidebar ul ul       { text-indent: 22px; }
+#sidebar ul ul ul    { text-indent: 34px; }
+#sidebar ul ul ul ul { text-indent: 46px; }
 
-#sidebar a {
+
+.nav {
+    margin: 0;
+    padding: 0;
+}
+
+.nav > li > a {
     display: block;
-    width: 300px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -49,26 +68,51 @@ p { margin-bottom: 21px; }
     padding: 0;
 }
 
+.nav > li > a:hover {
+    background: #e5e5e9;
+}
+
+.nav-list > .active > a,
+.nav-list > .active > a:hover {
+    background: #369;
+    color: #fff;
+}
+
+.nav .nav-header {
+    text-transform: none;
+    font-size: 13px;
+}
+
+.nav-list > .active > a.nav-header,
+.nav-list > .active > a.nav-header:hover {
+    background: none;
+    color: #999;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.nav-list .divider {
+    margin-left: 0;
+    margin-right: 0;
+}
 
 
-/* Sidebar list indentation
+/* Search Results 
 ---------------------------------------------------------------------------- */
 
-ul { list-style: none; margin: 0; padding: 0; text-indent: 10px; }
-ul ul { text-indent: 23px; margin: 0; }
-ul ul ul { text-indent: 36px; margin: 0;  }
-ul ul ul ul { text-indent: 49px; margin: 0;   }
+.search-results li {
+    text-indent: 22px;
+}
 
-
-#sidebar p {
+.search-results p {
     line-height: 14px;
     margin: 4px 0 0 0;
 }
 
-#sidebar small {
+.search-results small {
+    line-height: 14px;
     font-size: 11px;
-    text-indent: 0;
-    width: 275px;
+    text-indent: 0; /* FIXME Firefox */
+    width: 277px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -77,41 +121,100 @@ ul ul ul ul { text-indent: 49px; margin: 0;   }
 
 .search-results ul a {
     height: 42px;
-/*    outline: 1px solid red;*/
 }
     
 
 
-.nav .nav-header {
-    text-transform: none;
-    font-size: 13px;
+
+
+/* Content
+---------------------------------------------------------------------------- */
+
+#content {
+    position: absolute;
+    top: 0;
+    left: 301px;
+    right: 0;
+    max-width: 1024px;
+    padding: 21px 36px 42px 36px;
 }
 
-.nav {
+.subhead {
+    margin-bottom: 42px;
+}
+
+.subhead h1 {
+    font-size: 36px;
+    line-height: 36px;
+    margin-bottom: 9px;
+    text-indent: -2px;
+    letter-spacing: -1px;
+    border: none;
+}
+
+.subhead p {
+    margin-bottom: 21px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+
+
+/* Styles
+---------------------------------------------------------------------------- */
+
+h1 {
+    font-size: 24px;
+    line-height: 34px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 21px;
+}
+
+h2 {
+    font-size: 21px;
+    line-height: 34px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 21px;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 34px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 21px;
+}
+
+dd {
     margin: 0;
-    padding: 0;
-}
-
-#sidebar a:hover {
-    background: #e5e5e9;
-}
-
-.nav-list > .active > a,
-.nav-list > .active > a:hover {
-    background: #369 !important; /* FIXME */
-    color: #fff;
 }
 
 
-.nav-list > .active > a.nav-header,
-.nav-list > .active > a.nav-header:hover {
-    background: transparent !important;  /* FIXME */
-    color: #999;
-    text-shadow: 0px 1px 0px #f6f6f6;    
+/* Misc Util Classes
+---------------------------------------------------------------------------- */
+
+.section-filter {
+    padding: 18px 0 0 18px;
+    height: 32px;
+}
+
+.section-filter > input {
+    margin: 0;
+    width: 238px;
+    display: block;
+    font-size: 12px;
+    height: 14px;
+    line-height: 14px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 12px;
 }
 
 
-#sidebar a.toggle {
+
+/* Toggle Nav Buttons (unused)
+---------------------------------------------------------------------------- */
+
+a.toggle {
     font-size: 9px;
     padding: 0;
     text-align: right;
@@ -122,108 +225,18 @@ ul ul ul ul { text-indent: 49px; margin: 0;   }
     line-height: 27px;
 }
 
-#sidebar ul ul a.toggle { width: 19px; }
-#sidebar ul ul ul a.toggle { width: 32px; }
-
-#sidebar a.toggle:hover {
+a.toggle:hover {
     background: none;
     color: #222;
 }
 
-
-/* Sidebar Header
----------------------------------------------------------------------------- */
-
-#sidebar h1 { font-size: 21px; text-align: center;  }
-h1 a { line-height: 40px !important; color: #666; }
+#sidebar ul ul a.toggle    { width: 19px; }
+#sidebar ul ul ul a.toggle { width: 32px; }
 
 
-
-
-/* Content
----------------------------------------------------------------------------- */
-
-#content .subhead {
-    margin-bottom: 42px;
-}
-
-#content .subhead h1 {
-    font-size: 36px;
-    line-height: 36px;
-    margin-bottom: 9px;
-    text-indent: -2px;
-    letter-spacing: -1px;
-    border: none;
-}
-
-#content .subhead p {
-    margin-bottom: 21px;
-    font-size: 16px;
-    font-weight: 300;
-}
-
-
-#content {
-    position: absolute;
-    top: 0;
-    left: 300px;
-    right: 0;
-    max-width: 1024px;
-    padding: 21px 36px 42px 36px;
-}
-
-code {
-    font-family: Monospace;
-}
-
-
-/* Styles
----------------------------------------------------------------------------- */
-
-#content h1 {
-    font-size: 24px;
-    line-height: 34px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 21px;
-}
-
-#content h2 {
-    font-size: 21px;
-    line-height: 34px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 21px;
-}
-
-#content h3 {
-    font-size: 18px;
-    line-height: 34px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 21px;
-}
-
-#content dd {
-    margin: 0;
-}
-
-
-/* Misc Util Classes
----------------------------------------------------------------------------- */
-
-input.section-filter {
-    margin: 21px 10px 21px 15px;
-    width: 238px;
-    display: block !important;
-}
 
 /* Bootstrap bugfixes
 ============================================================================ */
-
-/* Issue #3826 */
-.search-query {
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    border-radius: 14px !important;
-}
 
 
 .accordion-group {

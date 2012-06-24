@@ -31,10 +31,14 @@
 
 <div id="sidebar">
     <ul class="nav nav-list accordion-group">
-        <li><input type="text" class="search-query section-filter" placeholder="Filter Contents"></li>
+        <li class="section-filter">
+            <input type="text" class="search-query" placeholder="Search Table of Contents">
+        </li>
         
-        <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#search-results" data-parent="#sidebar">Search Results</a></li>
-        <ul id="search-results" class="search-results collapse in">
+        <li class="divider"></li>
+
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target=".search-results" data-parent="#sidebar">Search Results</a></li>
+        <ul class="search-results nav nav-list collapse in">
             <li><a href="#moose">
                 <p>:m<b>oo</b>se</p>
                 <small>This will export everything except functions which clash with Moose. Currently these are.</small>
@@ -54,11 +58,11 @@
         <li><a href="#" class="nav-header" data-toggle="collapse" data-target="#Dancer" data-parent="#sidebar">Dancer</a></li>
         <ul id="Dancer" class="collapse nav nav-list">
           <li><a href="#NAME">NAME</a></li>
-          <li><a href="#" class="toggle">&#9654;</a><a href="#SYNOPSIS">SYNOPSIS</a></li>
+          <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
           <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
-          <li><a href="#" class="toggle">&#9654;</a><a href="#MORE-DOCUMENTATION">MORE DOCUMENTATION</a></li>
+          <li><a href="#MORE-DOCUMENTATION">MORE DOCUMENTATION</a></li>
           <li><a href="#EXPORTS">EXPORTS</a>
-            <ul class="nav nav-list">
+            <ul id="MORE-DOCUMENTATION-NAV" class="nav nav-list collapse in">
               <li><a href="#moose">:moose</a></li>
               <li><a href="#syntax">:syntax</a></li>
               <li><a href="#tests">:tests</a></li>
@@ -68,8 +72,8 @@
           </li>
           <li><a href="#FUNCTIONS">FUNCTIONS</a>
             <ul class="nav nav-list">
-              <li><a href="#" class="toggle">&#9654;</a><a href="#after">after</a></li>
-              <li><a href="#" class="toggle">&#9660;</a><a href="#any">any</a></li>
+              <li><a href="#after">after</a></li>
+              <li><a href="#any">any</a></li>
               <li><a href="#before">before</a></li>
               <li><a href="#before_template">before_template</a></li>
               <li><a href="#cookies">cookies</a></li>
@@ -1772,26 +1776,45 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/highlight.min.js"></script>
 <script>
+    $(document).ready(function() {
+      $('pre code').each(function(i, e) {
+          // FIXME: This is an ugly hack because the copy/pasted HTML
+          // Has leading spaces on each line of the code blocks
+          $(e).text($.trim( $(e).text().replace(/\n    /g,'\n')));
 
-$(document).ready(function() {
-  $('pre code').each(function(i, e) {
-      // FIXME: This is an ugly hack because the copy/pasted HTML
-      // Has leading spaces on each line of the code blocks
-      $(e).text($.trim( $(e).text().replace(/\n    /g,'\n')));
+          // TODO: This is slow, parses the code twice...
+          var highlighter = hljs.highlightAuto($(e).text());
 
-      // TODO: This is slow, parses the code twice...
-      var highlighter = hljs.highlightAuto($(e).text());
-
-      // Confidence of the auto-detection that the language is correct
-      // TODO: Highlight if the second best language is perl
-      if (highlighter.r > 1) {
-          if (highlighter.language == 'perl') {
-              hljs.highlightBlock(e);
+          // Confidence of the auto-detection that the language is correct
+          // TODO: Highlight if the second best language is perl
+          if (highlighter.r > 1) {
+              if (highlighter.language == 'perl') {
+                  hljs.highlightBlock(e);
+              }
           }
-      }
       
-  });
-});
+      });
+    });
+    
+    $('.collapse').on('activate', function(){
+        console.log(this);
+    });
+    
+    
+
+    function isScrolledIntoView(elem) {
+        var docViewTop = $(window).scrollTop();
+        var elemTop = $(elem).offset().top;
+
+        var scrollAmount = (elemTop - docViewTop);
+
+
+        if (scrollAmount > 0) {
+            console.log(scrollAmount, docViewTop);
+            $('#sidebar').scrollTop(scrollAmount);
+        }
+    }
+    
     
 </script>
 
