@@ -23,7 +23,7 @@ border-bottom: 1px solid #ffffff;
 /* Bootstrap Overrides
 ---------------------------------------------------------------------------- */
 
-ul { list-style: none; }
+#sidebar ul { list-style: none; }
 a { color: #369; }
 a:hover { text-decoration: none; }
 p { margin-bottom: 21px; }
