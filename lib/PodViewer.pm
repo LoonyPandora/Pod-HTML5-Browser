@@ -43,8 +43,11 @@ sub new_index {
         my $indent = -1;
         my $space  = '';
 
-        my $module_title = $module;
         my $module_id = $self->idify($module, 1);
+
+        my $module_title = $module;
+        my $module_path  = $module . ".html";
+        $module_path =~ s{::}{/}g;
 
         for my $h (@{ $to_index }, [0]) {
             my $target_level = $h->[0];
@@ -79,11 +82,7 @@ sub new_index {
             next unless $level;
             $space = '  '  x $indent;
             
-            # Contains full path to file
-            # push @out, sprintf '%s<li><a href="#%s">%s</a>', $space, $self->idify($module, 1) . "-" . $h->[1], $h->[2];
-
-            push @out, sprintf '%s<li><a href="#%s">%s</a>', $space, $h->[1], $h->[2];
-
+            push @out, sprintf '%s<li><a href="/output/%s">%s</a>', $space, $module_path . "#" . $h->[1], $h->[2];
         }
         # Splice the index in between the HTML headers and the first element.
         my $offset = defined $self->html_header ? $self->html_header eq '' ? 0 : 1 : 1;
