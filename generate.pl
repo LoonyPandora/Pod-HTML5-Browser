@@ -22,7 +22,7 @@ sub find_pod {
     my $name2path = Pod::Simple::Search->new->inc(0)->survey($basedir);
 
     # Parse all the POD into one large data structure, keyed by module name
-    my (%allpod, %api_console, @sidebar, @routes);
+    my (%allpod, $all_abstract, @sidebar);
     for my $module (sort keys %$name2path) {
         # Remove any INC paths from before the module.
         my $module_id = $module;
@@ -36,22 +36,23 @@ sub find_pod {
         }
                 
         my $parser = PodViewer->new();
+        $parser->module_name($module_id);
         $parser->perldoc_url_prefix('https://metacpan.org/module/');
         $parser->html_header('');
         $parser->html_footer('');
         $parser->output_string(\$allpod{$module_id});
         $parser->parse_file($name2path->{$module});
 
+        $all_abstract->{$module_id} = $parser->module_abstract();
+        
         push @sidebar, $parser->new_index($module_id);
     }
 
-    # say dump @sidebar;
-
-    write_output(\@sidebar, \%allpod);
+    write_output(\@sidebar, \%allpod, $all_abstract);
 }
 
 sub write_output {
-    my ($sidebar, $allpod) = @_;
+    my ($sidebar, $allpod, $all_abstract) = @_;
     my $basedir = '/Users/james/Sites/docviewer/output';
 
     for my $module (sort keys %$allpod) {
@@ -121,6 +122,7 @@ sub write_output {
         <div id="content">
             <div class="subhead">
                 <h1>$module</h1>
+                <p>$all_abstract->{$module}</p>
             </div>
             
             $allpod->{$module}
