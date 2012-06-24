@@ -4,45 +4,6 @@ use base 'Pod::Simple::XHTML';
 use common::sense;
 use Data::Dump qw(dump);
 
-sub start_head1 {  $_[0]{in_head} = 1; $_[0]{in_head_description} = 1; }
-sub start_head2 {  $_[0]{in_head} = 2; $_[0]{in_head_description} = 2; }
-sub start_head3 {  $_[0]{in_head} = 3; $_[0]{in_head_description} = 3; }
-sub start_head4 {  $_[0]{in_head} = 4; $_[0]{in_head_description} = 4; }
-
-
-sub _end_head {
-    my $h = delete $_[0]{in_head};
- 
-    my $add = $_[0]->html_h_level;
-    $add = 1 unless defined $add;
-    $h += $add - 1;
- 
-    my $id = $_[0]->idify($_[0]{scratch});
-    my $text = $_[0]{scratch};
-
-    $_[0]{"current_h$h"} = $id;
-
-    $_[0]{'scratch'} = qq{<h$h>$text</h$h>\n};
-
-    $_[0]->emit;
-    push @{ $_[0]{'to_index'} }, [$h, $id, $text];
-}
-
-
-sub start_over_text   {
-    if ($_[0]{"current_h4"} =~ /input/i) {
-        $_[0]{'scratch'} = '<dl class="input-params">';
-    } elsif ($_[0]{"current_h4"} =~ /output/i) {
-        $_[0]{'scratch'} = '<dl class="output-params">';
-    } else {
-        $_[0]{'scratch'} = '<dl>';
-    }
-    
-    $_[0]{'dl_level'}++;
-    $_[0]{'in_dd'} ||= [];
-    $_[0]->emit
-}
-
 
 # lowercases IDs - just looks nicer
 sub idify {
@@ -117,8 +78,12 @@ sub new_index {
  
             next unless $level;
             $space = '  '  x $indent;
-            push @out, sprintf '%s<li><a href="#%s">%s</a>',
-                $space, $self->idify($module, 1) . "-" . $h->[1], $h->[2];
+            
+            # Contains full path to file
+            # push @out, sprintf '%s<li><a href="#%s">%s</a>', $space, $self->idify($module, 1) . "-" . $h->[1], $h->[2];
+
+            push @out, sprintf '%s<li><a href="#%s">%s</a>', $space, $h->[1], $h->[2];
+
         }
         # Splice the index in between the HTML headers and the first element.
         my $offset = defined $self->html_header ? $self->html_header eq '' ? 0 : 1 : 1;
