@@ -174,10 +174,6 @@ sub write_output {
         close $fh;
 
     }
-
-    die;
-    # die dump $allpod;
-
 }
 
 
