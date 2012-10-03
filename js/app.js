@@ -2,7 +2,8 @@ $(document).ready(function() {
     
     syntaxHighlight();
 
-    $('.search-query').filterList();    
+    // FIXME: SLOOOOOOW
+    $('.search-query').liveUpdate('posts');    
     
     // initSearch();
     
@@ -70,6 +71,8 @@ function initSearch() {
     $('.search-query').quicksearch('.nav-list ul li a', {
         'delay': 100,
         show: function() {
+            $(this).show();
+            
             // console.log($(this).data('description'));
         
             // $('.search-results').html('');
@@ -81,7 +84,9 @@ function initSearch() {
             // console.log('show: '+$(this));
         },
         hide: function() {
-            console.log('hide: '+$(this));
+            $(this).hide();
+            
+            // console.log('hide: '+$(this));
         },
         'onAfter': function() {
         },
