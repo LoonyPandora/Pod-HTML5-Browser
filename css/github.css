@@ -28,7 +28,6 @@ pre .keyword,
 pre .css .rule .keyword,
 pre .winutils,
 pre .javascript .title,
-pre .lisp .title,
 pre .nginx .title,
 pre .subst,
 pre .request,
@@ -38,7 +37,8 @@ pre .status {
 }
 
 pre .number,
-pre .hexcolor {
+pre .hexcolor,
+pre .ruby .constant {
   color: #40a070
 }
 
@@ -79,7 +79,6 @@ pre .django .tag .keyword {
 
 pre .attribute,
 pre .variable,
-pre .instancevar,
 pre .lisp .body {
   color: #008080
 }
@@ -95,17 +94,15 @@ pre .class {
 
 pre .symbol,
 pre .ruby .symbol .string,
-pre .ruby .symbol .keyword,
-pre .ruby .symbol .keymethods,
 pre .lisp .keyword,
 pre .tex .special,
 pre .input_number {
   color: #990073
 }
 
-pre .builtin,
 pre .built_in,
-pre .lisp .title {
+pre .lisp .title,
+pre .clojure .built_in {
   color: #0086b3
 }
 
@@ -132,8 +129,4 @@ pre .diff .change {
 
 pre .chunk {
   color: #aaa
-}
-
-pre .tex .formula {
-  opacity: 0.5;
 }
