@@ -24,7 +24,7 @@ $(document).ready(function() {
 });
 
 $('.collapse').on('activate', function() {
-    console.log(this);
+    // console.log(this);
 });
 
 
@@ -41,21 +41,21 @@ function isScrolledIntoView(elem) {
 }
 
 
-$('.search-query').quicksearch('.nav-list ul li a', {
-    'delay': 100,
-    show: function() {
-        console.log($(this).text());
-        
-        // $('<li/>').text($(this).text()).appendTo('.search-results');
-        
-        // $('.search-results')
-        
-        // console.log('show: '+$(this));
-    },
-    hide: function() {
-        console.log('hide: '+$(this));
-    },
-    'onAfter': function() {
-    },
-    'noResults': 'tr#noresults'
-});
+// $('.search-query').quicksearch('.nav-list ul li a', {
+//     'delay': 100,
+//     show: function() {
+//         // console.log($(this).text());
+//         
+//         // $('<li/>').text($(this).text()).appendTo('.search-results');
+//         
+//         // $('.search-results')
+//         
+//         // console.log('show: '+$(this));
+//     },
+//     hide: function() {
+//         // console.log('hide: '+$(this));
+//     },
+//     'onAfter': function() {
+//     },
+//     'noResults': 'tr#noresults'
+// });

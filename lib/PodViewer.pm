@@ -5,16 +5,12 @@ use common::sense;
 use Data::Dump qw(dump);
 
 
-sub start_head1 {  $_[0]{in_head} = 1; $_[0]{in_head_description} = 1; }
-sub start_head2 {  $_[0]{in_head} = 2; $_[0]{in_head_description} = 2; }
-sub start_head3 {  $_[0]{in_head} = 3; $_[0]{in_head_description} = 3; }
-sub start_head4 {  $_[0]{in_head} = 4; $_[0]{in_head_description} = 4; }
-
-
 sub _end_head {
-    my $self = shift;
+    my ($self) = @_;
     
     my $h = delete $self->{in_head};
+    
+    $self->{in_head_description} = 1;
  
     my $add = $self->html_h_level;
     $add = 1 unless defined $add;
@@ -83,10 +79,25 @@ sub module_abstract {
 }
 
 
+sub search_results {
+    my ($self, $description) = @_;
+
+    if (defined $description) {
+        $self->{header_description} = $description;
+        return;
+    }
+
+    return $self->{header_description};
+}
+
+
+
 sub new_index {
     my ($self, $module) = @_;
 
-    my $to_index = $self->{'to_index'};
+    # die Data::Dump::dump $self->{to_index_description};
+
+    my $to_index = $self->{to_index};
     if (@{ $to_index } ) {
         my @out;
         my $level  = 0;
@@ -99,8 +110,10 @@ sub new_index {
         my $module_path  = $module . ".html";
         $module_path =~ s{::}{/}g;
 
-        for my $h (@{ $to_index }, [0]) {
-            my $target_level = $h->[0];
+        for (my $i = 0; $i <= (@{ $to_index }); $i++) {
+            my $h = ${ $to_index }[$i];
+            
+            my $target_level = $h->[0] // 0;
             # Get to target_level by opening or closing ULs
             if ($level == $target_level) {
                 $out[-1] .= '</li>';
@@ -132,7 +145,7 @@ sub new_index {
             next unless $level;
             $space = '  '  x $indent;
             
-            push @out, sprintf '%s<li><a href="/output/%s">%s</a>', $space, $module_path . "#" . $self->idify($module, 1) . "-" . $h->[1], $h->[2];
+            push @out, sprintf '%s<li><a href="/output/%s"><p>%s</p><small>%s</small></a>', $space, $module_path . "#" . $self->idify($module, 1) . "-" . $h->[1], $h->[2], $self->{to_index_description}[$i];
         }
         # Splice the index in between the HTML headers and the first element.
         my $offset = defined $self->html_header ? $self->html_header eq '' ? 0 : 1 : 1;
@@ -141,6 +154,22 @@ sub new_index {
         return join "\n", @out;
     }
  
+}
+
+
+sub handle_text {
+    my ($self, $text) = @_;
+
+    if ($self->{in_head_description}) {
+        my $one_line_text = $text =~ s/\n+/ /rg;
+        $one_line_text =~ s/\s+/ /g;
+        $one_line_text =~ s/<|>//g;
+
+        push @{ $self->{to_index_description} }, substr($one_line_text, 0, 64);
+        $self->{in_head_description} = 0;
+    }
+
+    $self->SUPER::handle_text($text);
 }
 
 
