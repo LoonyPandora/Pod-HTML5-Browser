@@ -3,6 +3,7 @@ package PodViewer;
 use base 'Pod::Simple::XHTML';
 use common::sense;
 use Data::Dump qw(dump);
+use HTML::Entities ();
 
 
 sub _end_head {
@@ -145,7 +146,7 @@ sub new_index {
             next unless $level;
             $space = '  '  x $indent;
             
-            push @out, sprintf '%s<li><a href="/output/%s"><p>%s</p><small>%s</small></a>', $space, $module_path . "#" . $self->idify($module, 1) . "-" . $h->[1], $h->[2], $self->{to_index_description}[$i];
+            push @out, sprintf '%s<li><a href="/output/%s" data-description="%s">%s</a>', $space, $module_path . "#" . $self->idify($module, 1) . "-" . $h->[1], $self->{to_index_description}[$i], $h->[2];
         }
         # Splice the index in between the HTML headers and the first element.
         my $offset = defined $self->html_header ? $self->html_header eq '' ? 0 : 1 : 1;
@@ -165,7 +166,14 @@ sub handle_text {
         $one_line_text =~ s/\s+/ /g;
         $one_line_text =~ s/<|>//g;
 
-        push @{ $self->{to_index_description} }, substr($one_line_text, 0, 64);
+        # If a header is directly after another header, it's not a description
+        # Just that header doesn't have one
+        if ($self->{in_head}) {
+            push @{ $self->{to_index_description} }, '&nbsp;';
+        } else {
+            push @{ $self->{to_index_description} }, HTML::Entities::encode_entities ( substr($one_line_text, 0, 64) );
+        }
+
         $self->{in_head_description} = 0;
     }
 

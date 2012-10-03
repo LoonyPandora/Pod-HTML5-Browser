@@ -1,16 +1,40 @@
 $(document).ready(function() {
-    $('pre code')
-        .each(function(i, e) {
+    
+    syntaxHighlight();
+    
+    // PJAX Style
+    $.ajax({
+        url: '/output/Dancer/Config.html',
+        dataType: 'html',
+        success: function(data) {
+            var pjaxContent = $(data).filter('#content').children();
+            
+            // $('#content').html(pjaxContent);
+            
+            // syntaxHighlight();
+
+            // history.pushState(null, $(data)
+            //     .filter('title')
+            //     .text(), '/authors')
+        }
+    });
+        
+});
+
+$('.collapse').on('activate', function() {
+    // console.log(this);
+});
+
+
+
+function syntaxHighlight() {
+    $('pre code').each(function(i, e) {
         // FIXME: This is an ugly hack because the copy/pasted HTML
         // Has leading spaces on each line of the code blocks
-        $(e)
-            .text($.trim($(e)
-            .text()
-            .replace(/\n    /g, '\n')));
+        $(e).text($.trim($(e).text().replace(/\n    /g, '\n')));
 
         // TODO: This is slow, parses the code twice...
-        var highlighter = hljs.highlightAuto($(e)
-            .text());
+        var highlighter = hljs.highlightAuto($(e).text());
 
         // Confidence of the auto-detection that the language is correct
         // TODO: Highlight if the second best language is perl
@@ -19,13 +43,9 @@ $(document).ready(function() {
                 hljs.highlightBlock(e);
             }
         }
-
     });
-});
-
-$('.collapse').on('activate', function() {
-    // console.log(this);
-});
+    
+}
 
 
 
