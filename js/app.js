@@ -1,6 +1,10 @@
 $(document).ready(function() {
     
     syntaxHighlight();
+
+    $('.search-query').filterList();    
+    
+    // initSearch();
     
     // PJAX Style
     $.ajax({
@@ -61,21 +65,30 @@ function isScrolledIntoView(elem) {
 }
 
 
-// $('.search-query').quicksearch('.nav-list ul li a', {
-//     'delay': 100,
-//     show: function() {
-//         // console.log($(this).text());
-//         
-//         // $('<li/>').text($(this).text()).appendTo('.search-results');
-//         
-//         // $('.search-results')
-//         
-//         // console.log('show: '+$(this));
-//     },
-//     hide: function() {
-//         // console.log('hide: '+$(this));
-//     },
-//     'onAfter': function() {
-//     },
-//     'noResults': 'tr#noresults'
-// });
+
+function initSearch() {
+    $('.search-query').quicksearch('.nav-list ul li a', {
+        'delay': 100,
+        show: function() {
+            // console.log($(this).data('description'));
+        
+            // $('.search-results').html('');
+        
+            // $('<li/>').text($(this).text()).appendTo('.search-results');
+        
+            // $('.search-results')
+        
+            // console.log('show: '+$(this));
+        },
+        hide: function() {
+            console.log('hide: '+$(this));
+        },
+        'onAfter': function() {
+        },
+        'noResults': 'tr#noresults'
+    });    
+}
+
+
+
+
