@@ -76,6 +76,7 @@ p { margin-bottom: 21px; }
 }
 
 .nav .nav-header {
+    padding: 0 0 0 15px;
     text-transform: none;
     font-size: 13px;
 }
@@ -88,8 +89,7 @@ p { margin-bottom: 21px; }
 }
 
 .nav-list .divider {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 10px 0;
 }
 
 
