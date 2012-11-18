@@ -10,14 +10,14 @@ sub _end_head {
     my ($self) = @_;
     
     my $h = delete $self->{in_head};
-    
+
     $self->{in_head_description} = 1;
- 
+
     my $add = $self->html_h_level;
     $add = 1 unless defined $add;
     $h += $add - 1;
- 
-    my $id = $self->idify($self->{scratch});
+
+    my $id = $self->idify($self->{module_name}.'-'.$self->{scratch});
     my $text = $self->{scratch};
 
     $self->{"current_h$h"} = $id;
@@ -96,8 +96,6 @@ sub search_results {
 sub new_index {
     my ($self, $module) = @_;
 
-    # die Data::Dump::dump $self->{to_index_description};
-
     my $to_index = $self->{to_index};
     if (@{ $to_index } ) {
         my @out;
@@ -146,7 +144,7 @@ sub new_index {
             next unless $level;
             $space = '  '  x $indent;
             
-            push @out, sprintf '%s<li><a href="/output/%s">%s</a>', $space, $module_path . "#" . $self->idify($module, 1) . "-" . $h->[1], $h->[2];
+            push @out, sprintf '%s<li><a href="/output/%s">%s</a>', $space, $module_path . "#" . $h->[1], $h->[2];
         }
         # Splice the index in between the HTML headers and the first element.
         my $offset = defined $self->html_header ? $self->html_header eq '' ? 0 : 1 : 1;
