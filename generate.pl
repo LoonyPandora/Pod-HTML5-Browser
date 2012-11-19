@@ -103,14 +103,6 @@ sub write_output {
         
     <li class="divider"></li>
 
-    <li><a href="#" class="nav-header" data-toggle="collapse" data-target=".search-results" data-parent="#sidebar">Search Results</a></li>
-    <ul class="search-results nav nav-list collapse">
-    <li><a href="#">
-        <p><i>No Results</i></p>
-        <small>No results were found</small>
-    </a></li>
-    </ul>
-
     @$sidebar
 </ul>
 </div>

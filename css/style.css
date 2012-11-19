@@ -91,39 +91,6 @@ p { margin-bottom: 21px; }
 .nav-list .divider {
     margin: 10px 0;
 }
-
-
-/* Search Results 
----------------------------------------------------------------------------- */
-
-.search-results li {
-    text-indent: 22px;
-}
-
-.search-results p {
-    line-height: 14px;
-    margin: 4px 0 0 0;
-}
-
-.search-results small {
-    line-height: 14px;
-    font-size: 11px;
-    text-indent: 0; /* FIXME Firefox */
-    width: 277px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-}
-
-.search-results ul a {
-    height: 42px;
-}
-    
-
-
-
-
 /* Content
 ---------------------------------------------------------------------------- */
 
