@@ -100,7 +100,7 @@ sub new_index {
     if (@{ $to_index } ) {
         my @out;
         my $level  = 0;
-        my $indent = -1;
+        my $indent = 1;
         my $space  = '';
 
         my $module_id = $self->idify($module, 1);
@@ -120,20 +120,20 @@ sub new_index {
                 $out[-1] .= '</li>' if $out[-1] =~ /^\s+<li>/;
                 while ($level > $target_level) {
                     --$level;
-                    push @out, ('  ' x --$indent) . '</li>' if @out && $out[-1] =~ m{^\s+<\/ul};
-                    push @out, ('  ' x --$indent) . '</ul>';
+                    push @out, ('    ' x --$indent) . '</li>' if @out && $out[-1] =~ m{^\s+<\/ul};
+                    push @out, ('    ' x --$indent) . '</ul>';
                 }
-                push @out, ('  ' x --$indent) . '</li>' if $level;
+                push @out, ('    ' x --$indent) . '</li>' if $level;
             } else {
                 while ($level < $target_level) {
                     ++$level;
-                    push @out, ('  ' x ++$indent) . '<li>' if @out && $out[-1]=~ /^\s*<ul/;
+                    push @out, ('    ' x ++$indent) . '<li>' if @out && $out[-1]=~ /^\s*<ul/;
 
                     if ($module_id) {
-                        push @out, ('  ' x ++$indent) . qq{<li><a href="#" class="nav-header" data-toggle="collapse" data-target="#$module_id" data-parent="#sidebar">$module_title</a></li>};
-                        push @out, ('  ' x ++$indent) . qq{<ul id="$module_id" class="collapse nav nav-list">};
+                        push @out, ('    ' x ++$indent) . qq{<li><a href="#" class="nav-header" data-toggle="collapse" data-target="#module-$module_id" data-parent="#sidebar">$module_title</a></li>};
+                        push @out, ('    ' x ++$indent) . qq{<ul id="module-$module_id" class="collapse nav nav-list">};
                     } else {
-                        push @out, ('  ' x ++$indent) . qq{<ul class="nav nav-list">};
+                        push @out, ('    ' x ++$indent) . qq{<ul class="nav nav-list">};
                     }
 
                     $module_id = '';
@@ -142,7 +142,7 @@ sub new_index {
             }
  
             next unless $level;
-            $space = '  '  x $indent;
+            $space = '    '  x $indent;
             
             push @out, sprintf '%s<li><a href="/output/%s">%s</a>', $space, $module_path . "#" . $h->[1], $h->[2];
         }
