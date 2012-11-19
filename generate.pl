@@ -130,6 +130,7 @@ sub write_output {
 <script src="/js/jquery.hashgrid.js"></script>
 <script src="/js/jquery.quicksearch.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.scrollspy.js"></script>
 <script src="/js/highlight.min.js"></script>
 <script src="/js/app.js"></script>
 <!-- Prompt IE 6 users to install Chrome Frame. Remove this to 'support' IE 6. -->
