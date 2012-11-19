@@ -130,7 +130,7 @@ sub new_index {
                     push @out, ('    ' x ++$indent) . '<li>' if @out && $out[-1]=~ /^\s*<ul/;
 
                     if ($module_id) {
-                        push @out, ('    ' x ++$indent) . qq{<li><a href="#" class="nav-header" data-toggle="collapse" data-target="#module-$module_id" data-parent="#sidebar">$module_title</a></li>};
+                        push @out, ('    ' x ++$indent) . qq{<li><a href="#" class="nav-header" data-toggle="collapse" data-target="#module-$module_id">$module_title</a></li>};
                         push @out, ('    ' x ++$indent) . qq{<ul id="module-$module_id" class="collapse nav nav-list">};
                     } else {
                         push @out, ('    ' x ++$indent) . qq{<ul class="nav nav-list">};
