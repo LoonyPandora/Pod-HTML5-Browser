@@ -96,23 +96,24 @@ sub write_output {
 
 
 <div id="sidebar">   
-<ul class="nav nav-list accordion-group">
-    <li class="section-filter">
-        <input type="text" class="search-query" placeholder="Search Table of Contents">
-    </li>
+    <ul class="nav nav-list accordion-group">
+        <li class="section-filter">
+            <input type="text" class="search-query" placeholder="Search Table of Contents">
+        </li>
         
-    <li class="divider"></li>
+        <li class="divider"></li>
 
-    <li><a href="#" class="nav-header" data-toggle="collapse" data-target=".search-results" data-parent="#sidebar">Search Results</a></li>
-    <ul class="search-results nav nav-list collapse">
-    <li><a href="#">
-        <p><i>No Results</i></p>
-        <small>No results were found</small>
-    </a></li>
+        <li><a href="#" class="nav-header" data-toggle="collapse" data-target=".search-results" data-parent="#sidebar">Search Results</a></li>
+        <ul class="search-results nav nav-list collapse">
+        <li><a href="#">
+            <p><i>No Results</i></p>
+            <small>No results were found</small>
+        </a></li>
+        </ul>
+
+@$sidebar
+
     </ul>
-
-    @$sidebar
-</ul>
 </div>
 
 <div id="content">
