@@ -41,7 +41,12 @@ p { margin-bottom: 21px; }
     border-right: 1px solid #cdcdd0;
     overflow-x: hidden;
     overflow-y: auto;
+    overflow: hidden;
     -webkit-overflow-scrolling: touch;
+}
+
+.foobar {
+    width: 600px;
 }
 
 #sidebar ul          { text-indent: 10px; margin: 0; padding: 0; }
@@ -95,6 +100,17 @@ p { margin-bottom: 21px; }
 
 /* Search Results 
 ---------------------------------------------------------------------------- */
+
+.search-results {
+    display: none;
+    float: left;
+    width: 300px;
+}
+
+.modules {
+    float: left;
+    width: 300px;
+}
 
 .search-results li {
     text-indent: 22px;

@@ -3,7 +3,7 @@ $(document).ready(function() {
     syntaxHighlight();
 
     // FIXME: SLOOOOOOW
-    $('.search-query').liveUpdate('posts');    
+    // $('.search-query').liveUpdate('posts');    
     
     // initSearch();
     
