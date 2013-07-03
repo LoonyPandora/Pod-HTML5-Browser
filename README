@@ -4,6 +4,8 @@ cpanm common::sense Dancer lib::abs Moose Pod::Simple::Search Readonly Test::Mor
 
 Use:
 cd dancer
-plackup ./doc-dancer.pl -p 3000
+For starting doc app only, run: plackup ./doc-dancer.pl -p 3000
+For starting doc app and API samples, run: plackup ./all-dancer.pl -p 3000
+
 
 Open http://localhost:3000/ in your browser.
