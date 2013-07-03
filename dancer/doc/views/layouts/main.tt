@@ -7,11 +7,11 @@
     <meta charset="utf-8">
 
     <!-- TODO: Will update page title with current module title -->
-    <title>Home - Chimera API</title>
+    <title>Home - My API</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Chimera Team">
+    <meta name="author" content="Dev Team">
 
     <!-- Our stylesheets -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -28,7 +28,7 @@
 <body>
 
     <div id="sidebar">
-        <h1><a href="/doc">Chimera API</a></h1>
+        <h1><a href="/doc">My API</a></h1>
 
     	<input type="text" class="search-query" placeholder="Filter Routes" autocomplete="off" value="" name="route-filter" id="route-filter" />
 
