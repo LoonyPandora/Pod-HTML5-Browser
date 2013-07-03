@@ -5,6 +5,11 @@ use Dancer;
 
 API for logging in and out
 
+=head2 Logging in
+
+Every user has an associated username (login), which is used to enter the
+website, order new services and access the previously ordered ones.
+
 =head3 POST /login
 
 =head4 Input
