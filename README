@@ -1,0 +1,9 @@
+Install:
+
+cpanm common::sense Dancer lib::abs Moose Pod::Simple::Search Readonly Test::More Template YAML plackup
+
+Use:
+cd dancer
+plackup ./doc-dancer.pl -p 3000
+
+Open http://localhost:3000/ in your browser.
