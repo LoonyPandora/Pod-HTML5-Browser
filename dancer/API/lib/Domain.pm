@@ -184,4 +184,36 @@ get '/domain/:domain' => sub {
     return { domain => { not_found => params->{domain} } };
 };
 
+=head3 GET /domain/:domain/nameservers
+
+Get nameservers of a specified domain.
+
+=head4 Output
+
+=over
+
+=item nameservers
+
+An array of nameservers.
+
+=item error
+
+=over
+
+=item domain
+
+=over
+
+=item not_found
+
+Domain not found.
+
+=back
+
+=back
+
+=back
+
+=cut
+
 1;
