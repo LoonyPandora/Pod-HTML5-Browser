@@ -1,0 +1,37 @@
+[% FOREACH route IN routes %]
+    [% FOREACH pair IN route.pairs %]
+    <div id="[% pair.key %]-panel" class="route-panel">
+        <h4 class="visible">Description</h4>
+        [% pair.value.join('') %]
+
+        <ul class="nav nav-pills">
+          <li class="active"><a href="#[% pair.key %]-input" data-toggle="pill">Input</a></li>
+          <li><a href="#[% pair.key %]-output" data-toggle="pill">Output</a></li>
+        </ul>
+
+        <div class="pill-content">
+          <div class="input-panel pill-pane active" id="[% pair.key %]-input"></div>
+          <div class="output-panel pill-pane" id="[% pair.key %]-output"></div>
+        </div>
+
+        <ul class="nav nav-pills">
+          <li><a href="#[% pair.key %]-request" data-toggle="pill">Request</a></li>
+          <li class="active"><a href="#[% pair.key %]-response" data-toggle="pill">Response</a></li>
+        </ul>
+
+        <div class="pill-content">
+          <div class="pill-pane" id="[% pair.key %]-request"><pre class="tryapi-request prettyprint-dark"></pre></div>
+          <div class="pill-pane active" id="[% pair.key %]-response"><pre class="tryapi-response prettyprint-dark"></pre></div>
+        </div>
+
+    </div>
+    [% END %]
+[% END %]
+
+
+
+[% FOREACH pod IN allpod.pairs  %]
+    <div id="[% pod.key %]-pod-panel" class="pod-panel">
+        [% pod.value.join('') %]
+    </div>
+[% END %]

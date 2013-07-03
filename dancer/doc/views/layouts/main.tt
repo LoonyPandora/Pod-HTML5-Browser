@@ -1,0 +1,58 @@
+<!doctype html public "✰">
+<!--[if lt IE 7]> <html lang="en-us" class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="en-us" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="en-us" class="no-js ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-us" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <!-- TODO: Will update page title with current module title -->
+    <title>Home - Chimera API</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Chimera Team">
+
+    <!-- Our stylesheets -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/prettyprint.css" />
+
+    <!-- HTML5 and JSON.parse support for IE6-8 -->
+    <!--[if lt IE 9]>
+        <script src="./scripts/html5.js" type="text/javascript"></script>
+        <script src="./scripts/json2.js" type="text/javascript"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <div id="sidebar">
+        <h1><a href="/doc">Chimera API</a></h1>
+
+    	<input type="text" class="search-query" placeholder="Filter Routes" autocomplete="off" value="" name="route-filter" id="route-filter" />
+
+        [% sidebar %]
+    </div>
+
+    <div id="content">
+        [% content %]
+    </div>
+
+    <!-- JS at the bottom for faster page load -->
+    <script src="./scripts/jquery-1.7.1.min.js"></script>
+    <script src="./scripts/jquery.hashchange.min.js"></script>
+    <script src="./scripts/jquery.quicksearch.min.js"></script>
+    <script src="./scripts/bootstrap.min.js"></script>
+    <script src="./scripts/prettyprint.min.js"></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/splitter.js"></script>
+
+<!-- Prompt IE 6 users to install Chrome Frame. -->
+<!-- http://chromium.org/developers/how-tos/chrome-frame-getting-started -->
+<!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+<![endif]-->
+
+</body>

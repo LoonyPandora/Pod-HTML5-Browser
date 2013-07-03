@@ -1,0 +1,21 @@
+# UTF-8 everywhere
+charset: "UTF-8"
+
+# Don't pester us with unitialised variable warnings
+warnings: 0
+global_warnings: 0
+
+# TODO: only do this in development
+show_errors: 1
+
+# JSON, and Chimera log-rotated logging
+serializer: "mutable"
+logger: "console"
+
+# Not needed everywhere
+template: "template_toolkit"
+engines:
+  template_toolkit:
+    encoding: 'utf8'
+    start_tag: '[%'
+    stop_tag: '%]'

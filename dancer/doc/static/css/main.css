@@ -1,0 +1,311 @@
+/* Base CSS - Bootstrap overrides, baseline styles etc
+============================================================================ */
+
+
+/* Main content panes (sidebar, etc)
+--------------------------------------------------------------------------- */
+
+#sidebar, #content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    /* Momentum scrolling for iOS */
+    -webkit-overflow-scrolling: touch;
+}
+
+#sidebar {
+    left: 0;
+    width: 330px;
+    background: #e7edf3;
+}
+
+#content {
+    left: 330px;
+    right: 0;
+    overflow: scroll;
+    background-color: #f8f8f8;
+    border-left: 1px solid #bed3ea;
+    padding: 20px;
+}
+
+
+
+/* Sidebar list of routes
+--------------------------------------------------------------------------- */
+
+#sidebar h1 a {
+    display: block;
+    padding-top:   20px;
+    margin-bottom: 18px;
+    color: #96a0ad;
+    text-shadow: #fff 0px 1px 1px;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+/* HTTP Method */
+#sidebar i {
+    display: block;
+    float: left;
+    width: 55px;
+    text-align: right;
+    font-style: normal;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+#sidebar ul {
+    list-style: none;
+    margin: 4px 0;
+    text-indent: 10px;
+    width: 500px;
+}
+
+
+/* Module Name */
+#sidebar .sidebar-header {
+    color: #96A0AD;
+    text-shadow: #fff 0px 1px 0px;
+    font-weight: bold;
+    height: 22px;
+    line-height: 22px;
+    display: block;
+}
+
+#sidebar .sidebar-header:hover {
+    text-decoration: none;
+    color: #606066;
+}
+
+
+/* Link to view the full POD of the module */
+#sidebar .pod-link {
+    display: block;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #888;
+    text-shadow: #fff 0px 1px 0px;
+    background-color: rgba(0,0,0,0.1);
+    text-indent: 0;
+    padding: 0 10px;
+    margin: 1px 180px 0 0;
+    border-radius: 11px;
+}
+
+#sidebar .pod-link:hover {
+    text-decoration: none;
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+/* The Route */
+#sidebar ul.route-list a {
+    color: #444;
+    font-size: 12px;
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+    overflow: hidden;
+}
+
+#sidebar ul.route-list a:hover {
+    text-decoration: none;
+    background: #BED3EA;
+}
+
+#sidebar ul.route-list a.selected {
+    background: #08C;
+    color: #fff;
+    text-shadow: #444 0 1px 1px;
+}
+
+
+/* Search / Filter field */
+#route-filter {
+    margin: 0 0 18px 10px;
+    width: 278px;
+    color: #666;
+}
+
+
+
+/* Content Pane, loads the contents of the module documentation
+--------------------------------------------------------------------------- */
+
+#content h1 { margin: 0px 0 18px 0; }
+#content h2 { margin: 18px 0 9px 0; }
+#content h3 { margin: 27px 0 9px 0; color: #08C; }
+#content h4 {
+    margin: 18px 0 0 0;
+    padding: 0 0 9px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+
+#content .route-panel, .pod-panel {
+    display: none;
+}
+
+#content .route-panel {
+    padding-top: 70px;
+}
+
+#content .route-panel h4 {
+    display: none;
+}
+
+#content .route-panel h4.visible {
+    display: block;
+    margin: 0 0 4px 0;
+    border: none;
+}
+
+#content .route-panel h3 {
+    margin: 0;
+    overflow: hidden;
+    line-height: 39px;
+    font-size: 14px;
+    position: fixed;
+    margin-left: -39px;
+    height: 42px;
+    padding: 10px 20px 5px 20px;
+    right: 0;
+    left: 370px;
+    top: 0;
+    color: #666;
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+    text-shadow: #fff 0px 1px 1px;
+}
+
+#content .route-panel h3 input {
+    line-height: 18px;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 120px;
+}
+
+#content .route-panel h3 a {
+    font-weight: normal;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+
+
+/* Route Panel, shows a single route and the form fields for submitting
+--------------------------------------------------------------------------- */
+
+#content .output-params p {
+    padding: 1px 0 0 0;
+}
+
+#content dl {
+    margin: 18px 0 36px 0;
+}
+
+#content dt {
+    margin: 0 10px 0 0;
+    float: left;
+    width: 140px;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+    overflow: hidden;
+}
+
+#content dd {
+    margin: 0 0 0 150px;
+    padding: 0;
+}
+
+
+/* Form for input params  */
+#content  .route-panel .input-params dl {
+    clear: both;
+}
+
+#content .route-panel .input-params dt {
+    float: left;
+    clear: both;
+    width: 220px;
+    height: 36px;
+    overflow: visible;
+}
+
+#content .route-panel .input-params dt input {
+    width: 200px;
+    margin-top: -5px;
+}
+
+#content .route-panel .input-params dd {
+    margin: 0;
+    margin-left: 230px;
+    min-height: 36px;
+    display: block;
+}
+
+/* Lists within lists (listing potential values for inputs f.ex) */
+#content  .route-panel .input-params dl dt {
+    width: 140px;
+}
+
+#content  .route-panel .input-params dl dd {
+    margin-left: 150px;
+}
+
+
+/* Tab bar for selecting between input / output & request / response */
+#content .nav {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 5px 5px 25px;
+    background-color: #fff;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-top: 27px;
+}
+
+#content .pill-content {
+    min-height: 72px;
+    margin: 36px 0;
+}
+
+
+/* Colors from solarized dark */
+#content .tryapi-response,
+#content .tryapi-request {
+    background-color: #1d1f21;
+    color: #fff;
+    font-family: monospace;
+    min-height: 200px;
+    max-height: 500px;
+    overflow: scroll;
+    font-size: 13px;
+}
+
+
+
+/* Misc Classes
+--------------------------------------------------------------------------- */
+
+/* Micro Clearfix: http://nicolasgallagher.com/micro-clearfix-hack/  */
+.cf:before, .cf:after { content:""; display:table; }
+.cf:after { clear:both; }
+.cf { zoom:1; }
+
+
+/* Utility classes */
+.hidden  { display: none; }
+.outline { outline: 1px solid red; }
+
