@@ -12,6 +12,8 @@ website, order new services and access the previously ordered ones.
 
 =head3 POST /login
 
+Loging using your credentials.
+
 =head4 Input
 
 =over
