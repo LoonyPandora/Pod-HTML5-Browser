@@ -134,21 +134,13 @@ get '/domain' => sub {
     return { domains => [ sort keys %domain ] };
 };
 
-=head3 GET /domain/:domain
+=head3 ANY /domain/:domain
 
-Get extended info of a specified domain.
+All calls starting with /domain/:domain can return the following output:
 
 =head4 Output
 
 =over
-
-=item created
-
-Registration date of a domain.
-
-=item expires
-
-Expiry date of a domain.
 
 =item error
 
@@ -165,6 +157,26 @@ Domain not found.
 =back
 
 =back
+
+=back
+
+=head3 GET /domain/:domain
+
+=for docviewer output-from ANY /domain/:domain
+
+Get extended info of a specified domain.
+
+=head4 Output
+
+=over
+
+=item created
+
+Registration date of a domain.
+
+=item expires
+
+Expiry date of a domain.
 
 =back
 
@@ -186,6 +198,8 @@ get '/domain/:domain' => sub {
 
 =head3 GET /domain/:domain/nameservers
 
+=for docviewer output-from ANY /domain/:domain
+
 Get nameservers of a specified domain.
 
 =head4 Output
@@ -195,22 +209,6 @@ Get nameservers of a specified domain.
 =item nameservers
 
 An array of nameservers.
-
-=item error
-
-=over
-
-=item domain
-
-=over
-
-=item not_found
-
-Domain not found.
-
-=back
-
-=back
 
 =back
 
